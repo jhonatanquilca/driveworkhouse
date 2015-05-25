@@ -1,285 +1,298 @@
 <!DOCTYPE html>
-<html lang="es" >
+<html lang="en">
     <head>
-        <title><?php echo CHtml::encode($this->pageTitle); ?></title>
-        <!--<title>Dashboard #4 - Stilearn Metro Admin Bootstrap</title>-->
-        <meta charset="utf-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=9" />
+        <meta charset="utf-8">
+        <!--<title>Blank - eKoders Responsive Admin Theme</title>-->
 
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <!--<meta name="description" content="stilearn metro admin bootstrap" />-->
-        <meta name="author" content="stilearning" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="">
+        <meta name="author" content="">
 
+        <!-- Bootstrap core CSS -->
+        <link rel="stylesheet" href="<?php echo Yii::app()->theme->baseUrl; ?>/css/bootstrap.min.css">
+        <link rel="stylesheet" href="<?php echo Yii::app()->theme->baseUrl; ?>/css/fonts.css">
+        <link rel="stylesheet" href="<?php echo Yii::app()->theme->baseUrl; ?>/font-awesome/css/font-awesome.min.css">
 
-        <!-- styles -->
+        <!-- PAGE LEVEL PLUGINS STYLES -->
+        <!-- REQUIRE FOR SPEECH COMMANDS -->
+        <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->theme->baseUrl; ?>/css/plugins/gritter/jquery.gritter.css" />	
 
-        <!-- default theme -->
-        <link href="<?php echo Yii::app()->theme->baseUrl; ?>/css/metro-bootstrap.css" rel="stylesheet" />
-        <link href="<?php echo Yii::app()->theme->baseUrl; ?>/css/metro.css" rel="stylesheet" />
-        <link href="<?php echo Yii::app()->theme->baseUrl; ?>/css/metro-responsive.css" rel="stylesheet" />
-        <link href="<?php echo Yii::app()->theme->baseUrl; ?>/css/metro-helper.css" rel="stylesheet" />
-        <link href="<?php echo Yii::app()->theme->baseUrl; ?>/css/metro-icons.css" rel="stylesheet" />
-        <link href="<?php echo Yii::app()->theme->baseUrl; ?>/css/font-awesome.css" rel="stylesheet" />
-        <link href="<?php echo Yii::app()->theme->baseUrl; ?>/css/m-scrollbar/jquery.mCustomScrollbar.css" rel="stylesheet" />
-
-        <!-- other -->
-        <link href="<?php echo Yii::app()->theme->baseUrl; ?>/css/looper/looper.css" rel="stylesheet" />
-        <!--<link href="<?php echo Yii::app()->theme->baseUrl; ?>/css/select2/select2-metro.css" rel="stylesheet" />-->
-        <!--<link href="<?php echo Yii::app()->theme->baseUrl; ?>/css/morrisjs/morris.css" rel="stylesheet" />-->
-<!--        <link href="<?php echo Yii::app()->theme->baseUrl; ?>/css/datatables/DT_bootstrap.css" rel="stylesheet" />-->
-        <!--<link href="<?php echo Yii::app()->theme->baseUrl; ?>/css/fullcalendar/fullcalendar.css" rel="stylesheet" />-->
-
-
-        <!--extra necesarios-->
-        <link href="<?php echo Yii::app()->theme->baseUrl; ?>/css/empty-model.css" rel="stylesheet" />
-        <link href="<?php echo Yii::app()->theme->baseUrl; ?>/css/form-actions-float.css" rel="stylesheet" />
-
-
-        <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
-        <!--[if lt IE 9]>
-          <script src="js/html5shiv.js"></script>
-          <script src="js/lte-ie7.js"></script>
+        <!-- Tc core CSS -->
+        <link id="qstyle" rel="stylesheet" href="<?php echo Yii::app()->theme->baseUrl; ?>/css/themes/style.css">	
+        <!--[if lte IE 8]>
+                <link rel="stylesheet" href="assets/css/ie-fix.css" />
         <![endif]-->
 
-        <!-- fav -->
-        <link rel="shortcut icon" href="<?php echo Yii::app()->theme->baseUrl; ?>/ico/faviconf.png" />
 
-        <style>
+        <!-- Add custom CSS here -->
 
-        </style>
-        <script>
-            var baseUrl = "<?php echo Yii::app()->baseUrl . '/'; ?>";
-            var themeUrl = "<?php echo Yii::app()->theme->baseUrl . '/'; ?>";
-            var user_id = "<?php echo Yii::app()->user->id; ?>";
-        </script>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <!-- End custom CSS here -->
+
+        <!--[if lt IE 9]>
+        <script src="assets/js/html5shiv.js"></script>
+        <script src="assets/js/respond.min.js"></script>
+        <![endif]-->
+
     </head>
-    <body class="fixed" >
-        <!--<body class="fixed" data-splash="true">-->
-        <!-- start header-->
-        <header class="header">
-            <!-- start navbar, this navbar on top -->
-            <div id="navbar-top" class="navbar navbar-teal navbar-fixed-top">
-                <!-- navbar inner-->
-                <div class="navbar-inner">
-                    <!-- container-->
-                    <div class="container">
 
-                        <!--this btn-navbar contains the menu on the side-left, will be seen on portrait tablet and less. -->
-                        <a class="btn btn-navbar help-inline" data-toggle="collapse" data-target="#navbar-collapse">
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                        </a>
-
-                        <!-- Your brand here, images or text -->                        
-                        <a class="brand" href="#">
-                            <!-- just a sample brand, replace with your own -->
-                            <i class="aweso-th-large"></i> Deudas - CRM
-                        </a>
-
-
-
-                        <!-- Un-collapse nav -->
-                        <div class="nav-uncollapse">
-                            <ul class="nav pull-left  hidden-phone">
-                                <li>                                    <!--this btn-navbar contains the menu on the side-left, will be seen on portrait tablet and less.--> 
-                                    <a id="ocultaBarra" style="display: block;"  title="Ocutla la Barra lateral"  >  
-                                        <div class="aweso-reorder"></div>
-                                    </a>
-                                </li>
-                            </ul>
-                            <!-- pull right menu-->
-                            <ul class="nav pull-right">
-
-                                <!--                                <li class="dropdown">
-                                                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                                                        <i class="aweso-cog"></i>
-                                                                    </a>
-                                                                    <ul class="dropdown-menu dropdown-extend" data-dropdown="no-propagation" role="menu" aria-labelledby="dropdownMenu">
-                                                                        <li class="dropdown-header">General settings</li>
-                                
-                                
-                                
-                                                                        <li class="dropdown-footer">
-                                                                            <a tabindex="-1" href="#"><i class="aweso-angle-right pull-right"></i> Settings page</a>
-                                                                        </li>
-                                                                    </ul>
-                                                                </li>-->
+    <body>
+        <div id="wrapper">
+            <div id="main-container">		
+                <!-- BEGIN TOP NAVIGATION -->
+                <nav class="navbar-top" role="navigation">
+                    <!-- BEGIN BRAND HEADING -->
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle pull-right" data-toggle="collapse" data-target=".top-collapse">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <div class="navbar-brand">
+                            <a href="index.html">
+                                <img src="<?php echo Yii::app()->theme->baseUrl; ?>/images/logo.png" alt="logo" class="img-responsive">
+                            </a>
+                        </div>
+                    </div>
+                    <!-- END BRAND HEADING -->
+                    <div class="nav-top">
+                        <!-- BEGIN RIGHT SIDE DROPDOWN BUTTONS -->
+                        <ul class="nav navbar-right">					
+                            <li class="dropdown">
+                                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
+                                    <i class="fa fa-bars"></i>
+                                </button>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                    <i class="fa fa-envelope"></i> <span class="badge up badge-primary">2</span>
+                                </a>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                    <i class="fa fa-bell"></i> <span class="badge up badge-success">3</span>
+                                </a>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                    <i class="fa fa-tasks"></i> <span class="badge up badge-info">7</span>
+                                </a>
+                            </li>
+                            <!--Speech Icon-->
+                            <li class="dropdown">
+                                <a href="#" class="speech-button">
+                                    <i class="fa fa-microphone"></i>
+                                </a>
+                            </li>
+                            <!--Speech Icon-->
+                            <li class="dropdown user-box">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                    <img class="img-circle" src="<?php echo Yii::app()->theme->baseUrl; ?>/images/user.jpg" alt=""> <span class="user-info">John Smith</span> <b class="caret"></b>
+                                </a>
+                                <ul class="dropdown-menu dropdown-user">
+                                    <li>
+                                        <a href="profile.html">
+                                            <i class="fa fa-user"></i>My Profile
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <!--Search Box-->
+                            <li class="dropdown nav-search-icon">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                    <span class="glyphicon glyphicon-search"></span>
+                                </a>
+                                <ul class="dropdown-menu dropdown-search">
+                                    <li>
+                                        <div class="search-box">
+                                            <form class="" role="search">
+                                                <input type="text" class="form-control" placeholder="Search" />
+                                            </form>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </li>
+                            <!--Search Box-->
+                        </ul>
+                        <!-- END RIGHT SIDE DROPDOWN BUTTONS -->							
+                        <!-- BEGIN TOP MENU -->
+<!--                        <div class="collapse navbar-collapse top-collapse">
+                             .nav 
+                            <ul class="nav navbar-left navbar-nav">
+                                <li><a href="index.html">Dashboard</a></li>
                                 <li class="dropdown">
                                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-
-                                        <i class="aweso-user"></i>
-                                        <?php echo Yii::app()->user->name ? Yii::app()->user->name : "Guest" ?> 
-                                        <i class="aweso-angle-down"></i>
+                                        Pages <b class="caret"></b>
                                     </a>
-                                    <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
-                                        <?php if (!Yii::app()->user->isGuest): ?>
-                                            <li>
-
-                                                <?php echo CHtml::link('<i class="aweso-user"></i>&nbsp;&nbsp;Mi Cuenta', array('/cruge/ui/editprofile')) ?>
-
-                                            </li>
-                                            <?php if (Yii::app()->user->checkAccess('admin')): ?>
-                                                <li>
-                                                    <?php echo CHtml::link('<i class="aweso-cog"></i>&nbsp;&nbsp;Administración', Yii::app()->user->ui->userManagementAdminUrl) ?>
-                                                </li>
-                                                <li class="divider"></li>
-                                            <?php endif; ?>
-                                            <li>
-                                                <?php echo CHtml::link('<i class="aweso-power-off"></i>&nbsp;&nbsp;Cerrar Sesión', Yii::app()->user->ui->logoutUrl) ?>
-                                            </li>
-                                        <?php else: ?>
-                                            <li>
-                                                <?php echo CHtml::link('<i class="aweso-power-off"></i>&nbsp;&nbsp;Iniciar Sesión', Yii::app()->user->ui->loginUrl) ?>
-                                            </li>
-                                        <?php endif; ?>
+                                    <ul class="dropdown-menu">
+                                        <li> <a href="pricing.html">Pricing</a></li>
                                     </ul>
                                 </li>
+                                <li><a href="front/index.html">FrontEnd <span class="badge badge-primary">New</span></a></li>
+                            </ul> /.nav 
+                        </div>
+                         END TOP MENU 
+                    </div>-->
+                    <!-- /.nav-top -->
+                </nav><!-- /.navbar-top -->
+                <!-- END TOP NAVIGATION -->
+
+
+                <!-- BEGIN SIDE NAVIGATION -->				
+                <nav class="navbar-side" role="navigation">
+                    <div class="navbar-collapse sidebar-collapse collapse">
+
+                        <!-- BEGIN SHORTCUT BUTTONS -->
+<!--                        <div class="media">							
+                            <ul class="sidebar-shortcuts">
+                                <li><a class="btn"><i class="fa fa-user icon-only"></i></a></li>
+                                <li><a class="btn"><i class="fa fa-envelope icon-only"></i></a></li>
+                                <li><a class="btn"><i class="fa fa-th icon-only"></i></a></li>
+                                <li><a class="btn"><i class="fa fa-gear icon-only"></i></a></li>
+                            </ul>	
+                        </div>-->
+                        <!-- END SHORTCUT BUTTONS -->	
+
+                        <!-- BEGIN FIND MENU ITEM INPUT -->
+<!--                        <div class="media-search">	
+                            <input type="text" class="input-menu" id="input-items" placeholder="Find...">
+                        </div>						-->
+                        <!-- END FIND MENU ITEM INPUT -->
+
+                        <ul id="side" class="nav navbar-nav side-nav">
+                            <!-- BEGIN SIDE NAV MENU -->							
+                            <!-- Navigation category -->
+                            <li>
+                                <h4>Navigation</h4> 								
+                            </li>
+                            <!-- END Navigation category -->
+
+                            <li>
+                                <a class="active" href="index.html">
+                                    <i class="fa fa-dashboard"></i> Dashboard
+                                </a>
+                            </li>
+                            <!-- BEGIN DROPDOWN -->
+                            <li class="panel">
+                                <a href="javascript:;" data-parent="#side" data-toggle="collapse" class="accordion-toggle" data-target="#forms">
+                                    <i class="fa fa-cogs"></i> Elements <span class="fa arrow"></span>
+                                </a>
+                                <ul class="collapse nav" id="forms">
+                                    <li>
+                                        <a href="jquery-ui.html">
+                                            <i class="fa fa-angle-double-right"></i> jQuery UI 
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <!-- END DROPDOWN -->
+                        </ul><!-- /.side-nav -->
+
+<!--                        <div class="sidebar-labels">
+                            <h4>Labels</h4>							
+                            <ul>
+                                <li><a href="#"><i class="fa fa-circle-o text-primary"></i> My Recent <span class="badge badge-primary">3</span></a></li>
+                                <li><a href="#"><i class="fa fa-circle-o text-success"></i> Background</a></li>
                             </ul>
+                        </div>-->
 
-                            <!--/pull right menu-->
-                        </div><!-- /uncollapse nav -->
+<!--                        <div class="sidebar-alerts">							
+                            <div class="alert fade in">
+                                <span>Sales Report</span>
+                                <div class="progress progress-mini progress-striped active no-margin-bottom">
+                                    <div class="progress-bar progress-bar-primary" style="width: 36%"></div>
+                                </div>
+                                <small>Calculating daily bias... 36%</small>
+                            </div>
+                        </div>-->
 
-                        <!-- Everything you want hidden at 940px or less, leave it blank! (this use when side-left collapse) -->
-                        <div id="navbar-collapse" class="nav-collapse collapse hidden-desktop"></div>
-
-                    </div><!--/container-->
-                </div><!--/navbar-inner-->
-
-            </div> <!--/ navbar-->
-        </header> <!--/ end header-->
-
-        <!-- start section content-->
-        <section class="section-content">
-            <!-- side left, its part to menu on left-->
-            <div id="navside" class="side-left side-left-fixed  hidden-phone " data-collapse="navbar" style="min-height: 100%;">
-                <!--@form search-->
-                <!--                <form class="form-inline search-module" action="?" method="post" >
-                                    <div class="input-append input-append-inline">
-                                        <input name="search" class="input-block-level" type="text" placeholder="Type to search" />
-                                        <button class="btn bg-cyan" type="button">
-                                            <i class="aweso-search"></i>
-                                        </button>
-                                    </div>
-                                </form>-->
-                <!--nav, this structure create with nav (find the bootstrap doc about .nav list) -->
-
-                <?php
-                $this->widget('zii.widgets.CMenu', array(
-                    'items' => isset($this->admin)&&$this->admin ? Menu::getAdminMenu($this) : Menu::getMenu($this), //                         
-                    'encodeLabel' => false,
-                    //Descomentar si se necesita que todos los items <li> tengan una sola clase
-//                    'itemCssClass' => 'active',
-                    'activeCssClass' => 'active',
-                    'htmlOptions' => array('class' => 'nav nav-list'),
-                    //class  para el submenu
-                    'submenuHtmlOptions' => array('class' => 'dropdown-menu')
-                ));
-                ?>
-
-                <!--/ nav -->
-            </div><!--/ side left-->
+                    </div><!-- /.navbar-collapse -->
+                </nav><!-- /.navbar-side -->
+                <!-- END SIDE NAVIGATION -->
 
 
+                <!-- BEGIN MAIN PAGE CONTENT -->
+                <div id="page-wrapper">
+                    <!-- BEGIN PAGE HEADING ROW -->
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <!-- BEGIN BREADCRUMB -->
+                            <div class="breadcrumbs">
+                                <ul class="breadcrumb">
+                                    <li>
+                                        <a href="#">Home</a>
+                                    </li>
+                                    <li>Pages</li>
+                                    <li class="active">Blank</li>
+                                </ul>
 
-            <!-- start content -->
-            <div class="content">
-                <!-- FLASH MESSAGES -->
+                                <div class="b-right hidden-xs">
+                                    <ul>
+                                        <li><a href="#" title=""><i class="fa fa-signal"></i></a></li>
+                                        <li><a href="#" title=""><i class="fa fa-comments"></i></a></li>
+                                        <li class="dropdown"><a href="#" title="" data-toggle="dropdown"><i class="fa fa-plus"></i><span> Tasks</span></a>
+                                            <ul class="dropdown-menu dropdown-primary dropdown-menu-right">
+                                                <li><a href="#">Add new task</a></li>
+                                                <li><a href="#">Statement</a></li>
+                                                <li><a href="#">Settings</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <!-- END BREADCRUMB -->	
 
-                <div class="row-fluid" id="maiMessages" class="flash-messages">                    
-                    <!--<div id="maiMessages" >-->
-                    <?php
-                    $messages = Yii::app()->user->getFlashes();
-                    if ($messages) {
-                        foreach ($messages as $key => $message) {
-                            echo '<div class="alert alert-' . $key . '">'
-                            . '<button data-dismiss="alert" class="close" type="button">×</button>'
-                            . $message . "</div>\n";
-                        }
-                    }
-                    ?>
-                    <!--</div>-->
-                </div>
+                            <div class="page-header title">
+                                <!-- PAGE TITLE ROW -->
+                                <h1>Blank Page <span class="sub-title">sub title</span></h1>								
+                            </div>
+		
 
-                <?php echo $content; ?>
+                        </div><!-- /.col-lg-12 -->
+                    </div><!-- /.row -->
+                    <!-- END PAGE HEADING ROW -->					
+                    <div class="row">
+                        <div class="col-lg-12">
 
-            </div>
-            <!--/ end content -->
+                            <!-- START YOUR CONTENT HERE -->
+                            <p>This is a light-weight blank page, with minimum to none plugins loaded</p>
+                            <!-- END YOUR CONTENT HERE -->
 
-            <!-- MAIN MODAL -->
-            <div class="row-fluid">
-                <?php
-// El modal de la página
-                $this->beginWidget('bootstrap.widgets.TbModal', array('id' => 'mainModal', 'options' => array('backdrop' => 'static')));
+                        </div>
+                    </div>
 
-                $this->endWidget();
-                ?>
-            </div>
-            <!-- END MAIN MODAL -->
-        </section> <!-- /end section content-->
+                    <!-- BEGIN FOOTER CONTENT -->		
+                    <div class="footer">
+                        <div class="footer-inner">
+                            <!-- basics/footer -->
+                            <div class="footer-content">
+                                &copy; 2014 <a href="#">eKoders</a>, All Rights Reserved.
+                            </div>
+                            <!-- /basics/footer -->
+                        </div>
+                    </div>
+                    <button type="button" id="back-to-top" class="btn btn-primary btn-sm back-to-top">
+                        <i class="fa fa-angle-double-up icon-only bigger-110"></i>
+                    </button>
+                    <!-- END FOOTER CONTENT -->
 
+                </div><!-- /#page-wrapper -->	  
+                <!-- END MAIN PAGE CONTENT -->
+            </div>  
+        </div> 
 
-        <!-- footer, I place the footer on here. -->
+        <!-- core JavaScript -->
+        <script src="<?php echo Yii::app()->theme->baseUrl; ?>/js/jquery.min.js"></script>
+        <script src="<?php echo Yii::app()->theme->baseUrl; ?>/js/bootstrap.min.js"></script>
+        <script src="<?php echo Yii::app()->theme->baseUrl; ?>/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+        <script src="<?php echo Yii::app()->theme->baseUrl; ?>/js/plugins/pace/pace.min.js"></script>
 
-        <footer class="footer" >
+        <!-- PAGE LEVEL PLUGINS JS -->
 
-            <p>Copyright &copy; 2013. All Right Reserved.</p>
-        </footer><!--/ footer -->
+        <!-- Themes Core Scripts -->	
+        <script src="<?php echo Yii::app()->theme->baseUrl; ?>/js/main.js"></script>
 
+        <!-- REQUIRE FOR SPEECH COMMANDS -->
+        <script src="<?php echo Yii::app()->theme->baseUrl; ?>/js/speech-commands.js"></script>
+        <script src="<?php echo Yii::app()->theme->baseUrl; ?>/js/plugins/gritter/jquery.gritter.min.js"></script>	
 
-
-        <!-- javascript
-        ================================================== -->
-        <!-- required js -->
-        <!--@TODO revisar js problemas con bootstrap-->
-        <!--<script type="text/javascript" src="<?php echo Yii::app()->theme->baseUrl; ?>/js/jquery.min.js"></script>  preoblema confiltro de grid-->
-        <!--problema con  tile de botones de grid-->
-
-        <!--@TODO revisar js bootstrap.min.js dedicado a calendar y hichrats-->
-        <!--<script type="text/javascript" src="<?php echo Yii::app()->theme->baseUrl; ?>/js/bootstrap.min.js"></script>-->
-
-        <!-- javascript necesario
- ================================================== -->
-        <!--portlet desplegablea-->
-<!--        <script type="text/javascript" src="<?php echo Yii::app()->theme->baseUrl; ?>/js/jquery.easing.1.3.js"></script>-->
-        <!--<script type="text/javascript" src="<?php echo Yii::app()->theme->baseUrl; ?>/js/jquery.ui.core.js"></script>-->
-        <script type="text/javascript" src="<?php echo Yii::app()->theme->baseUrl; ?>/js/jquery-ui.min.js"></script>
-
-        <!--<script type="text/javascript" src="<?php echo Yii::app()->theme->baseUrl; ?>/js/jquery.ui.touch-punch.min.js"></script>-->
-
-
-
-        <script type="text/javascript" src="<?php echo Yii::app()->theme->baseUrl; ?>/js/looper/looper.min.js"></script>        
-        <!--this required for tile multiple--> 
-
-        <!-- morris.js chart -->
-        <!--<script type="text/javascript" src="<?php echo Yii::app()->theme->baseUrl; ?>/js/morrisjs/raphael-min.js"></script>-->
-        <!--<script type="text/javascript" src="<?php echo Yii::app()->theme->baseUrl; ?>/js/morrisjs/morris.min.js"></script>-->
-
-        <!-- datatables tabletools -->
-        <!--<script type="text/javascript" src="<?php echo Yii::app()->theme->baseUrl; ?>/js/datatables/jquery.dataTables.min.js"></script>-->
-        <!--<script type="text/javascript" src="<?php echo Yii::app()->theme->baseUrl; ?>/js/datatables/DT_bootstrap.js"></script>-->
-
-        <!--<script type="text/javascript" src="<?php echo Yii::app()->theme->baseUrl; ?>/js/jquery.equalHeight.js"></script>-->
-        <!--<script type="text/javascript" src="<?php echo Yii::app()->theme->baseUrl; ?>/js/select2/select2.min.js"></script>-->
-        <!--<script type="text/javascript" src="<?php echo Yii::app()->theme->baseUrl; ?>/js/fullcalendar/fullcalendar.min.js"></script>-->
-
-        <!-- metro js, required! -->
-        <script type="text/javascript" src="<?php echo Yii::app()->theme->baseUrl; ?>/js/holder/holder.js"></script>
-        <script type="text/javascript" src="<?php echo Yii::app()->theme->baseUrl; ?>/js/metro-base.js"></script>
-        <script type="text/javascript" src="<?php echo Yii::app()->theme->baseUrl; ?>/js/m-scrollbar/jquery.mCustomScrollbar.min.js"></script>
-
-        <!-- apps js -->
-        <!--<script type="text/ javascript" src="<?php echo Yii::app()->theme->baseUrl; ?>/js/demo/dashboard4.js"></script>-->
-
-        <!--extra js necesarios-->
-        <!--<script type="text/javascript" src="<?php echo Yii::app()->theme->baseUrl; ?>/js/sparkline/jquery.sparkline.min.js"></script> chart del header-->
-        <script type="text/javascript" src="<?php echo Yii::app()->theme->baseUrl; ?>/js/common-scripts.js"></script>  
-        <script src="<?php echo Yii::app()->theme->baseUrl; ?>/js/jquery.mask.min.js" type="text/javascript"></script>
-        <script src="<?php echo Yii::app()->theme->baseUrl; ?>/js/jquery.selectBox.js" type="text/javascript"></script>
-        <!--scroll infinito-->
-        <script src="<?php echo Yii::app()->theme->baseUrl; ?>/js/jquery-ias.min.js" type="text/javascript"></script> 
-
+        <!-- initial page level scripts for examples -->	
     </body>
 </html>
