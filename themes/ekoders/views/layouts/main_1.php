@@ -167,7 +167,7 @@
 
                 <?php
                 $this->widget('zii.widgets.CMenu', array(
-                    'items' => isset($this->admin)&&$this->admin ? Menu::getAdminMenu($this) : Menu::getMenu($this), //                         
+                    'items' => isset($this->admin) && $this->admin ? Menu::getAdminMenu($this) : Menu::getMenu($this), //                         
                     'encodeLabel' => false,
                     //Descomentar si se necesita que todos los items <li> tengan una sola clase
 //                    'itemCssClass' => 'active',

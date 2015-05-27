@@ -60,77 +60,99 @@
                                     <i class="fa fa-bars"></i>
                                 </button>
                             </li>
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                    <i class="fa fa-envelope"></i> <span class="badge up badge-primary">2</span>
-                                </a>
-                            </li>
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                    <i class="fa fa-bell"></i> <span class="badge up badge-success">3</span>
-                                </a>
-                            </li>
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                    <i class="fa fa-tasks"></i> <span class="badge up badge-info">7</span>
-                                </a>
-                            </li>
+                            <!--                            <li class="dropdown">
+                                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                                                <i class="fa fa-envelope"></i> <span class="badge up badge-primary">2</span>
+                                                            </a>
+                                                        </li>-->
+                            <!--                            <li class="dropdown">
+                                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                                                <i class="fa fa-bell"></i> <span class="badge up badge-success">3</span>
+                                                            </a>
+                                                        </li>-->
+                            <!--                            <li class="dropdown">
+                                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                                                <i class="fa fa-tasks"></i> <span class="badge up badge-info">7</span>
+                                                            </a>
+                                                        </li>-->
                             <!--Speech Icon-->
-                            <li class="dropdown">
-                                <a href="#" class="speech-button">
-                                    <i class="fa fa-microphone"></i>
-                                </a>
-                            </li>
+                            <!--                            <li class="dropdown">
+                                                            <a href="#" class="speech-button">
+                                                                <i class="fa fa-microphone"></i>
+                                                            </a>
+                                                        </li>-->
                             <!--Speech Icon-->
                             <li class="dropdown user-box">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                    <img class="img-circle" src="<?php echo Yii::app()->theme->baseUrl; ?>/images/user.jpg" alt=""> <span class="user-info">John Smith</span> <b class="caret"></b>
+                                    <img class="img-circle" src="<?php echo Yii::app()->theme->baseUrl; ?>/images/user.jpg" alt=""> 
+                                    <span class="user-info"> <?php echo Yii::app()->user->name ? Yii::app()->user->name : "Guest" ?> </span>
+                                    <b class="caret"></b>
                                 </a>
                                 <ul class="dropdown-menu dropdown-user">
-                                    <li>
-                                        <a href="profile.html">
-                                            <i class="fa fa-user"></i>My Profile
-                                        </a>
-                                    </li>
+                                    <?php if (!Yii::app()->user->isGuest): ?>
+                                        <li>
+
+                                            <?php echo CHtml::link('<i class="fa fa-user"></i> Mi Cuenta', array('/cruge/ui/editprofile')) ?>
+
+                                        </li>
+                                        <?php if (Yii::app()->user->checkAccess('admin')): ?>
+                                            <li>
+                                                <?php echo CHtml::link('<i class="fa fa-cog"></i> Administración', Yii::app()->user->ui->userManagementAdminUrl) ?>
+                                            </li>
+                                            <!--<li class="divider"></li>-->
+                                        <?php endif; ?>
+                                        <li>
+                                            <?php echo CHtml::link('<i class="fa fa-power-off"></i>&nbsp;&nbsp;Cerrar Sesión', Yii::app()->user->ui->logoutUrl) ?>
+                                        </li>
+                                    <?php else: ?>
+                                        <li>
+                                            <?php echo CHtml::link('<i class="fa fa-power-off"></i> Iniciar Sesión', Yii::app()->user->ui->loginUrl) ?>
+                                        </li>
+                                    <?php endif; ?>
+                                    <!-- <li>
+                                                                                <a href="profile.html">
+                                                                                    <i class="fa fa-user"></i>My Profile
+                                                                            </a>
+                                                                        </li>-->
                                 </ul>
                             </li>
                             <!--Search Box-->
-                            <li class="dropdown nav-search-icon">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                    <span class="glyphicon glyphicon-search"></span>
-                                </a>
-                                <ul class="dropdown-menu dropdown-search">
-                                    <li>
-                                        <div class="search-box">
-                                            <form class="" role="search">
-                                                <input type="text" class="form-control" placeholder="Search" />
-                                            </form>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </li>
+                            <!--                            <li class="dropdown nav-search-icon">
+                                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                                                <span class="glyphicon glyphicon-search"></span>
+                                                            </a>
+                                                            <ul class="dropdown-menu dropdown-search">
+                                                                <li>
+                                                                    <div class="search-box">
+                                                                        <form class="" role="search">
+                                                                            <input type="text" class="form-control" placeholder="Search" />
+                                                                        </form>
+                                                                    </div>
+                                                                </li>
+                                                            </ul>
+                                                        </li>-->
                             <!--Search Box-->
                         </ul>
                         <!-- END RIGHT SIDE DROPDOWN BUTTONS -->							
                         <!-- BEGIN TOP MENU -->
-<!--                        <div class="collapse navbar-collapse top-collapse">
-                             .nav 
-                            <ul class="nav navbar-left navbar-nav">
-                                <li><a href="index.html">Dashboard</a></li>
-                                <li class="dropdown">
-                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                        Pages <b class="caret"></b>
-                                    </a>
-                                    <ul class="dropdown-menu">
-                                        <li> <a href="pricing.html">Pricing</a></li>
-                                    </ul>
-                                </li>
-                                <li><a href="front/index.html">FrontEnd <span class="badge badge-primary">New</span></a></li>
-                            </ul> /.nav 
-                        </div>
-                         END TOP MENU 
-                    </div>-->
-                    <!-- /.nav-top -->
+                        <!--                        <div class="collapse navbar-collapse top-collapse">
+                                                     .nav 
+                                                    <ul class="nav navbar-left navbar-nav">
+                                                        <li><a href="index.html">Dashboard</a></li>
+                                                        <li class="dropdown">
+                                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                                                Pages <b class="caret"></b>
+                                                            </a>
+                                                            <ul class="dropdown-menu">
+                                                                <li> <a href="pricing.html">Pricing</a></li>
+                                                            </ul>
+                                                        </li>
+                                                        <li><a href="front/index.html">FrontEnd <span class="badge badge-primary">New</span></a></li>
+                                                    </ul> /.nav 
+                                                </div>
+                                                 END TOP MENU 
+                                            </div>-->
+                        <!-- /.nav-top -->
                 </nav><!-- /.navbar-top -->
                 <!-- END TOP NAVIGATION -->
 
@@ -140,68 +162,88 @@
                     <div class="navbar-collapse sidebar-collapse collapse">
 
                         <!-- BEGIN SHORTCUT BUTTONS -->
-<!--                        <div class="media">							
-                            <ul class="sidebar-shortcuts">
-                                <li><a class="btn"><i class="fa fa-user icon-only"></i></a></li>
-                                <li><a class="btn"><i class="fa fa-envelope icon-only"></i></a></li>
-                                <li><a class="btn"><i class="fa fa-th icon-only"></i></a></li>
-                                <li><a class="btn"><i class="fa fa-gear icon-only"></i></a></li>
-                            </ul>	
-                        </div>-->
+                        <!--                        <div class="media">							
+                                                    <ul class="sidebar-shortcuts">
+                                                        <li><a class="btn"><i class="fa fa-user icon-only"></i></a></li>
+                                                        <li><a class="btn"><i class="fa fa-envelope icon-only"></i></a></li>
+                                                        <li><a class="btn"><i class="fa fa-th icon-only"></i></a></li>
+                                                        <li><a class="btn"><i class="fa fa-gear icon-only"></i></a></li>
+                                                    </ul>	
+                                                </div>-->
                         <!-- END SHORTCUT BUTTONS -->	
 
                         <!-- BEGIN FIND MENU ITEM INPUT -->
-<!--                        <div class="media-search">	
-                            <input type="text" class="input-menu" id="input-items" placeholder="Find...">
-                        </div>						-->
+                        <!--                        <div class="media-search">	
+                                                    <input type="text" class="input-menu" id="input-items" placeholder="Find...">
+                                                </div>						-->
                         <!-- END FIND MENU ITEM INPUT -->
 
-                        <ul id="side" class="nav navbar-nav side-nav">
-                            <!-- BEGIN SIDE NAV MENU -->							
-                            <!-- Navigation category -->
-                            <li>
-                                <h4>Navigation</h4> 								
-                            </li>
-                            <!-- END Navigation category -->
 
-                            <li>
-                                <a class="active" href="index.html">
-                                    <i class="fa fa-dashboard"></i> Dashboard
-                                </a>
-                            </li>
-                            <!-- BEGIN DROPDOWN -->
-                            <li class="panel">
-                                <a href="javascript:;" data-parent="#side" data-toggle="collapse" class="accordion-toggle" data-target="#forms">
-                                    <i class="fa fa-cogs"></i> Elements <span class="fa arrow"></span>
-                                </a>
-                                <ul class="collapse nav" id="forms">
-                                    <li>
-                                        <a href="jquery-ui.html">
-                                            <i class="fa fa-angle-double-right"></i> jQuery UI 
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <!-- END DROPDOWN -->
-                        </ul><!-- /.side-nav -->
+                        <?php
+                        $this->widget('zii.widgets.CMenu', array(
+                            'items' => isset($this->admin) && $this->admin ? Menu::getAdminMenu($this) : Menu::getMenu($this), //                         
+                            'encodeLabel' => false,
+                            //Descomentar si se necesita que todos los items <li> tengan una sola clase
+//                    'itemCssClass' => 'active',
+                            'activeCssClass' => 'active',
+                            //pone el active class a la etiqueta a
+                            'activateItemsOuter' => false,
+                            'opennedItemClass' => 'open',
+                            'htmlOptions' => array('id' => 'side', 'class' => 'nav navbar-nav side-nav'),
+                            //class  para el submenu
+                            'submenuHtmlOptions' => array('class' => 'nav collapse')
+                        ));
+                        ?>
+                        <!--                        <ul id="side1" class="nav navbar-nav side-nav">
+                                                     BEGIN SIDE NAV MENU 
+                                                     Navigation category 
+                                                    <li>
+                                                        <h4>Navigation</h4> 								
+                                                    </li>
+                                                     END Navigation category 
+                        
+                        
+                        
+                        
+                                                    <li>
+                                                        <a class="active" href="index.html">
+                                                            <i class="fa fa-dashboard"></i> Dashboard
+                                                        </a>
+                                                    </li>
+                                                     BEGIN DROPDOWN 
+                                                    <li class="panel">
+                                                        <a href="javascript:;" data-parent="#side" data-toggle="collapse" class="accordion-toggle" data-target="#forms">
+                                                            <i class="fa fa-cogs"></i> Elements <span class="fa arrow"></span>
+                                                        </a>
+                                                        <ul class="collapse nav" id="forms">
+                                                            <li>
+                                                                <a href="jquery-ui.html">
+                                                                    <i class="fa fa-angle-double-right"></i> jQuery UI 
+                                                                </a>
+                                                            </li>
+                                                        </ul>
+                                                    </li>
+                                                     END DROPDOWN 
+                                                </ul>-->
+                        <!-- /.side-nav -->
 
-<!--                        <div class="sidebar-labels">
-                            <h4>Labels</h4>							
-                            <ul>
-                                <li><a href="#"><i class="fa fa-circle-o text-primary"></i> My Recent <span class="badge badge-primary">3</span></a></li>
-                                <li><a href="#"><i class="fa fa-circle-o text-success"></i> Background</a></li>
-                            </ul>
-                        </div>-->
+                        <!--                        <div class="sidebar-labels">
+                                                    <h4>Labels</h4>							
+                                                    <ul>
+                                                        <li><a href="#"><i class="fa fa-circle-o text-primary"></i> My Recent <span class="badge badge-primary">3</span></a></li>
+                                                        <li><a href="#"><i class="fa fa-circle-o text-success"></i> Background</a></li>
+                                                    </ul>
+                                                </div>-->
 
-<!--                        <div class="sidebar-alerts">							
-                            <div class="alert fade in">
-                                <span>Sales Report</span>
-                                <div class="progress progress-mini progress-striped active no-margin-bottom">
-                                    <div class="progress-bar progress-bar-primary" style="width: 36%"></div>
-                                </div>
-                                <small>Calculating daily bias... 36%</small>
-                            </div>
-                        </div>-->
+                        <!--                        <div class="sidebar-alerts">							
+                                                    <div class="alert fade in">
+                                                        <span>Sales Report</span>
+                                                        <div class="progress progress-mini progress-striped active no-margin-bottom">
+                                                            <div class="progress-bar progress-bar-primary" style="width: 36%"></div>
+                                                        </div>
+                                                        <small>Calculating daily bias... 36%</small>
+                                                    </div>
+                                                </div>-->
 
                     </div><!-- /.navbar-collapse -->
                 </nav><!-- /.navbar-side -->
@@ -211,59 +253,62 @@
                 <!-- BEGIN MAIN PAGE CONTENT -->
                 <div id="page-wrapper">
                     <!-- BEGIN PAGE HEADING ROW -->
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <!-- BEGIN BREADCRUMB -->
-                            <div class="breadcrumbs">
-                                <ul class="breadcrumb">
-                                    <li>
-                                        <a href="#">Home</a>
-                                    </li>
-                                    <li>Pages</li>
-                                    <li class="active">Blank</li>
-                                </ul>
+<!--                    <div class="row">
+                    <div class="col-lg-12">
+                     BEGIN BREADCRUMB 
+                    <div class="breadcrumbs">
+                                                    <ul class="breadcrumb">
+                                                        <li>
+                                                            <a href="#">Home</a>
+                                                        </li>
+                                                        <li>Pages</li>
+                                                        <li class="active">Blank</li>
+                                                    </ul>
 
-                                <div class="b-right hidden-xs">
-                                    <ul>
-                                        <li><a href="#" title=""><i class="fa fa-signal"></i></a></li>
-                                        <li><a href="#" title=""><i class="fa fa-comments"></i></a></li>
-                                        <li class="dropdown"><a href="#" title="" data-toggle="dropdown"><i class="fa fa-plus"></i><span> Tasks</span></a>
-                                            <ul class="dropdown-menu dropdown-primary dropdown-menu-right">
-                                                <li><a href="#">Add new task</a></li>
-                                                <li><a href="#">Statement</a></li>
-                                                <li><a href="#">Settings</a></li>
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <!-- END BREADCRUMB -->	
+                    <div class="b-right hidden-xs">
+                    <ul>
+<li><a href="#" title=""><i class="fa fa-signal"></i></a></li>
+<li><a href="#" title=""><i class="fa fa-comments"></i></a></li>
+<li class="dropdown"><a href="#" title="" data-toggle="dropdown"><i class="fa fa-plus"></i><span> Tasks</span></a>
+<ul class="dropdown-menu dropdown-primary dropdown-menu-right">
+<li><a href="#">Add new task</a></li>
+<li><a href="#">Statement</a></li>
+<li><a href="#">Settings</a></li>
+</ul>
+</li>
+</ul>
+</div>-->
+                    <!--</div>-->
+                    <!-- END BREADCRUMB -->	
 
-                            <div class="page-header title">
-                                <!-- PAGE TITLE ROW -->
-                                <h1>Blank Page <span class="sub-title">sub title</span></h1>								
-                            </div>
-		
+<!--                    <div class="page-header title">
+                         PAGE TITLE ROW 
+                        <h1>Titulo <span class="sub-title">sub titulo</span></h1>								
+                    </div>-->
 
-                        </div><!-- /.col-lg-12 -->
-                    </div><!-- /.row -->
-                    <!-- END PAGE HEADING ROW -->					
-                    <div class="row">
-                        <div class="col-lg-12">
 
-                            <!-- START YOUR CONTENT HERE -->
-                            <p>This is a light-weight blank page, with minimum to none plugins loaded</p>
-                            <!-- END YOUR CONTENT HERE -->
-
-                        </div>
-                    </div>
+                    <!--</div>-->
+                    <!-- /.col-lg-12 -->
+                    <!--</div>-->
+                    <!-- /.row -->
+                    <!-- END PAGE HEADING ROW -->	
+                    <?php echo $content; ?>
+                    <!--                    <div class="row">
+                                            <div class="col-lg-12">
+                    
+                                                 START YOUR CONTENT HERE 
+                                                <p>This is a light-weight blank page, with minimum to none plugins loaded</p>
+                                                 END YOUR CONTENT HERE 
+                    
+                                            </div>
+                                        </div>-->
 
                     <!-- BEGIN FOOTER CONTENT -->		
-                    <div class="footer">
+                    <div class="footer ">
                         <div class="footer-inner">
                             <!-- basics/footer -->
                             <div class="footer-content">
-                                &copy; 2014 <a href="#">eKoders</a>, All Rights Reserved.
+                                &copy; 2015 <a href="#">DriveWorkHouse</a>, Todos los derechos reservados.
                             </div>
                             <!-- /basics/footer -->
                         </div>
