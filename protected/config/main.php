@@ -9,7 +9,8 @@ return array(
     'name' => 'Control de Deudas',
     'language' => 'es',
     //Uncoment if you have a theme on folder themes
-    'theme' => 'ekoders',
+//    'theme' => 'ekoders',
+    'theme' => 'admin',
     // preloading 'log' component
     'preload' => array(
         'log',
