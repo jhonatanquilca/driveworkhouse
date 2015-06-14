@@ -27,7 +27,8 @@
 
     </head>
 
-    <body class="blank-page">
+    <body class="of-y-h sb-l-o sb-r-c onload-check" style="min-height: 340px;">
+
 
         <!-- Start: Main -->
         <div id="main">
@@ -121,123 +122,138 @@
 
                         <ul class="dropdown-menu list-group dropdown-persist w250" role="menu">                            
 
-<!--                            <li class="list-group-item">
-                                <a href="#" class="animated animated-short fadeInUp">
-                                    <span class="fa fa-envelope"></span> Messages
-                                    <span class="label label-warning">2</span>
-                                </a>
-                            </li>-->
-                                              <?php if (!Yii::app()->user->isGuest): ?>
-                                            <li class="list-group-item">
+                            <!--                            <li class="list-group-item">
+                                                            <a href="#" class="animated animated-short fadeInUp">
+                                                                <span class="fa fa-envelope"></span> Messages
+                                                                <span class="label label-warning">2</span>
+                                                            </a>
+                                                        </li>-->
+                            <?php if (!Yii::app()->user->isGuest): ?>
+                                <li class="list-group-item">
 
-                                                <?php echo CHtml::link('<span class="fa fa-user"></span> Mi Cuenta', array('/cruge/ui/editprofile'),array('class'=>'animated animated-short fadeInUp')) ?>
+                                    <?php echo CHtml::link('<span class="fa fa-user"></span> Mi Cuenta', array('/cruge/ui/editprofile'), array('class' => 'animated animated-short fadeInUp')) ?>
 
-                                            </li>
-                                            <?php if (Yii::app()->user->checkAccess('admin')): ?>
-                                                <li class="list-group-item">
-                                                    <?php echo CHtml::link('<span class="fa fa-cog"></span> Administración', Yii::app()->user->ui->userManagementAdminUrl,array('class'=>'animated animated-short fadeInUp')) ?>
-                                                </li>
-                                            <?php endif; ?>
-                                            <li class="list-group-item">
-                                                <?php echo CHtml::link('<span class="fa fa-power-off"></span> Cerrar Sesión', Yii::app()->user->ui->logoutUrl,array('class'=>'animated animated-short fadeInUp')) ?>
-                                            </li>
-                                        <?php else: ?>
-                                            <li class="list-group-item">
-                                                <?php echo CHtml::link('<span class="fa fa-power-off"></span> Iniciar Sesión', Yii::app()->user->ui->loginUrl,array('class'=>'animated animated-short fadeInUp')) ?>
-                                            </li>
-                                        <?php endif; ?>
-                                    </ul>
+                                </li>
+                                <?php if (Yii::app()->user->checkAccess('admin')): ?>
+                                    <li class="list-group-item">
+                                        <?php echo CHtml::link('<span class="fa fa-cog"></span> Administración', Yii::app()->user->ui->userManagementAdminUrl, array('class' => 'animated animated-short fadeInUp')) ?>
+                                    </li>
+                                <?php endif; ?>
+                                <li class="list-group-item">
+                                    <?php echo CHtml::link('<span class="fa fa-power-off"></span> Cerrar Sesión', Yii::app()->user->ui->logoutUrl, array('class' => 'animated animated-short fadeInUp')) ?>
+                                </li>
+                            <?php else: ?>
+                                <li class="list-group-item">
+                                    <?php echo CHtml::link('<span class="fa fa-power-off"></span> Iniciar Sesión', Yii::app()->user->ui->loginUrl, array('class' => 'animated animated-short fadeInUp')) ?>
+                                </li>
+                            <?php endif; ?>
+                        </ul>
 
-            </header>
-            <!-- End: Header -->
+                        </header>
+                        <!-- End: Header -->
 
-            <!-- Start: Sidebar -->
-            <aside id="sidebar_left" class="nano nano-primary affix has-scrollbar">
+                        <!-- Start: Sidebar -->
+                        <aside id="sidebar_left" class="nano nano-primary affix has-scrollbar">
 
-                <!-- Start: Sidebar Left Content -->
-                <div class="sidebar-left-content nano-content" >
-                    <!-- Start: Sidebar Menu -->
-                    <?php
-                    $this->widget('zii.widgets.CMenu', array(
-                        'items' => isset($this->admin) && $this->admin ? Menu::getAdminMenu($this) : Menu::getMenu($this), //                         
-                        'encodeLabel' => false,
-                        //Descomentar si se necesita que todos los items <li> tengan una sola clase
+                            <!-- Start: Sidebar Left Content -->
+                            <div class="sidebar-left-content nano-content" >
+                                <!-- Start: Sidebar Menu -->
+                                <?php
+                                $this->widget('zii.widgets.CMenu', array(
+                                    'items' => isset($this->admin) && $this->admin ? Menu::getAdminMenu($this) : Menu::getMenu($this), //                         
+                                    'encodeLabel' => false,
+                                    //Descomentar si se necesita que todos los items <li> tengan una sola clase
 //                    'itemCssClass' => 'active',
-                        'activeCssClass' => 'active',
-                        'htmlOptions' => array('class' => 'nav sidebar-menu'),
-                        //class  para el submenu
-                        'submenuHtmlOptions' => array('class' => 'nav sub-nav')
-                    ));
-                    ?>
+                                    'activeCssClass' => 'active',
+                                    'htmlOptions' => array('class' => 'nav sidebar-menu'),
+                                    //class  para el submenu
+                                    'submenuHtmlOptions' => array('class' => 'nav sub-nav')
+                                ));
+                                ?>
 
-                </div>
-                <!-- End: Sidebar Left Content -->
+                            </div>
+                            <!-- End: Sidebar Left Content -->
 
-            </aside>
+                        </aside>
 
-            <!-- Start: Content-Wrapper -->
-            <section id="content_wrapper">
-                <!-- Start: Topbar -->
-                <header id="topbar">
-                    <div class="topbar-left">
-                        <ol class="breadcrumb">
-                            <li class="crumb-active">
-                                <a href="dashboard.html">Dashboard</a>
-                            </li>
-                            <li class="crumb-icon">
-                                <a href="dashboard.html">
-                                    <span class="glyphicon glyphicon-home"></span>
-                                </a>
-                            </li>
-                            <li class="crumb-link">
-                                <a href="index-2.html">Home</a>
-                            </li>
-                            <li class="crumb-trail">Dashboard</li>
-                        </ol>
-                    </div>
+                        <!-- Start: Content-Wrapper -->
+                        <section id="content_wrapper">
+                            <!-- Start: Topbar -->
+                            <header id="topbar">
+                                <div class="topbar-left">
+                                    <ol class="breadcrumb">
+                                        <li class="crumb-active">
+                                            <a href="dashboard.html">Dashboard</a>
+                                        </li>
+                                        <li class="crumb-icon">
+                                            <a href="dashboard.html">
+                                                <span class="glyphicon glyphicon-home"></span>
+                                            </a>
+                                        </li>
+                                        <li class="crumb-link">
+                                            <a href="index-2.html">Home</a>
+                                        </li>
+                                        <li class="crumb-trail">Dashboard</li>
+                                    </ol>
+                                </div>
 
-                </header>
-                <!-- End: Topbar -->
+                            </header>
+                            <!-- End: Topbar -->
 
-                <!-- Begin: Content -->
-                <section id="content" class="animated fadeIn">
-                    <?php echo $content; ?>
-                </section>
-                <!-- End: Content -->
+                            <!-- Begin: Content -->
+                            <!--<section id="content" class="animated fadeIn" >-->
+                            <?php // echo $content; ?>
 
-            </section>
+                            <!--                            </section>-->
+                            <!-- End: Content -->
+                            <section id="content" class="table-layout animated fadeIn">
 
-            <!-- Start: Right Sidebar -->
+                                <!-- begin: .tray-center -->
+                                <div class="tray tray-center">
 
-            <!-- End: Right Sidebar -->
+                                    <div class="tray-scroller scroller-primary">
 
-        </div>
-        <!-- End: Main -->
+                                        <?php echo $content; ?>
 
-        <!-- BEGIN: PAGE SCRIPTS -->
+                                    </div>
 
-        <!-- jQuery -->
-        <!--<script src="<?php echo Yii::app()->theme->baseUrl; ?>/js/jquery-1.11.1.min.js"></script>-->
-        <!--<script src="<?php echo Yii::app()->theme->baseUrl; ?>/js/jquery-ui.min.js"></script>-->
+                                </div>
+                                <!-- end: .tray-center -->
 
-        <!-- Theme Javascript -->
-        <script src="<?php echo Yii::app()->theme->baseUrl; ?>/js/utility/utility.js"></script>
-        <!--<script src="<?php echo Yii::app()->theme->baseUrl; ?>/js/demo/demo.js"></script>-->
-        <script src="<?php echo Yii::app()->theme->baseUrl; ?>/js/main.js"></script>
-        <script type="text/javascript">
-//              jQuery(document).ready(function() {
+                            </section>
+                        </section>
 
-            "use strict";
+                        <!-- Start: Right Sidebar -->
 
-            // Init Theme Core    
-            Core.init();
+                        <!-- End: Right Sidebar -->
 
-            // Init Demo JS  
-//                Demo.init();
+                        </div>
+                        <!-- End: Main -->
 
-//              });
-        </script>
-        <!-- END: PAGE SCRIPTS -->
+                        <!-- BEGIN: PAGE SCRIPTS -->
 
-    </body>
-</html>
+                        <!-- jQuery -->
+                        <!--<script src="<?php echo Yii::app()->theme->baseUrl; ?>/js/jquery-1.11.1.min.js"></script>-->
+                        <!--<script src="<?php echo Yii::app()->theme->baseUrl; ?>/js/jquery-ui.min.js"></script>-->
+
+                        <!-- Theme Javascript -->
+                        <script src="<?php echo Yii::app()->theme->baseUrl; ?>/js/utility/utility.js"></script>
+                        <!--<script src="<?php echo Yii::app()->theme->baseUrl; ?>/js/demo/demo.js"></script>-->
+                        <script src="<?php echo Yii::app()->theme->baseUrl; ?>/js/main.js"></script>
+                        <script type="text/javascript">
+                            //              jQuery(document).ready(function() {
+
+                            "use strict";
+
+                            // Init Theme Core    
+                            Core.init();
+
+                            // Init Demo JS  
+                            //                Demo.init();
+
+                            //              });
+                        </script>
+                        <!-- END: PAGE SCRIPTS -->
+
+                        </body>
+                        </html>
