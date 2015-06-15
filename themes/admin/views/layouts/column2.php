@@ -1,10 +1,10 @@
 <?php /* @var $this Controller */ ?>
 <?php $this->beginContent('//layouts/main'); ?>
-
+<?php // var_dump($this->menu) ?>
 <?php if ($this->menu): ?>
-    <div class="row">
-        <div class="col-lg-12">
-            <div class="breadcrumbs">
+    <!--<div class="row">-->
+        <!--<div class="col-lg-12">-->
+            <!--<div class="breadcrumbs">-->
 
                 <?php foreach ($this->menu as $menu) : ?>
                     <?php
@@ -16,17 +16,17 @@
                     ?>
                 <?php endforeach; ?>
             </div>
-            <div class="page-header title">
+            <!--<div class="page-header title">-->
                 <!-- PAGE TITLE ROW -->
                 <!--<h1><?php echo $this->titulo; ?><span class="sub-title">sub titulo</span></h1>-->								
-                <h1><?php echo $this->titulo; ?></h1>								
-            </div>
-        </div>
-    </div>
+                <!--<h1><?php echo $this->titulo; ?></h1>-->								
+            <!--</div>-->
+        <!--</div>-->
+    <!--</div>-->
 <?php endif; ?>
 
-<div class="row">
+<!--<div class="row">-->
     <?php echo $content; ?>
-</div>
+<!--</div>-->
 
 <?php $this->endContent(); ?>

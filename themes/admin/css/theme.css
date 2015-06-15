@@ -10332,7 +10332,7 @@ select[multiple].input-lg {
     padding: 9px 12px;
     font-size: 13px;
     line-height: 1.49;
-    border-radius: 0px;
+    border-radius: 0px !important;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
@@ -10570,7 +10570,7 @@ tbody.collapse.in {
     width: 0;
     height: 0;
     margin-left: 2px;
-    vertical-align: middle;
+    /*vertical-align: middle;*/
     border-top: 4px solid;
     border-right: 4px solid transparent;
     border-left: 4px solid transparent;
@@ -17342,7 +17342,8 @@ body.sidebar-collapsed #sidebar:before {
 .navbar {
     z-index: 1030;
     margin-bottom: 0;
-    height: 60px;
+    /*height: 60px;*/
+    height: 50px !important;
     color: #666;
     background-color: #FFF;
     border-radius: 0;
@@ -17373,8 +17374,10 @@ body.sidebar-collapsed #sidebar:before {
     font-weight: 600;
     padding-top: 20px;
     padding-bottom: 20px;
-    height: 59px;
-    max-height: 59px;
+    /*height: 59px;*/
+    /*max-height: 59px;*/
+    height: 49px !important;
+    max-height: 49px !important;
 }
 .navbar .nav > li.open > a,
 .navbar .nav > li:hover > a,
@@ -20827,7 +20830,7 @@ body.external-page .coming-soon-title {
   screenlock, coming-soon, forgotpw
 // ================================================= */
 body.external-page.external-alt #main {
-    background: #f4f4f4;
+    /*background: #f4f4f4;*/
 }
 body.external-page.external-alt #content .admin-form {
     margin-top: 5%;

@@ -8,7 +8,7 @@
         <!--<meta name="keywords" content="HTML5 Bootstrap 3 Admin Template UI Theme" />-->
         <!--<meta name="description" content="AdminDesigns - A Responsive HTML5 Admin UI Framework">-->
         <!--<meta name="author" content="AdminDesigns">-->
-        <!--<meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
         <!-- Font CSS (Via CDN) -->
         <link rel='stylesheet' type='text/css' href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700'>
@@ -178,6 +178,7 @@
 
                         <!-- Start: Content-Wrapper -->
                         <section id="content_wrapper">
+
                             <!-- Start: Topbar -->
                             <header id="topbar">
                                 <div class="topbar-left">
@@ -234,7 +235,7 @@
 
                         <!-- jQuery -->
                         <!--<script src="<?php echo Yii::app()->theme->baseUrl; ?>/js/jquery-1.11.1.min.js"></script>-->
-                        <!--<script src="<?php echo Yii::app()->theme->baseUrl; ?>/js/jquery-ui.min.js"></script>-->
+                        <script src="<?php echo Yii::app()->theme->baseUrl; ?>/js/jquery-ui.min.js"></script>
 
                         <!-- Theme Javascript -->
                         <script src="<?php echo Yii::app()->theme->baseUrl; ?>/js/utility/utility.js"></script>
@@ -242,16 +243,38 @@
                         <script src="<?php echo Yii::app()->theme->baseUrl; ?>/js/main.js"></script>
                         <script type="text/javascript">
                             //              jQuery(document).ready(function() {
-
+                            
                             "use strict";
-
+                            
                             // Init Theme Core    
                             Core.init();
-
+                            
                             // Init Demo JS  
-                            //                Demo.init();
-
+//                                            Demo.init();
+                            
                             //              });
+//                            para los paneles de portltes
+                            $('.admin-panels').adminpanel({
+                                grid: '.admin-grid',
+//                                callback: function () {
+//                                    window.console.log('on callback');
+//                                    bootbox.confirm('<h3>A Custom Callback!</h3>', function () {
+//                                    });
+//                                },
+//                                onFinish: function () {
+//                                    $('.admin-panels').addClass('animated fadeIn').removeClass('fade-onload');
+//                                    window.console.log('onfinish');
+//                                    // Init the rest of the plugins now that the panels
+//                                    // have had a chance to be moved and organized.
+//                                    // It's less taxing to organize empty panels
+//                                    demoHighCharts.init();
+//                                    runVectorMaps();
+//                                },
+                                onSave: function () {
+//                                    window.console.log('onsave');
+                                    $(window).trigger('resize');
+                                }
+                            });
                         </script>
                         <!-- END: PAGE SCRIPTS -->
 
