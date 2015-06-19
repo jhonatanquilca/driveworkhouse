@@ -15,8 +15,7 @@
                     );
                     ?>
                 <?php endforeach; ?>
-            </div>
-            <!--<div class="page-header title">-->
+            <!--<div clas="page-header title">-->
                 <!-- PAGE TITLE ROW -->
                 <!--<h1><?php echo $this->titulo; ?><span class="sub-title">sub titulo</span></h1>-->								
                 <!--<h1><?php echo $this->titulo; ?></h1>-->								
@@ -24,9 +23,10 @@
         <!--</div>-->
     <!--</div>-->
 <?php endif; ?>
-
-<!--<div class="row">-->
+sdfsdf
+<div class="row">
+    
     <?php echo $content; ?>
-<!--</div>-->
+</div>
 
 <?php $this->endContent(); ?>

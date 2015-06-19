@@ -243,15 +243,22 @@
                         <script src="<?php echo Yii::app()->theme->baseUrl; ?>/js/main.js"></script>
                         <script type="text/javascript">
                             //              jQuery(document).ready(function() {
-                            
+
                             "use strict";
-                            
+
                             // Init Theme Core    
                             Core.init();
-                            
+                            $(document).ready(function () {
+                                if (!$('body').hasClass('sb-l-m')) {
+                                    $('.sidebar-left-content.nano-content').css('margin-right', '-17px');
+                                } else {
+                                    $('.sidebar-left-content.nano-content').css('margin-right', '0px');
+                                }
+
+                            });
                             // Init Demo JS  
 //                                            Demo.init();
-                            
+
                             //              });
 //                            para los paneles de portltes
                             $('.admin-panels').adminpanel({

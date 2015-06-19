@@ -30,11 +30,32 @@ class Menu {
         self::$_controller = $controller;
         $items = array(
             array('label' => '<span class="fa fa-home"></span><span class="sidebar-title"> Principal</span>', 'url' => Yii::app()->homeUrl),
-            array('label' => '<span class="fa fa-user"></span><span class="sidebar-title">Usuarios</span>',
-                'url' => Yii::app()->user->ui->userManagementAdminUrl,
-                'access' => 'Cruge.ui.*', 'active_rules' => array('module' => 'cruge')
-            ),
+//            array('label' => '<span class="fa fa-user"></span><span class="sidebar-title">Usuarios</span>',
+//                'url' => Yii::app()->user->ui->userManagementAdminUrl,
+//                'access' => 'Cruge.ui.*', 'active_rules' => array('module' => 'cruge')
+//            ),
+            array('label' => '<span class="fa fa-calendar"></span><span class="sidebar-title">Dashboard</span><span class="caret"></span>', 'url' => '#',
+                'itemOptions' => array('class' => 'dropdown-list'),
+                'linkOptions' => array('class' => 'accordion-toggle'),
+                'items' => array(
+                    array('label' => '<span class="fa fa-user"></span><span class="sidebar-title">Usuarios</span>',
+                        'url' => Yii::app()->user->ui->userManagementAdminUrl,
+                        'access' => 'Cruge.ui.*', 'active_rules' => array('module' => 'cruge')
+                    ),
+                    array('label' => '<span class="glyphicon glyphicon-book"></span>Provincia', 'url' => array('/personal/provincia/admin/'), 'access' => 'action_provincia_admin', 'active_rules' => array('module' => 'personal', 'controller' => 'provincia')),
+                    array('label' => '<span class="glyphicon glyphicon-book"></span>Ciudad', 'url' => array('/personal/ciudad/admin/'), 'access' => 'action_ciudad_admin', 'active_rules' => array('module' => 'personal', 'controller' => 'ciudad')),
+                    array('label' => '<span class="glyphicon glyphicon-book"></span>Sector', 'url' => array('/personal/sector/admin/'), 'access' => 'action_sector_admin', 'active_rules' => array('module' => 'personal', 'controller' => 'sector')),
+                )),
+            array('label' => '<span class="fa fa-calendar"></span><span class="sidebar-title">Dashboard</span><span class="caret"></span>', 'url' => '#',
+                'itemOptions' => array('class' => 'dropdown-list'),
+                'linkOptions' => array('class' => 'accordion-toggle'),
+                'items' => array(
+                    array('label' => '<span class="glyphicon glyphicon-book"></span>Provincia', 'url' => array('/personal/provincia/admin/'), 'access' => 'action_provincia_admin', 'active_rules' => array('module' => 'personal', 'controller' => 'provincia')),
+                    array('label' => '<span class="glyphicon glyphicon-book"></span>Ciudad', 'url' => array('/personal/ciudad/admin/'), 'access' => 'action_ciudad_admin', 'active_rules' => array('module' => 'personal', 'controller' => 'ciudad')),
+                    array('label' => '<span class="glyphicon glyphicon-book"></span>Sector', 'url' => array('/personal/sector/admin/'), 'access' => 'action_sector_admin', 'active_rules' => array('module' => 'personal', 'controller' => 'sector')),
+                )),
         );
+
         return self::generateMenu($items);
     }
 
