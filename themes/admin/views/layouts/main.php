@@ -24,7 +24,11 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
       <![endif]-->
-
+        <script>
+            var baseUrl = "<?php echo Yii::app()->baseUrl . '/'; ?>";
+            var themeUrl = "<?php echo Yii::app()->theme->baseUrl . '/'; ?>";
+            var user_id = "<?php echo Yii::app()->user->id; ?>";
+        </script>
     </head>
 
     <body class="of-y-h sb-l-o sb-r-c onload-check" style="min-height: 340px;">
@@ -241,28 +245,29 @@
                         <script src="<?php echo Yii::app()->theme->baseUrl; ?>/js/utility/utility.js"></script>
                         <!--<script src="<?php echo Yii::app()->theme->baseUrl; ?>/js/demo/demo.js"></script>-->
                         <script src="<?php echo Yii::app()->theme->baseUrl; ?>/js/main.js"></script>
+
                         <script type="text/javascript">
-                            //              jQuery(document).ready(function() {
+            //              jQuery(document).ready(function() {
 
-                            "use strict";
+            "use strict";
 
-                            // Init Theme Core    
-                            Core.init();
-                            $(document).ready(function () {
-                                if (!$('body').hasClass('sb-l-m')) {
-                                    $('.sidebar-left-content.nano-content').css('margin-right', '-17px');
-                                } else {
-                                    $('.sidebar-left-content.nano-content').css('margin-right', '0px');
-                                }
+            // Init Theme Core    
+            Core.init();
+            $(document).ready(function () {
+                if (!$('body').hasClass('sb-l-m')) {
+                    $('.sidebar-left-content.nano-content').css('margin-right', '-17px');
+                } else {
+                    $('.sidebar-left-content.nano-content').css('margin-right', '0px');
+                }
 
-                            });
-                            // Init Demo JS  
+            });
+            // Init Demo JS  
 //                                            Demo.init();
 
-                            //              });
+            //              });
 //                            para los paneles de portltes
-                            $('.admin-panels').adminpanel({
-                                grid: '.admin-grid',
+            $('.admin-panels').adminpanel({
+                grid: '.admin-grid',
 //                                callback: function () {
 //                                    window.console.log('on callback');
 //                                    bootbox.confirm('<h3>A Custom Callback!</h3>', function () {
@@ -277,12 +282,13 @@
 //                                    demoHighCharts.init();
 //                                    runVectorMaps();
 //                                },
-                                onSave: function () {
+                onSave: function () {
 //                                    window.console.log('onsave');
-                                    $(window).trigger('resize');
-                                }
-                            });
+                    $(window).trigger('resize');
+                }
+            });
                         </script>
+                        <script type="text/javascript" src="<?php echo Yii::app()->theme->baseUrl; ?>/js/common-scripts.js"></script>  
                         <!-- END: PAGE SCRIPTS -->
 
                         </body>

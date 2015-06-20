@@ -23,7 +23,7 @@ if (Yii::app()->user->isSuperAdmin) {
 ?>
 <div id="content">
     <div class="row ">
-        <div class="col-xs-12 va-m pln mb10">
+        <div class="col-xs-12 va-m pln mb10 ml10">
 
             <?php foreach (Yii::app()->user->ui->EmpAdminItems as $menu) : ?>
                 <?php

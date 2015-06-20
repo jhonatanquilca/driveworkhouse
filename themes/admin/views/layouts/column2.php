@@ -23,7 +23,6 @@
         <!--</div>-->
     <!--</div>-->
 <?php endif; ?>
-sdfsdf
 <div class="row">
     
     <?php echo $content; ?>

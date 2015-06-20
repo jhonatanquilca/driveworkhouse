@@ -6,7 +6,7 @@ $this->pageTitle = Yii::t('app', 'Administrador de Usuarios');
 ?>
 <div class="row">
     <div class="col-sm-12 pln">
-        <div class="bs-component">
+        <div class="bs-component p10">
             <div class="panel panel-primary">
                 <div class="panel-heading">
                     <span class="panel-title"> <?php echo ucwords(CrugeTranslator::t("crear nuevo usuario")); ?></span>
@@ -19,7 +19,8 @@ $this->pageTitle = Yii::t('app', 'Administrador de Usuarios');
                         <!--<a href="#" class="panel-control-fullscreen"></a>-->
                     </span>
                 </div>
-                <div class="panel-body border">
+                <div class="panel-body border pn">
+                <div class="panel-body p25">
 
                     <?php
                     $form = $this->beginWidget('ext.AweCrud.components.AweActiveForm', array(
@@ -94,20 +95,22 @@ $this->pageTitle = Yii::t('app', 'Administrador de Usuarios');
 
 
                     <?php //echo $form->errorSummary($model);  ?>
-                    <div class="actions clearfix">
+                </div>
+                    <div class="panel-footer text-right">
 
                         <?php
                         $this->widget('bootstrap.widgets.TbButton', array(
                             'buttonType' => 'submit',
+//                            'type' => 'success',
                             'type' => 'success',
-                            'icon' => 'ok',
+                            'icon' => 'fa fa-check',
                             'label' => CrugeTranslator::t("Guardar"),
                         ));
                         ?>
                         <?php
                         $this->widget('bootstrap.widgets.TbButton', array(
                             'type' => 'warning',
-                            'icon' => 'remove',
+                            'icon' => 'fa fa-times',
                             'label' => Yii::t('AweCrud.app', 'Cancel'),
                             'htmlOptions' => array('onclick' => 'javascript:history.go(-1)')
                         ));
