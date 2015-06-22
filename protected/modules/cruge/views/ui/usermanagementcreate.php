@@ -20,30 +20,31 @@ $this->pageTitle = Yii::t('app', 'Administrador de Usuarios');
                     </span>
                 </div>
                 <div class="panel-body border pn">
-                <div class="panel-body p25">
+                    <div class="panel-body p25">
 
-                    <?php
-                    $form = $this->beginWidget('ext.AweCrud.components.AweActiveForm', array(
-                        'type' => 'horizontal',
-                        'id' => 'crugestoreduser-form',
-                        'enableAjaxValidation' => false,
-                        'enableClientValidation' => false,
-                    ));
-                    ?>
-           
-                    <?php echo $form->textFieldRow($model, 'username', array('class' => 'form-control')) ?>
+                        <?php
+                        $form = $this->beginWidget('ext.AweCrud.components.AweActiveForm', array(
+                            'type' => 'horizontal',
+                            'id' => 'crugestoreduser-form',
+                            'enableAjaxValidation' => false,
+                            'enableClientValidation' => false,
+                        ));
+                        ?>
 
-                    <?php echo $form->textFieldRow($model, 'email', array('class' => 'form-control')) ?>
-                    <div class="control-group ">
-                        <label class="control-label" for="CrugeStoredUser_newPassword">Clave&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                        <?php echo $form->textFieldRow($model, 'username', array('class' => 'form-control')) ?>
 
-                        <div class="input-group">
+                        <?php echo $form->textFieldRow($model, 'email', array('class' => 'form-control')) ?>
+                        <div class="control-group ">
+                            <label class="control-label " for="CrugeStoredUser_newPassword">Clave </label>
 
-                            <input  name="CrugeStoredUser[newPassword]" id="CrugeStoredUser_newPassword" type="text" maxlength="20" class="form-control">
-                            <div class="input-group-btn">                           
-                                <button class="btn btn-info" type="button" onclick="generarPass()"><i class="icon-refresh"></i></button>
-                            </div>
-                            <?php
+                            <div class="controls ">
+                                <div class="input-append">
+
+                                    <input  name="CrugeStoredUser[newPassword]" id="CrugeStoredUser_newPassword" type="text" maxlength="20" class="form-control ">
+                                    <span class="btn btn-success " type="button" onclick="generarPass()"><i class="fa fa-refresh"></i></span>
+                                    <!--<div class="input-group-btn">-->                           
+                                    <!--</div>-->
+                                    <?php
 //                    echo $form->textFieldRow($model, 'newPassword', array(
 //                        'class' => 'span12',
 //                        'append' => CHtml::ajaxLink(
@@ -52,50 +53,51 @@ $this->pageTitle = Yii::t('app', 'Administrador de Usuarios');
 //                                , array('success' => 'js:fnSuccess', 'error' => 'js:fnError')
 //                        )
 //                    ))
-                            ?>
+                                    ?>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                    <script>
-                        function generarPass() {
+                        <script>
+                            function generarPass() {
 
-                            $.get("<?php echo Yii::app()->user->ui->ajaxGenerateNewPasswordUrl ?>",
-                                    null,
-                                    function (data) {
-                                        $("#CrugeStoredUser_newPassword").val(data);
-                                    }
-                            )
-                        }
-                        function fnSuccess(data) {
-                            $('#CrugeStoredUser_newPassword').val(data);
-                        }
-                        function fnError(e) {
-                            alert("error: " + e.responseText);
-                        }
-                    </script>
+                                $.get("<?php echo Yii::app()->user->ui->ajaxGenerateNewPasswordUrl ?>",
+                                        null,
+                                        function (data) {
+                                            $("#CrugeStoredUser_newPassword").val(data);
+                                        }
+                                )
+                            }
+                            function fnSuccess(data) {
+                                $('#CrugeStoredUser_newPassword').val(data);
+                            }
+                            function fnError(e) {
+                                alert("error: " + e.responseText);
+                            }
+                        </script>
 
-                    <!-- inicio de campos extra definidos por el administrador del sistema -->
-                    <?php
-                    if (count($model->getFields()) > 0) {
-                        echo "<div class='row-fluid form-group'>";
-                        echo "<div class='separator-form span11'>" . ucfirst(CrugeTranslator::t("datos de la cuenta")) . "</div>";
-                        echo '<div class="clear"></div>';
-                        foreach ($model->getFields() as $f) {
-                            // aqui $f es una instancia que implementa a: ICrugeField
-                            echo "<div class='col'>";
-                            echo Yii::app()->user->um->getLabelField($f);
-                            echo Yii::app()->user->um->getInputField($model, $f);
-                            echo $form->error($model, $f->fieldname);
+                        <!-- inicio de campos extra definidos por el administrador del sistema -->
+                        <?php
+                        if (count($model->getFields()) > 0) {
+                            echo "<div class='row-fluid form-group'>";
+                            echo "<div class='separator-form span11'>" . ucfirst(CrugeTranslator::t("datos de la cuenta")) . "</div>";
+                            echo '<div class="clear"></div>';
+                            foreach ($model->getFields() as $f) {
+                                // aqui $f es una instancia que implementa a: ICrugeField
+                                echo "<div class='col'>";
+                                echo Yii::app()->user->um->getLabelField($f);
+                                echo Yii::app()->user->um->getInputField($model, $f);
+                                echo $form->error($model, $f->fieldname);
+                                echo "</div>";
+                            }
                             echo "</div>";
                         }
-                        echo "</div>";
-                    }
-                    ?>
-                    <!-- fin de campos extra definidos por el administrador del sistema -->
+                        ?>
+                        <!-- fin de campos extra definidos por el administrador del sistema -->
 
 
 
-                    <?php //echo $form->errorSummary($model);  ?>
-                </div>
+                        <?php //echo $form->errorSummary($model);  ?>
+                    </div>
                     <div class="panel-footer text-right">
 
                         <?php
@@ -122,6 +124,6 @@ $this->pageTitle = Yii::t('app', 'Administrador de Usuarios');
             </div>
 
         </div>
- 
+
     </div>
 </div>

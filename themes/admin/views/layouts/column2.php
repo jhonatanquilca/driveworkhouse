@@ -23,7 +23,7 @@
         <!--</div>-->
     <!--</div>-->
 <?php endif; ?>
-<div class="row">
+<div class="row ">
     
     <?php echo $content; ?>
 </div>

@@ -214,12 +214,13 @@
                             <section id="content" class="table-layout animated fadeIn">
 
                                 <!-- begin: .tray-center -->
-                                <div class="tray tray-center">
+                                <div class="tray tray-justify">
 
                                     <div class="tray-scroller scroller-primary">
 
                                         <?php echo $content; ?>
-
+                                        <br>
+                                        <br>
                                     </div>
 
                                 </div>

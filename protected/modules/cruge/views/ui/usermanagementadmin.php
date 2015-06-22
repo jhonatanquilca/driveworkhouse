@@ -47,7 +47,7 @@ $cols[] = array(
 ?>
 <div class="row">
     <div class="col-sm-12 pln">
-        <div class="bs-component">
+        <div class="bs-component p10">
 
             <div class="panel panel-primary">
                 <div class="panel-heading">
