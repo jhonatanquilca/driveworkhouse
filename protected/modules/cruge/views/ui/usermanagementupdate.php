@@ -4,7 +4,7 @@
 $this->pageTitle = Yii::t('app', 'Administrador de Usuarios');
 ?>
 <div class="row">
-    <div class="col-sm-12 ">
+    <div class="col-sm-12 pl15">
         <div class="bs-component p10">            
             <div class="panel panel-primary">
                 <div class="panel-heading">

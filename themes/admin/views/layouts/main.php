@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 
     <head>
@@ -11,7 +11,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
         <!-- Font CSS (Via CDN) -->
-        <link rel='stylesheet' type='text/css' href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700'>
+        <link rel='stylesheet' type='text/css' href='<?php echo Yii::app()->theme->baseUrl; ?>/css/font-family.css'>
 
         <!-- Theme CSS -->
         <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->theme->baseUrl; ?>/css/theme.css">
@@ -214,7 +214,7 @@
                             <section id="content" class="table-layout animated fadeIn">
 
                                 <!-- begin: .tray-center -->
-                                <div class="tray tray-justify">
+                                <div class="tray tray-justify prn">
 
                                     <div class="tray-scroller scroller-primary">
 

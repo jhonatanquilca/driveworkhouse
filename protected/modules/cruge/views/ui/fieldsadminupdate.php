@@ -6,7 +6,7 @@ $this->pageTitle = Yii::t('app', 'Campos Personalizados');
 ?>
 <div class="row">
 
-    <div class="col-sm-12 pln">
+    <div class="col-sm-12 pl15">
         <div class="bs-component p10">
 
             <div class="panel panel-primary">

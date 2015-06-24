@@ -21,9 +21,9 @@ if (Yii::app()->user->isSuperAdmin) {
 //    echo Yii::app()->user->ui->superAdminNote();
 }
 ?>
-<div id="content">
+<!--<div id="content">-->
     <div class="row ">
-        <div class="col-xs-12 va-m pln mb10 ml10">
+        <div class="col-xs-12 va-m pl15 mb10 ml10">
 
             <?php foreach (Yii::app()->user->ui->EmpAdminItems as $menu) : ?>
                 <?php
@@ -43,7 +43,7 @@ if (Yii::app()->user->isSuperAdmin) {
 
 
     <?php echo $content; ?>
-</div>
+<!--</div>-->
 <!-- content -->
 <?php if (Yii::app()->user->checkAccess('admin')) { ?>	
 <?php } ?>

@@ -75,8 +75,8 @@ var Script = function() {
 //    });
 
     // custom scrollbar
-    $(".sidebar-scroll").niceScroll({styler: "fb", cursorcolor: "#0076A5", cursorwidth: '5', cursorborderradius: '0px', background: '#404040', cursorborder: ''});
-    $("html").niceScroll({styler: "fb", cursorcolor: "#0076A5", cursorwidth: '8', cursorborderradius: '0px', background: '#404040', cursorborder: '', zindex: '1000'});
+//    $(".sidebar-scroll").niceScroll({styler: "fb", cursorcolor: "#0076A5", cursorwidth: '5', cursorborderradius: '0px', background: '#404040', cursorborder: ''});
+//    $("html").niceScroll({styler: "fb", cursorcolor: "#0076A5", cursorwidth: '8', cursorborderradius: '0px', background: '#404040', cursorborder: '', zindex: '1000'});
 
 
 // widget tools
@@ -104,12 +104,12 @@ var Script = function() {
     $('.popovers').popover();
 
     // scroller
-    $('.scroller').slimscroll({
-        height: 'auto'
-    });
+//    $('.scroller').slimscroll({
+//        height: 'auto'
+//    });
 
     // selects
-    $('select.fix').selectBox();
+//    $('select.fix').selectBox();
 
     var buttons = $('.form-actions-float');
     floatButtons();
@@ -126,30 +126,30 @@ var Script = function() {
     }
     
     // Buscar logros (Gamification)
-    $.ajax({
-        type: "GET",
-        url: baseUrl+"gamification/default/buscarLogros",
-        dataType: 'html',
-        data: { uid: user_id },
-        success: function(html) {
-            if(html) {
-                $("#mainModal").html(html);
-                $("#mainModal").modal("show");
-                $('#mainModal').on('shown', function () {
-                    $speed = 0.05;
-                    for($i=0;$i<=1440;$i++) {
-                        if($i % 100 == 0) {
-                             $speed = $speed + 0.2 ;
-                        }
-                        rotateCoin($i,$speed,'Y');
-                    }
-                    setTimeout(function() {
-                        $('#moneda').removeAttr('style');
-                    },3000);
-                });
-            }
-        }
-    });
+//    $.ajax({
+//        type: "GET",
+//        url: baseUrl+"gamification/default/buscarLogros",
+//        dataType: 'html',
+//        data: { uid: user_id },
+//        success: function(html) {
+//            if(html) {
+//                $("#mainModal").html(html);
+//                $("#mainModal").modal("show");
+//                $('#mainModal').on('shown', function () {
+//                    $speed = 0.05;
+//                    for($i=0;$i<=1440;$i++) {
+//                        if($i % 100 == 0) {
+//                             $speed = $speed + 0.2 ;
+//                        }
+//                        rotateCoin($i,$speed,'Y');
+//                    }
+//                    setTimeout(function() {
+//                        $('#moneda').removeAttr('style');
+//                    },3000);
+//                });
+//            }
+//        }
+//    });
 
 }();
 
@@ -163,7 +163,7 @@ function showModalLoading() {
 
 function showModalData(html) {
     $("#mainModal").html(html);
-    $('select.fix').selectBox();
+//    $('select.fix').selectBox();
 }
 /**
  * 

@@ -572,7 +572,7 @@ var Core = function (options) {
             });
 
             // Scroll lock all fixed content overflow
-            $('#content').scrollLock('on', 'div');
+//            $('#content').scrollLock('on', 'div');
 
         }
         ;
