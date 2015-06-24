@@ -6,7 +6,7 @@
 		$model: instancia de CrugeAuthItemEditor
 	*/
 ?>
-<div class="form">
+<div class="panel-body p25">
 <?php $form = $this->beginWidget('CActiveForm', array(
     'id'=>'authitem-form',
     'enableAjaxValidation'=>false,
@@ -50,24 +50,23 @@
 		</p>
 	</div>-->
 </div>
+</div>
 
-<div class="form-actions">
-    <div class="form-actions-float">
+    <div class="panel-footer text-right">
     <?php $this->widget('bootstrap.widgets.TbButton', array(
         'buttonType' => 'submit',
         'type' => 'success',
-        'icon'=>'ok',
+        'icon'=>'fa fa-check',
         'label' => CrugeTranslator::t(($model->isNewRecord ? 'Crear Nuevo' : 'Actualizar')),
     )); ?>
     <?php $this->widget('bootstrap.widgets.TbButton', array(
         'buttonType' => 'submit',
+         'type' => 'warning',
         'id' => 'volver',
-        'icon'=>'remove',
+        'icon'=>'fa fa-remove',
         'label' => Yii::t('AweCrud.app', 'Cancel'),
         'htmlOptions' => array('name' => 'volver')
     )); ?>
     </div>
-</div>
 <?php echo $form->errorSummary($model); ?>
 <?php $this->endWidget(); ?>
-</div>

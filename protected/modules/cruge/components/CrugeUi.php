@@ -468,7 +468,8 @@ class CrugeUi extends CComponent {
         $_type = 'submit'; // siempre son submit
         $_icon = 'remove white';
         if ($name == null) {
-            $_icon = 'ok';
+//            $_icon = 'ok';
+            $_icon = 'fa fa-check';
             $name = 'submit';
         }
         $ar = array('name' => $name);

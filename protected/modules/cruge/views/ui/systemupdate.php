@@ -10,114 +10,124 @@ if (Yii::app()->user->hasFlash('systemFormFlash')) {
     echo "</div>";
 }
 ?>
-<div class="col-lg-12">
-    <div class="widget">
-        <div class="widget-header">
-            <h4>
-                <a class="icon-chevron-down" data-toggle="collapse" href=".widget-content"></a>
-                <i class="icon-key"></i> <?php echo ucwords(CrugeTranslator::t("sesiones de usuario")); ?>
-            </h4>
-           
-        </div>
-        <div class="widget-content in form">
-            <?php
-            $form = $this->beginWidget('CActiveForm', array(
-                'id' => 'CrugeSystem-Form',
-                'enableAjaxValidation' => false,
-                'enableClientValidation' => false,
-            ));
-            ?>
-            <div class="row-fluid form-group">
-                <div class='separator-form span11'><?php echo ucwords(CrugeTranslator::t("opciones de sesion")); ?></div>
-                <div class="clear"></div>
-                <!--	<div class='col'>
-                <?php echo $form->labelEx($model, 'systemdown'); ?>
-                <?php echo $form->checkBox($model, 'systemdown'); ?>
-                <?php echo $form->error($model, 'systemdown'); ?>
-                        </div>-->
-                <div class='col'>
-                    <?php echo $form->labelEx($model, 'systemnonewsessions'); ?>
-                    <?php echo $form->checkBox($model, 'systemnonewsessions'); ?>
-                    <?php echo $form->error($model, 'systemnonewsessions'); ?>
-                </div>
-                <div class='col'>
-                    <?php echo $form->labelEx($model, 'sessionmaxdurationmins'); ?>
-                    <?php
-                    echo $form->textField($model, 'sessionmaxdurationmins'
-                            , array('size' => 5, 'maxlength' => 4));
-                    ?>
-<?php echo $form->error($model, 'sessionmaxdurationmins'); ?>
-                </div>
-            </div>
-            <div class="row-fluid form-group">
-                <div class='separator-form span11'><?php echo ucwords(CrugeTranslator::t("opciones de registro de usuarios")); ?></div>
-                <div class="clear"></div>
-                <!--	<div class='col'>
-                <?php echo $form->labelEx($model, 'registerusingcaptcha'); ?>
-                <?php echo $form->checkBox($model, 'registerusingcaptcha'); ?>
-<?php echo $form->error($model, 'registerusingcaptcha'); ?>
-                        </div>-->
-                <div class='col'>
-                    <?php echo $form->labelEx($model, 'registerusingactivation'); ?>
-                    <?php
-                    echo $form->dropDownList($model, 'registerusingactivation'
-                            , Yii::app()->user->um->getUserActivationOptions());
-                    ?>
-                    <?php echo $form->error($model, 'registerusingactivation'); ?>
-                </div>
-                <div class='col'>
-                    <?php echo $form->labelEx($model, 'defaultroleforregistration'); ?>
-                    <?php
-                    echo $form->dropDownList($model, 'defaultroleforregistration'
-                            , Yii::app()->user->rbac->getRolesAsOptions(CrugeTranslator::t(
-                                            "--no asignar ningun rol--")));
-                    ?>
-                <?php echo $form->error($model, 'defaultroleforregistration'); ?>
-                </div>
-                <!--	<div class='col'>
-                <?php echo $form->labelEx($model, 'registrationonlogin'); ?>
-<?php echo $form->checkBox($model, 'registrationonlogin'); ?>
-<?php echo $form->error($model, 'registrationonloginn'); ?>
-                        </div>-->
-            </div>
+<div class="row">
+    <div class="col-sm-12 pl15">
+        <div class="bs-component p10">            
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <span class="panel-title"> <?php echo ucwords(CrugeTranslator::t("sesiones de usuario")); ?>
+                    </span>
 
-            <!--<div class="row-fluid form-group">
-                    <div class='separator-form span11'><?php echo ucwords(CrugeTranslator::t("terminos y condiciones de registro")); ?></div>
-                    <div class="clear"></div>
-                    <div class='row-fluid'>
+                    <span class="panel-controls">
+                        <a href="#" class="panel-control-loader"></a>
+                        <!--<a href="#" class="panel-control-remove"></a>-->
+                        <!--<a href="#" class="panel-control-title"></a>-->
+                        <!--<a href="#" class="panel-control-color"></a>-->
+                        <a href="#" class="panel-control-collapse"></a>
+                        <!--<a href="#" class="panel-control-fullscreen"></a>-->
+                    </span>
+                </div>
+                <div class="panel-body border pn">
+                    <div class="panel-body p25">
+                        <?php
+                        $form = $this->beginWidget('CActiveForm', array(
+                            'id' => 'CrugeSystem-Form',
+                            'enableAjaxValidation' => false,
+                            'enableClientValidation' => false,
+                        ));
+                        ?>
+                        <div class="row-fluid form-group">
+                            <div class='separator-form span11'><?php echo ucwords(CrugeTranslator::t("opciones de sesion")); ?></div>
+                            <div class="clear"></div>
+                            <!--	<div class='col'>
+                            <?php echo $form->labelEx($model, 'systemdown'); ?>
+                            <?php echo $form->checkBox($model, 'systemdown'); ?>
+                            <?php echo $form->error($model, 'systemdown'); ?>
+                                    </div>-->
                             <div class='col'>
-            <?php echo $form->labelEx($model, 'registerusingterms'); ?>
-<?php echo $form->checkBox($model, 'registerusingterms'); ?>
-            <?php echo $form->error($model, 'registerusingterms'); ?>
+                                <?php echo $form->labelEx($model, 'systemnonewsessions'); ?>
+                                <?php echo $form->checkBox($model, 'systemnonewsessions'); ?>
+                                <?php echo $form->error($model, 'systemnonewsessions'); ?>
                             </div>
                             <div class='col'>
-            <?php echo $form->labelEx($model, 'registerusingtermslabel'); ?>
-            <?php
-            echo $form->textField($model, 'registerusingtermslabel'
-                    , array('size' => 45, 'maxlength' => 100));
-            ?>
-<?php echo $form->error($model, 'registerusingtermslabel'); ?>
+                                <?php echo $form->labelEx($model, 'sessionmaxdurationmins'); ?>
+                                <?php
+                                echo $form->textField($model, 'sessionmaxdurationmins'
+                                        , array('size' => 5, 'maxlength' => 4));
+                                ?>
+                                <?php echo $form->error($model, 'sessionmaxdurationmins'); ?>
                             </div>
-                    </div>
-                    <hr/>
-                    <div class='row-fluid'>
-            <?php echo $form->labelEx($model, 'terms'); ?>
-            <?php
-            echo $form->textArea($model, 'terms'
-                    , array('rows' => 10, 'cols' => 50));
-            ?>
-<?php echo $form->error($model, 'terms'); ?>
-                    </div>
-            </div>-->
+                        </div>
+                        <div class="row-fluid form-group">
+                            <div class='separator-form span11'><?php echo ucwords(CrugeTranslator::t("opciones de registro de usuarios")); ?></div>
+                            <div class="clear"></div>
+                            <!--	<div class='col'>
+                            <?php echo $form->labelEx($model, 'registerusingcaptcha'); ?>
+                            <?php echo $form->checkBox($model, 'registerusingcaptcha'); ?>
+                            <?php echo $form->error($model, 'registerusingcaptcha'); ?>
+                                    </div>-->
+                            <div class='col'>
+                                <?php echo $form->labelEx($model, 'registerusingactivation'); ?>
+                                <?php
+                                echo $form->dropDownList($model, 'registerusingactivation'
+                                        , Yii::app()->user->um->getUserActivationOptions());
+                                ?>
+                                <?php echo $form->error($model, 'registerusingactivation'); ?>
+                            </div>
+                            <div class='col'>
+                                <?php echo $form->labelEx($model, 'defaultroleforregistration'); ?>
+                                <?php
+                                echo $form->dropDownList($model, 'defaultroleforregistration'
+                                        , Yii::app()->user->rbac->getRolesAsOptions(CrugeTranslator::t(
+                                                        "--no asignar ningun rol--")));
+                                ?>
+                                <?php echo $form->error($model, 'defaultroleforregistration'); ?>
+                            </div>
+                            <!--	<div class='col'>
+                            <?php echo $form->labelEx($model, 'registrationonlogin'); ?>
+                            <?php echo $form->checkBox($model, 'registrationonlogin'); ?>
+                            <?php echo $form->error($model, 'registrationonloginn'); ?>
+                                    </div>-->
+                        </div>
+
+                        <!--<div class="row-fluid form-group">
+                                <div class='separator-form span11'><?php echo ucwords(CrugeTranslator::t("terminos y condiciones de registro")); ?></div>
+                                <div class="clear"></div>
+                                <div class='row-fluid'>
+                                        <div class='col'>
+                        <?php echo $form->labelEx($model, 'registerusingterms'); ?>
+                        <?php echo $form->checkBox($model, 'registerusingterms'); ?>
+                        <?php echo $form->error($model, 'registerusingterms'); ?>
+                                        </div>
+                                        <div class='col'>
+                        <?php echo $form->labelEx($model, 'registerusingtermslabel'); ?>
+                        <?php
+                        echo $form->textField($model, 'registerusingtermslabel'
+                                , array('size' => 45, 'maxlength' => 100));
+                        ?>
+                        <?php echo $form->error($model, 'registerusingtermslabel'); ?>
+                                        </div>
+                                </div>
+                                <hr/>
+                                <div class='row-fluid'>
+                        <?php echo $form->labelEx($model, 'terms'); ?>
+                        <?php
+                        echo $form->textArea($model, 'terms'
+                                , array('rows' => 10, 'cols' => 50));
+                        ?>
+                        <?php echo $form->error($model, 'terms'); ?>
+                                </div>
+                        </div>-->
 
 
-            <div class="form-actions">
-                <div class="form-actions-float">
-            <?php Yii::app()->user->ui->tbutton("Actualizar"); ?>
+                    </div>
+                    <div class="panel-footer text-right">
+                        <?php Yii::app()->user->ui->tbutton("Actualizar"); ?>
+                    </div>
+                    <?php echo $form->errorSummary($model); ?>
+                    <?php $this->endWidget(); ?>
                 </div>
             </div>
-<?php echo $form->errorSummary($model); ?>
-<?php $this->endWidget(); ?>
         </div>
     </div>
 </div>

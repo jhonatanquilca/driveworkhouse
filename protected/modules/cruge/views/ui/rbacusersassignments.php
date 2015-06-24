@@ -10,93 +10,108 @@ $loaderImg = "<img src='{$loaderSrc}'>";
 
 $selectedUserGetter = 'userdescription';
 ?>
-<div class="col-lg-12">
-    <div class="widget">
-        <div class="widget-header">
-            <h4>
-                <a class="icon-chevron-down" data-toggle="collapse" href=".widget-content"></a>
-                <i class="icon-key"></i> <?php echo ucfirst(CrugeTranslator::t("Roles Disponibles")); ?>
-            </h4>            
-        </div>
-        <div class="widget-content in form">
-            <div class='crugepanel user-assignments-role-list'>
-                <p><?php echo ucfirst(CrugeTranslator::t("Haz click en un rol para ver los usuarios asignados a el")); ?></p>
-                <ul class='auth-item'>
-                    <?php
-                    $loader = "<span class='loader'></span>";
-                    foreach ($rbac->roles as $rol) {
-                        echo "<li alt='" . $rol->name . "' class='btn'>" . $rol->name . $loader . "</li>";
-                    }
-                    ?>
-                </ul>
-            </div>
+<div class="row">
+    <div class="col-sm-12 pl15">
+        <div class="bs-component p10">            
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <span class="panel-title"> <?php echo ucfirst(CrugeTranslator::t("Roles Disponibles")); ?>
+                    </span>
 
-
-            <div class='crugepanel user-assignments-detail'>
-                <div class='separator-form col-lg-11' id='mostrarSeleccion'></div>
-                <div class="clear"></div>
-
-                <div id='lista1' class='lista'>
-                    <div id='revocarSeleccion' class='btn btn-danger'>
-                        <i class="icon-lock"></i> <?php echo CrugeTranslator::t("revocar seleccion") ?>
-                    </div>
-                    <?php
-                    $this->widget(Yii::app()->user->ui->CGridViewClass, array(
-                        'id' => '_lista1',
-                        'selectableRows' => 2,
-                        'dataProvider' => $roleUsersDataProvider,
-                        'columns' => array(
-                            array(
-                                'class' => 'CCheckBoxColumn'
-                            ),
-                            $selectedUserGetter,
-                        )
-                    ));
-                    ?>	
+                    <span class="panel-controls">
+                        <a href="#" class="panel-control-loader"></a>
+                        <!--<a href="#" class="panel-control-remove"></a>-->
+                        <!--<a href="#" class="panel-control-title"></a>-->
+                        <!--<a href="#" class="panel-control-color"></a>-->
+                        <a href="#" class="panel-control-collapse"></a>
+                        <!--<a href="#" class="panel-control-fullscreen"></a>-->
+                    </span>
                 </div>
-                <div id='lista2' class='lista'>
-                    <div id='asignarSeleccion' class='btn btn-success'>
-                        <i class="icon-unlock"></i> <?php echo CrugeTranslator::t("asignar seleccion") ?>
+                <div class="panel-body border pn">
+                    <div class="panel-body p25">
+
+                        <div class='crugepanel user-assignments-role-list'>
+                            <p><?php echo ucfirst(CrugeTranslator::t("Haz click en un rol para ver los usuarios asignados a el")); ?></p>
+                            <ul class='auth-item'>
+                                <?php
+                                $loader = "<span class='loader'></span>";
+                                foreach ($rbac->roles as $rol) {
+                                    echo "<li alt='" . $rol->name . "' class='btn'>" . $rol->name . $loader . "</li>";
+                                }
+                                ?>
+                            </ul>
+                        </div>
+
+
+                        <div class='crugepanel user-assignments-detail'>
+                            <div class='separator-form col-lg-11' id='mostrarSeleccion'></div>
+                            <div class="clear"></div>
+
+                            <div id='lista1' class='lista'>
+                                <div id='revocarSeleccion' class='btn btn-danger'>
+                                    <i class="icon-lock"></i> <?php echo CrugeTranslator::t("revocar seleccion") ?>
+                                </div>
+                                <?php
+                                $this->widget(Yii::app()->user->ui->CGridViewClass, array(
+                                    'id' => '_lista1',
+                                    'selectableRows' => 2,
+                                    'dataProvider' => $roleUsersDataProvider,
+                                    'columns' => array(
+                                        array(
+                                            'class' => 'CCheckBoxColumn'
+                                        ),
+                                        $selectedUserGetter,
+                                    )
+                                ));
+                                ?>	
+                            </div>
+                            <div id='lista2' class='lista'>
+                                <div id='asignarSeleccion' class='btn btn-success'>
+                                    <i class="icon-unlock"></i> <?php echo CrugeTranslator::t("asignar seleccion") ?>
+                                </div>
+                                <?php
+                                $this->widget(Yii::app()->user->ui->CGridViewClass, array(
+                                    'id' => '_lista2',
+                                    'selectableRows' => 2,
+                                    'dataProvider' => $allUsersDataProvider,
+                                    'columns' => array(
+                                        array(
+                                            'class' => 'CCheckBoxColumn'
+                                        ),
+                                        $selectedUserGetter,
+                                    ),
+                                ));
+                                ?>	
+                            </div>
+                        </div>
                     </div>
-                    <?php
-                    $this->widget(Yii::app()->user->ui->CGridViewClass, array(
-                        'id' => '_lista2',
-                        'selectableRows' => 2,
-                        'dataProvider' => $allUsersDataProvider,
-                        'columns' => array(
-                            array(
-                                'class' => 'CCheckBoxColumn'
-                            ),
-                            $selectedUserGetter,
-                        ),
-                    ));
-                    ?>	
                 </div>
             </div>
         </div>
     </div>
 </div>
 
+
 <script>
 <?php /* a cada LI del div de roles le anexa un evento click y le pone un cursor */ ?>
 
-    var _setSelectedItemName = function(valor) {
+    var _setSelectedItemName = function (valor) {
         $('#mostrarSeleccion').html(valor);
         $('#mostrarSeleccion').data("itemName", valor);
     }
-    var _getSelectedItemName = function() {
+    var _getSelectedItemName = function () {
         return $('#mostrarSeleccion').data("itemName") + "";
     }
-    var _isSelectedItemName = function() {
+    var _isSelectedItemName = function () {
         return _getSelectedItemName() != 'undefined';
     }
-    $('.user-assignments-role-list ul').find('li').each(function() {
+    $('.user-assignments-role-list ul').find('li').each(function () {
         var li = $(this);
         li.css("cursor", "pointer");
-        li.click(function() {
+        li.click(function () {
             var itemName = $(this).attr('alt');
             _setSelectedItemName("");
-            $('.user-assignments-role-list ul').find('li').each(function() {
+            $('.user-assignments-role-list ul').find('li').each(function () {
                 $(this).removeClass('selected');
             });
             $(this).addClass('selected');
@@ -107,7 +122,7 @@ $selectedUserGetter = 'userdescription';
     });
 
     $('#asignarSeleccion').css("cursor", "pointer");
-    $('#asignarSeleccion').click(function() {
+    $('#asignarSeleccion').click(function () {
         if (!_isSelectedItemName())
             return;
         var itemName = _getSelectedItemName();
@@ -119,7 +134,7 @@ $selectedUserGetter = 'userdescription';
     });
 
     $('#revocarSeleccion').css("cursor", "pointer");
-    $('#revocarSeleccion').click(function() {
+    $('#revocarSeleccion').click(function () {
         if (!_isSelectedItemName())
             return;
         var itemName = _getSelectedItemName();

@@ -56,7 +56,7 @@ $cols[] = array(
                         <!--<a href="#" class="panel-control-fullscreen"></a>-->
                     </span>
                 </div>
-                <div class="panel-body border pn">
+                <div class="panel-body border">
                     <div style="overflow: auto">
 
                     <?php
