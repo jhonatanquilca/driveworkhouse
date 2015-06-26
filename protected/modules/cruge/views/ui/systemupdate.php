@@ -5,7 +5,7 @@ $this->pageTitle = Yii::t('app', 'Sistema');
 
 <?php
 if (Yii::app()->user->hasFlash('systemFormFlash')) {
-    echo "<div class='alert alert-success'>";
+    echo "<div class='alert alert-success light'>";
     echo Yii::app()->user->getFlash('systemFormFlash');
     echo "</div>";
 }
@@ -28,7 +28,7 @@ if (Yii::app()->user->hasFlash('systemFormFlash')) {
                     </span>
                 </div>
                 <div class="panel-body border pn">
-                    <div class="panel-body p25">
+                    <div class="panel-body p25">                        
                         <?php
                         $form = $this->beginWidget('CActiveForm', array(
                             'id' => 'CrugeSystem-Form',
@@ -36,6 +36,7 @@ if (Yii::app()->user->hasFlash('systemFormFlash')) {
                             'enableClientValidation' => false,
                         ));
                         ?>
+                        
                         <div class="row-fluid form-group">
                             <div class='separator-form span11'><?php echo ucwords(CrugeTranslator::t("opciones de sesion")); ?></div>
                             <div class="clear"></div>

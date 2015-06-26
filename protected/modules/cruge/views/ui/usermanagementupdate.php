@@ -31,12 +31,8 @@ $this->pageTitle = Yii::t('app', 'Administrador de Usuarios');
                         ));
                         ?>
 
-                        <div class="control-group ">
                             <?php echo $form->textFieldRow($model, 'username', array('class' => 'form-control')) ?>
-                        </div>
-                        <div class="control-group">
                             <?php echo $form->textFieldRow($model, 'email', array('class' => 'form-control')) ?>
-                        </div>
                         <div class="control-group">
                             <!--<div class="col-lg-5">-->
                             <label class="control-label" for="CrugeStoredUser_newPassword">Clave&nbsp;&nbsp;</label>
