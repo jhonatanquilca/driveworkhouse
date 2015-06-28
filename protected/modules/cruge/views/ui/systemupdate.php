@@ -36,89 +36,128 @@ if (Yii::app()->user->hasFlash('systemFormFlash')) {
                             'enableClientValidation' => false,
                         ));
                         ?>
-                        
-                        <div class="row-fluid form-group">
-                            <div class='separator-form span11'><?php echo ucwords(CrugeTranslator::t("opciones de sesion")); ?></div>
-                            <div class="clear"></div>
-                            <!--	<div class='col'>
-                            <?php echo $form->labelEx($model, 'systemdown'); ?>
-                            <?php echo $form->checkBox($model, 'systemdown'); ?>
-                            <?php echo $form->error($model, 'systemdown'); ?>
-                                    </div>-->
-                            <div class='col'>
+
+                        <legend class="section">
+                            <?php echo ucwords(CrugeTranslator::t("opciones de sesion")); ?>
+                        </legend>
+                        <div class="clear"></div>
+                        <div class="section row">
+                            <div class="col-md-4">
+                                <?php echo $form->labelEx($model, 'systemdown'); ?>
+                                <div class='control-group'>
+                                    <?php echo $form->checkBox($model, 'systemdown', array()); ?>
+                                    <?php echo $form->error($model, 'systemdown'); ?>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
                                 <?php echo $form->labelEx($model, 'systemnonewsessions'); ?>
-                                <?php echo $form->checkBox($model, 'systemnonewsessions'); ?>
-                                <?php echo $form->error($model, 'systemnonewsessions'); ?>
+                                <div class='control-group'>
+
+                                    <?php echo $form->checkBox($model, 'systemnonewsessions', array()); ?>
+                                    <?php echo $form->error($model, 'systemnonewsessions'); ?>
+                                </div>
                             </div>
-                            <div class='col'>
+                            <div class="col-md-4">
                                 <?php echo $form->labelEx($model, 'sessionmaxdurationmins'); ?>
-                                <?php
-                                echo $form->textField($model, 'sessionmaxdurationmins'
-                                        , array('size' => 5, 'maxlength' => 4));
-                                ?>
-                                <?php echo $form->error($model, 'sessionmaxdurationmins'); ?>
+                                <div class='control-group'>
+
+                                    <?php
+                                    echo $form->textField($model, 'sessionmaxdurationmins'
+                                            , array('size' => 5, 'maxlength' => 4, 'class' => 'form-control'));
+                                    ?>
+                                    <?php echo $form->error($model, 'sessionmaxdurationmins'); ?>
+                                </div>
                             </div>
-                        </div>
-                        <div class="row-fluid form-group">
-                            <div class='separator-form span11'><?php echo ucwords(CrugeTranslator::t("opciones de registro de usuarios")); ?></div>
-                            <div class="clear"></div>
-                            <!--	<div class='col'>
-                            <?php echo $form->labelEx($model, 'registerusingcaptcha'); ?>
-                            <?php echo $form->checkBox($model, 'registerusingcaptcha'); ?>
-                            <?php echo $form->error($model, 'registerusingcaptcha'); ?>
-                                    </div>-->
-                            <div class='col'>
-                                <?php echo $form->labelEx($model, 'registerusingactivation'); ?>
-                                <?php
-                                echo $form->dropDownList($model, 'registerusingactivation'
-                                        , Yii::app()->user->um->getUserActivationOptions());
-                                ?>
-                                <?php echo $form->error($model, 'registerusingactivation'); ?>
-                            </div>
-                            <div class='col'>
-                                <?php echo $form->labelEx($model, 'defaultroleforregistration'); ?>
-                                <?php
-                                echo $form->dropDownList($model, 'defaultroleforregistration'
-                                        , Yii::app()->user->rbac->getRolesAsOptions(CrugeTranslator::t(
-                                                        "--no asignar ningun rol--")));
-                                ?>
-                                <?php echo $form->error($model, 'defaultroleforregistration'); ?>
-                            </div>
-                            <!--	<div class='col'>
-                            <?php echo $form->labelEx($model, 'registrationonlogin'); ?>
-                            <?php echo $form->checkBox($model, 'registrationonlogin'); ?>
-                            <?php echo $form->error($model, 'registrationonloginn'); ?>
-                                    </div>-->
                         </div>
 
-                        <!--<div class="row-fluid form-group">
-                                <div class='separator-form span11'><?php echo ucwords(CrugeTranslator::t("terminos y condiciones de registro")); ?></div>
-                                <div class="clear"></div>
-                                <div class='row-fluid'>
-                                        <div class='col'>
-                        <?php echo $form->labelEx($model, 'registerusingterms'); ?>
-                        <?php echo $form->checkBox($model, 'registerusingterms'); ?>
-                        <?php echo $form->error($model, 'registerusingterms'); ?>
-                                        </div>
-                                        <div class='col'>
-                        <?php echo $form->labelEx($model, 'registerusingtermslabel'); ?>
-                        <?php
-                        echo $form->textField($model, 'registerusingtermslabel'
-                                , array('size' => 45, 'maxlength' => 100));
-                        ?>
-                        <?php echo $form->error($model, 'registerusingtermslabel'); ?>
-                                        </div>
+                        <legend class="section">
+                            <?php echo ucwords(CrugeTranslator::t("opciones de registro de usuarios")); ?>                            
+                        </legend>
+                        <div class="clear"></div>
+                        <div class="section row">
+                            <div class="col-md-4">
+
+                                <?php echo $form->labelEx($model, 'registerusingcaptcha'); ?>
+                                <div class='control-group'>
+
+                                    <?php echo $form->checkBox($model, 'registerusingcaptcha'); ?>
+                                    <?php echo $form->error($model, 'registerusingcaptcha'); ?>
                                 </div>
-                                <hr/>
-                                <div class='row-fluid'>
-                        <?php echo $form->labelEx($model, 'terms'); ?>
-                        <?php
-                        echo $form->textArea($model, 'terms'
-                                , array('rows' => 10, 'cols' => 50));
-                        ?>
-                        <?php echo $form->error($model, 'terms'); ?>
+                            </div>
+                            <div class="col-md-4">
+                                <?php echo $form->labelEx($model, 'registerusingactivation'); ?>
+                                <div class='control-group'>
+
+                                    <?php
+                                    echo $form->dropDownList($model, 'registerusingactivation'
+                                            , Yii::app()->user->um->getUserActivationOptions(), array('class' => 'form-control'));
+                                    ?>
+                                    <?php echo $form->error($model, 'registerusingactivation'); ?>
                                 </div>
-                        </div>-->
+                            </div>
+                            <div class="col-md-4">
+                                <?php echo $form->labelEx($model, 'defaultroleforregistration'); ?>
+                                <div class='control-group'>
+                                    <?php
+                                    echo $form->dropDownList($model, 'defaultroleforregistration'
+                                            , Yii::app()->user->rbac->getRolesAsOptions(CrugeTranslator::t(
+                                                            "--no asignar ningun rol--")), array('class' => 'form-control'));
+                                    ?>
+                                    <?php echo $form->error($model, 'defaultroleforregistration'); ?>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="section row">
+                            <div class="col-md-6">
+                                <?php echo $form->labelEx($model, 'registrationonlogin'); ?>
+                                <div class='control-group'>
+
+                                    <?php echo $form->checkBox($model, 'registrationonlogin'); ?>
+                                    <?php echo $form->error($model, 'registrationonloginn'); ?>
+                                </div>
+                            </div>
+                        </div>
+
+                        <legend class="section">                            
+                            <?php echo ucwords(CrugeTranslator::t("terminos y condiciones de registro")); ?>
+                        </legend>
+                        <div class="clear"></div>
+                        <div class="section row">
+
+                            <div class="col-md-4">
+
+                                <?php echo $form->labelEx($model, 'registerusingterms'); ?>
+                                <div class='control-group'>
+
+                                    <?php echo $form->checkBox($model, 'registerusingterms'); ?>
+                                    <?php echo $form->error($model, 'registerusingterms'); ?>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+
+                                <?php echo $form->labelEx($model, 'registerusingtermslabel'); ?>
+                                <div class='control-group'>
+                                    <?php
+                                    echo $form->textField($model, 'registerusingtermslabel'
+                                            , array('size' => 45, 'maxlength' => 100, 'class' => 'form-control'));
+                                    ?>
+                                    <?php echo $form->error($model, 'registerusingtermslabel'); ?>
+                                </div>
+                            </div>
+                        </div>
+                        <hr/>
+                        <div class='section row'>
+                            <?php echo $form->labelEx($model, 'terms'); ?>
+                            <div class='control-group'>
+
+                                <?php
+                                echo $form->textArea($model, 'terms'
+                                        , array('rows' => 5, ));
+                                ?>
+                                <?php echo $form->error($model, 'terms'); ?>
+
+                            </div>
+                        </div>
 
 
                     </div>
