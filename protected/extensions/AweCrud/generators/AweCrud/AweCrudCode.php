@@ -184,7 +184,7 @@ class AweCrudCode extends CrudCode
                 return "\$form->dropDownListRow(\$model, '{$relation[0]}', CHtml::listData({$relatedModelClass}::model()->findAll(), '{$foreignPk}', {$relatedModelClass}::representingColumn()){$prompt})";
             }
 
-            return "\$form->dropDownListRow(\$model, '{$column->name}', array('' => ' -- Seleccione -- ') + CHtml::listData({$relatedModelClass}::model()->findAll(), '{$foreignPk}', {$relatedModelClass}::representingColumn()){$prompt})";
+            return "\$form->dropDownListRow(\$model, '{$column->name}', array('' => ' -- Seleccione -- ') + CHtml::listData({$relatedModelClass}::model()->findAll(), '{$foreignPk}', {$relatedModelClass}::representingColumn()){$prompt},array('class'=>'form-control'))";
         }
 
         if (strtoupper($column->dbType) == 'TINYINT(1)'
@@ -207,14 +207,14 @@ class AweCrudCode extends CrudCode
                 foreach($values as $value){
                    $valuesfinal .=$value . " => " . $value .  ",";
                 }
-                return "\$form->dropDownListRow(\$model, '{$column->name}', array({$valuesfinal}))";
+                return "\$form->dropDownListRow(\$model, '{$column->name}', array({$valuesfinal}),array('class'=>'form-control'))";
             }
             if (strtoupper($column->dbType) == 'DATE') {
                 return "\$form->datepickerRow(\$model, '{$column->name}', array('prepend' => '<i class=\"icon-calendar\"></i>'))";
             } else {
                 if (stripos($column->dbType, 'text') !== false) { // Start of CrudCode::generateActiveField code.
                     
-                    return "\$form->textAreaRow(\$model,'{$column->name}',array('rows'=>3, 'cols'=>50))";
+                    return "\$form->textAreaRow(\$model,'{$column->name}',array('rows'=>3, 'cols'=>50,'class'=>'gui-input'))";
                 } else {
                     $passwordI18n = Yii::t('AweCrud.app', 'password');
                     $passwordI18n = (isset($passwordI18n) && $passwordI18n !== '') ? '|' . $passwordI18n : '';
@@ -226,9 +226,9 @@ class AweCrudCode extends CrudCode
                     }
 
                     if ($column->type !== 'string' || $column->size === null) {
-                        return "\$form->{$inputField}(\$model, '{$column->name}')";
+                        return "\$form->{$inputField}(\$model, '{$column->name}',array('class'=>'gui-input'))";
                     } else {
-                        return "\$form->{$inputField}(\$model, '{$column->name}', array('maxlength' => $column->size))";
+                        return "\$form->{$inputField}(\$model, '{$column->name}', array('maxlength' => $column->size,'class'=>'gui-input'))";
                     }
                 }
             }

@@ -1,6 +1,8 @@
+
 /*==================================================================
   Form Wrappers
 ===================================================================*/
+
 .admin-form,
 .admin-form * {
   -webkit-box-sizing: border-box;
@@ -31,7 +33,7 @@
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  -webkit-border-radius: 0px;
+  -webkit-border-radius: 0px ;
   border-radius: 0px;
 }
 .admin-form input[type="search"]::-webkit-search-decoration,

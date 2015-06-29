@@ -6,7 +6,7 @@ $this->pageTitle = Yii::t('app', 'Administrador de Usuarios');
 ?>
 <div class="row">
     <div class="col-sm-12 pln">
-        <div class="bs-component p10">
+        <div class="bs-component p25">
             <div class="panel panel-primary">
                 <div class="panel-heading">
                     <span class="panel-title"> <?php echo ucwords(CrugeTranslator::t("crear nuevo usuario")); ?></span>
@@ -20,7 +20,7 @@ $this->pageTitle = Yii::t('app', 'Administrador de Usuarios');
                     </span>
                 </div>
                 <div class="panel-body border pn">
-                    <div class="panel-body p25">
+                    <div class="admin-form theme-info panel-body p25">
 
                         <?php
                         $form = $this->beginWidget('ext.AweCrud.components.AweActiveForm', array(
@@ -31,17 +31,17 @@ $this->pageTitle = Yii::t('app', 'Administrador de Usuarios');
                         ));
                         ?>
 
-                        <?php echo $form->textFieldRow($model, 'username', array('class' => 'form-control')) ?>
+                        <?php echo $form->textFieldRow($model, 'username', array('class' => 'gui-input')) ?>
 
-                        <?php echo $form->textFieldRow($model, 'email', array('class' => 'form-control')) ?>
+                        <?php echo $form->textFieldRow($model, 'email', array('class' => 'gui-input')) ?>
                         <div class="control-group ">
                             <label class="control-label " for="CrugeStoredUser_newPassword">Clave </label>
 
                             <div class="controls ">
                                 <div class="input-append">
 
-                                    <input  name="CrugeStoredUser[newPassword]" id="CrugeStoredUser_newPassword" type="text" maxlength="20" class="form-control ">
-                                    <span class="btn btn-success " type="button" onclick="generarPass()"><i class="fa fa-refresh"></i></span>
+                                    <input  name="CrugeStoredUser[newPassword]" id="CrugeStoredUser_newPassword" type="text" maxlength="20" class="gui-input ">
+                                    <span class="btn btn-success " type="button" onclick="generarPass()" style="height: 42px;"><i class="fa fa-refresh"></i></span>
                                     <!--<div class="input-group-btn">-->                           
                                     <!--</div>-->
                                     <?php

@@ -28,7 +28,7 @@ if (Yii::app()->user->hasFlash('systemFormFlash')) {
                     </span>
                 </div>
                 <div class="panel-body border pn">
-                    <div class="panel-body p25">                        
+                    <div class="admin-form theme-info panel-body p25">                        
                         <?php
                         $form = $this->beginWidget('CActiveForm', array(
                             'id' => 'CrugeSystem-Form',
@@ -63,7 +63,7 @@ if (Yii::app()->user->hasFlash('systemFormFlash')) {
 
                                     <?php
                                     echo $form->textField($model, 'sessionmaxdurationmins'
-                                            , array('size' => 5, 'maxlength' => 4, 'class' => 'form-control'));
+                                            , array('size' => 5, 'maxlength' => 4, 'class' => 'gui-input'));
                                     ?>
                                     <?php echo $form->error($model, 'sessionmaxdurationmins'); ?>
                                 </div>
@@ -90,7 +90,7 @@ if (Yii::app()->user->hasFlash('systemFormFlash')) {
 
                                     <?php
                                     echo $form->dropDownList($model, 'registerusingactivation'
-                                            , Yii::app()->user->um->getUserActivationOptions(), array('class' => 'form-control'));
+                                            , Yii::app()->user->um->getUserActivationOptions(), array('class' => 'gui-input'));
                                     ?>
                                     <?php echo $form->error($model, 'registerusingactivation'); ?>
                                 </div>
@@ -101,7 +101,7 @@ if (Yii::app()->user->hasFlash('systemFormFlash')) {
                                     <?php
                                     echo $form->dropDownList($model, 'defaultroleforregistration'
                                             , Yii::app()->user->rbac->getRolesAsOptions(CrugeTranslator::t(
-                                                            "--no asignar ningun rol--")), array('class' => 'form-control'));
+                                                            "--no asignar ningun rol--")), array('class' => 'gui-input'));
                                     ?>
                                     <?php echo $form->error($model, 'defaultroleforregistration'); ?>
                                 </div>
@@ -139,7 +139,7 @@ if (Yii::app()->user->hasFlash('systemFormFlash')) {
                                 <div class='control-group'>
                                     <?php
                                     echo $form->textField($model, 'registerusingtermslabel'
-                                            , array('size' => 45, 'maxlength' => 100, 'class' => 'form-control'));
+                                            , array('size' => 45, 'maxlength' => 100, 'class' => 'gui-input'));
                                     ?>
                                     <?php echo $form->error($model, 'registerusingtermslabel'); ?>
                                 </div>

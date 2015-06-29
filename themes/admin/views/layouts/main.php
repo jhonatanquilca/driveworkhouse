@@ -1,6 +1,5 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
-
     <head>
         <!-- Meta, title, CSS, favicons, etc. -->
         <meta charset="utf-8">
@@ -14,8 +13,8 @@
         <link rel='stylesheet' type='text/css' href='<?php echo Yii::app()->theme->baseUrl; ?>/css/font-family.css'>
 
         <!-- Theme CSS -->
+        <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->theme->baseUrl; ?>/css/admin-forms.css">
         <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->theme->baseUrl; ?>/css/theme.css">
-        <!--<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->theme->baseUrl; ?>/css/admin-forms.css">-->
 
         <!-- Favicon -->
         <link rel="shortcut icon" href="<?php echo Yii::app()->theme->baseUrl; ?>/img/favicon.ico">
@@ -141,15 +140,15 @@
                                 </li>
                                 <?php if (Yii::app()->user->checkAccess('admin')): ?>
                                     <li class="list-group-item">
-                                        <?php echo CHtml::link('<span class="fa fa-cog"></span> Administración', Yii::app()->user->ui->userManagementAdminUrl, array('class' => 'animated animated-short fadeInUp')) ?>
+                                        <?php echo CHtml::link('<span class="fa fa-cog"></span> AdministraciÃ³n', Yii::app()->user->ui->userManagementAdminUrl, array('class' => 'animated animated-short fadeInUp')) ?>
                                     </li>
                                 <?php endif; ?>
                                 <li class="list-group-item">
-                                    <?php echo CHtml::link('<span class="fa fa-power-off"></span> Cerrar Sesión', Yii::app()->user->ui->logoutUrl, array('class' => 'animated animated-short fadeInUp')) ?>
+                                    <?php echo CHtml::link('<span class="fa fa-power-off"></span> Cerrar SesiÃ³n', Yii::app()->user->ui->logoutUrl, array('class' => 'animated animated-short fadeInUp')) ?>
                                 </li>
                             <?php else: ?>
                                 <li class="list-group-item">
-                                    <?php echo CHtml::link('<span class="fa fa-power-off"></span> Iniciar Sesión', Yii::app()->user->ui->loginUrl, array('class' => 'animated animated-short fadeInUp')) ?>
+                                    <?php echo CHtml::link('<span class="fa fa-power-off"></span> Iniciar SesiÃ³n', Yii::app()->user->ui->loginUrl, array('class' => 'animated animated-short fadeInUp')) ?>
                                 </li>
                             <?php endif; ?>
                         </ul>
@@ -185,25 +184,25 @@
                         <section id="content_wrapper">
 
                             <!-- Start: Topbar -->
-                            <header id="topbar">
-                                <div class="topbar-left">
-                                    <ol class="breadcrumb">
-                                        <li class="crumb-active">
-                                            <a href="dashboard.html">Dashboard</a>
-                                        </li>
-                                        <li class="crumb-icon">
-                                            <a href="dashboard.html">
-                                                <span class="glyphicon glyphicon-home"></span>
-                                            </a>
-                                        </li>
-                                        <li class="crumb-link">
-                                            <a href="index-2.html">Home</a>
-                                        </li>
-                                        <li class="crumb-trail">Dashboard</li>
-                                    </ol>
-                                </div>
-
-                            </header>
+<!--                                                        <header id="topbar">
+                                                            <div class="topbar-left">
+                                                                <ol class="breadcrumb">
+                                                                    <li class="crumb-active">
+                                                                        <a href="dashboard.html">Dashboard</a>
+                                                                    </li>
+                                                                    <li class="crumb-icon">
+                                                                        <a href="dashboard.html">
+                                                                            <span class="glyphicon glyphicon-home"></span>
+                                                                        </a>
+                                                                    </li>
+                                                                    <li class="crumb-link">
+                                                                        <a href="index-2.html">Home</a>
+                                                                    </li>
+                                                                    <li class="crumb-trail">Dashboard</li>
+                                                                </ol>
+                                                            </div>
+                            
+                                                        </header>-->
                             <!-- End: Topbar -->
 
                             <!-- Begin: Content -->
@@ -212,15 +211,14 @@
 
                             <!--                            </section>-->
                             <!-- End: Content -->
-                            <section id="content" class="table-layout animated fadeIn">
+                            <section id="content" class="table-layout animated fadeIn pt5">
 
                                 <!-- begin: .tray-center -->
-                                <div class="tray tray-justify prn">
+                                <div class="tray tray-justify prn ptn">
 
                                     <div class="tray-scroller scroller-primary">
 
                                         <?php echo $content; ?>
-                                        <br>
                                         <br>
                                     </div>
 

@@ -24754,9 +24754,9 @@ input[type="color"]{
     font-size: 14px;
     line-height: 20px;
     color: #555555;
-    -webkit-border-radius: 4px;
-    -moz-border-radius: 4px;
-    border-radius: 4px;
+    -webkit-border-radius: 1px;
+    -moz-border-radius: 1px;
+    border-radius: 1px;
     vertical-align: middle;
 
 }

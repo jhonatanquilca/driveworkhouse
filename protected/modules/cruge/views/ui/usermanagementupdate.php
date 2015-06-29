@@ -20,7 +20,7 @@ $this->pageTitle = Yii::t('app', 'Administrador de Usuarios');
                     </span>
                 </div>
                 <div class="panel-body border pn">
-                    <div class="panel-body p25">
+                    <div class="admin-form theme-link panel-body p25">
 
                         <?php
                         $form = $this->beginWidget('ext.AweCrud.components.AweActiveForm', array(
@@ -31,8 +31,8 @@ $this->pageTitle = Yii::t('app', 'Administrador de Usuarios');
                         ));
                         ?>
 
-                            <?php echo $form->textFieldRow($model, 'username', array('class' => 'form-control')) ?>
-                            <?php echo $form->textFieldRow($model, 'email', array('class' => 'form-control')) ?>
+                            <?php echo $form->textFieldRow($model, 'username', array('class' => 'gui-input')) ?>
+                            <?php echo $form->textFieldRow($model, 'email', array('class' => 'gui-input')) ?>
                         <div class="control-group">
                             <!--<div class="col-lg-5">-->
                             <label class="control-label" for="CrugeStoredUser_newPassword">Clave&nbsp;&nbsp;</label>
@@ -41,8 +41,8 @@ $this->pageTitle = Yii::t('app', 'Administrador de Usuarios');
                                 <div class="input-append">
 
 
-                                    <input  name="CrugeStoredUser[newPassword]" id="CrugeStoredUser_newPassword" type="text" maxlength="20" class="form-control ">
-                                        <button class="btn btn-success" type="button" onclick="generarPass()"><i class="fa fa-refresh"></i></button>
+                                    <input  name="CrugeStoredUser[newPassword]" id="CrugeStoredUser_newPassword" type="text" maxlength="20" class="gui-input ">
+                                    <button class="btn btn-success" type="button" onclick="generarPass() " style="height: 42px"><i class="fa fa-refresh"></i></button>
 
                                     <?php
 //                        echo $form->textFieldRow($model, 'newPassword', array(
@@ -85,7 +85,7 @@ $this->pageTitle = Yii::t('app', 'Administrador de Usuarios');
                             <?php // echo $form->labelEx($model, 'regdate');  ?>
                             <?php
                             echo $form->textFieldRow($model, 'regdate', array(
-                                'class' => 'form-control',
+                                'class' => 'gui-input',
                                 'readonly' => 'readonly',
                                 'value' => Yii::app()->user->ui->formatDate($model->regdate),
                             ));
@@ -95,7 +95,7 @@ $this->pageTitle = Yii::t('app', 'Administrador de Usuarios');
                             <?php // echo $form->labelEx($model, 'actdate');  ?>
                             <?php
                             echo $form->textFieldRow($model, 'actdate', array(
-                                'class' => 'form-control',
+                                'class' => 'gui-input',
                                 'readonly' => 'readonly',
                                 'value' => Yii::app()->user->ui->formatDate($model->actdate),
                             ));
@@ -105,7 +105,7 @@ $this->pageTitle = Yii::t('app', 'Administrador de Usuarios');
                             <?php // echo $form->labelEx($model, 'logondate');  ?>
                             <?php
                             echo $form->textFieldRow($model, 'logondate', array(
-                                'class' => 'form-control',
+                                'class' => 'gui-input',
                                 'readonly' => 'readonly',
                                 'value' => Yii::app()->user->ui->formatDate($model->logondate),
                                     )

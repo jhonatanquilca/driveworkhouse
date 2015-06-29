@@ -27,7 +27,7 @@ $this->pageTitle = Yii::t('app', 'Campos Personalizados');
                     </span>
                 </div>
                 <div class="panel-body border pn">
-                    <div class="panel-body p25">
+                    <div class="admin-form theme-info panel-body p25">
                         <?php
                         $form = $this->beginWidget('CActiveForm', array(
 //                'type'=>'horizontal',
@@ -40,7 +40,7 @@ $this->pageTitle = Yii::t('app', 'Campos Personalizados');
                         ));
                         ?>
                         <legend class="section">
-                        <?php echo ucfirst(CrugeTranslator::t("datos del campo")); ?>
+                            <?php echo ucfirst(CrugeTranslator::t("datos del campo")); ?>
                         </legend>
                         <div class="clear"></div>
 
@@ -48,7 +48,7 @@ $this->pageTitle = Yii::t('app', 'Campos Personalizados');
                             <div class="col-md-4">
                                 <div class='control-group'>
                                     <?php echo $form->labelEx($model, 'fieldname'); ?>
-                                    <?php echo $form->textField($model, 'fieldname', array('size' => 15, 'maxlength' => 20, 'class' => 'form-control')); ?>
+                                    <?php echo $form->textField($model, 'fieldname', array('size' => 15, 'maxlength' => 20, 'class' => 'gui-input')); ?>
                                     <?php echo $form->error($model, 'fieldname'); ?>
                                 </div>
                             </div>
@@ -56,7 +56,7 @@ $this->pageTitle = Yii::t('app', 'Campos Personalizados');
 
                                 <div class='control-group'>
                                     <?php echo $form->labelEx($model, 'longname'); ?>
-                                    <?php echo $form->textField($model, 'longname', array('class' => 'form-control')); ?>
+                                    <?php echo $form->textField($model, 'longname', array('class' => 'gui-input')); ?>
                                     <?php echo $form->error($model, 'longname'); ?>
                                 </div>
                             </div>
@@ -64,7 +64,7 @@ $this->pageTitle = Yii::t('app', 'Campos Personalizados');
                                 <div class='control-group'>
                                     <label for="CrugeField_position" class="required">Posicion </label>
                                     <?php // echo $form->labelEx($model, 'position'); ?>
-                                    <?php echo $form->textField($model, 'position', array('size' => 5, 'maxlength' => 3, 'class' => 'form-control')) ?>
+                                    <?php echo $form->textField($model, 'position', array('size' => 5, 'maxlength' => 3, 'class' => 'gui-input')) ?>
                                     <?php echo $form->error($model, 'position'); ?>
                                 </div>
                             </div>
@@ -97,7 +97,7 @@ $this->pageTitle = Yii::t('app', 'Campos Personalizados');
                             </div>
                         </div>
                         <legend class="section">
-                        <?php echo ucfirst(CrugeTranslator::t("datos del contenido")); ?>
+                            <?php echo ucfirst(CrugeTranslator::t("datos del contenido")); ?>
                         </legend>
                         <div class="clear"></div>
                         <div class="section row">
@@ -108,7 +108,7 @@ $this->pageTitle = Yii::t('app', 'Campos Personalizados');
                                     <?php echo $form->labelEx($model, 'fieldtype'); ?>
                                     <?php
                                     echo $form->dropDownList($model, 'fieldtype'
-                                            , Yii::app()->user->um->getFieldTypeOptions(), array('class' => 'form-control'));
+                                            , Yii::app()->user->um->getFieldTypeOptions(), array('class' => 'gui-input'));
                                     ?>
                                     <?php echo $form->error($model, 'fieldtype'); ?>
                                 </div>
@@ -117,7 +117,7 @@ $this->pageTitle = Yii::t('app', 'Campos Personalizados');
 
                                 <div class='control-group'>
                                     <?php echo $form->labelEx($model, 'fieldsize'); ?>
-                                    <?php echo $form->textField($model, 'fieldsize', array('size' => 5, 'maxlength' => 3, 'class' => 'form-control')); ?>
+                                    <?php echo $form->textField($model, 'fieldsize', array('size' => 5, 'maxlength' => 3, 'class' => 'gui-input')); ?>
                                     <?php echo $form->error($model, 'fieldsize'); ?>
                                 </div>
                             </div>
@@ -125,23 +125,25 @@ $this->pageTitle = Yii::t('app', 'Campos Personalizados');
 
                                 <div class='control-group'>
                                     <?php echo $form->labelEx($model, 'maxlength'); ?>
-                                    <?php echo $form->textField($model, 'maxlength', array('size' => 5, 'maxlength' => 5, 'class' => 'form-control')); ?>
+                                    <?php echo $form->textField($model, 'maxlength', array('size' => 5, 'maxlength' => 5, 'class' => 'gui-input')); ?>
                                     <?php echo $form->error($model, 'maxlength'); ?>
                                 </div>
                             </div>
                         </div>
                         <div class="section row">
 
-                            <div class="col-md-4">
 
-                                <div class="field-group">
-                                    <div class='control-group'>
-                                        <?php echo $form->labelEx($model, 'predetvalue'); ?>
-                                        <?php echo $form->textArea($model, 'predetvalue', array('rows' => 5, 'cols' => 40)); ?>
-                                        <?php echo $form->error($model, 'predetvalue'); ?>
-                                        <p class='hint'><?php
-                                            echo CrugeTranslator::t(
-                                                    "si el fieldtype es un Listbox ponga aqui las opciones una por cada linea,
+                            <div class='control-group '>
+                                <div class="col-md-4">
+                                    <?php echo $form->labelEx($model, 'predetvalue'); ?>
+                                    <?php echo $form->textArea($model, 'predetvalue', array('rows' => 5, 'cols' => 40)); ?>
+                                    <?php echo $form->error($model, 'predetvalue'); ?>
+                                </div>
+                                <div class="col-md-12">
+
+                                    <p class='hint'><?php
+                                        echo CrugeTranslator::t(
+                                                "si el fieldtype es un Listbox ponga aqui las opciones una por cada linea,
          el valor coloquelo al inicio seguido de una coma, ejemplo:
          <ul style='list-style: none;'>
          <li>1, azul</li>
@@ -149,9 +151,8 @@ $this->pageTitle = Yii::t('app', 'Campos Personalizados');
          <li>3, verde</li>
          </ul>
         "
-                                            );
-                                            ?></p>
-                                    </div>
+                                        );
+                                        ?></p>
                                 </div>
                             </div>
                         </div>
@@ -180,7 +181,7 @@ $this->pageTitle = Yii::t('app', 'Campos Personalizados');
                                 </div>
                                 <div class='row-fluid'>
                         <?php echo $form->labelEx($model, 'useregexpmsg'); ?>
-                        <?php echo $form->textField($model, 'useregexpmsg', array('size' => 50, 'maxlength' => 512,'class'=>'form-control')); ?>
+                        <?php echo $form->textField($model, 'useregexpmsg', array('size' => 50, 'maxlength' => 512, 'class' => 'gui-input')); ?>
                         <?php echo $form->error($model, 'useregexpmsg'); ?>
                                 </div>
                         </div>-->
