@@ -14135,6 +14135,7 @@ i.field-icon-right {
     top: 0;
     line-height: 100px;
     font-size: 100px;
+    width: 100px !important;
 }
 .icon-bg.left {
     right: auto;
