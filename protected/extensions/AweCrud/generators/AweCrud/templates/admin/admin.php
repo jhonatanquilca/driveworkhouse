@@ -68,7 +68,7 @@ return false;
 
                         <?php echo "<?php"; ?> $this->widget('bootstrap.widgets.TbGridView',array(
                         'id' => '<?php echo $this->class2id($this->modelClass); ?>-grid',
-                        'type' => 'striped condensed', //striped condensed  bordered
+                        'type' => 'striped condensed hover', //striped condensed  bordered hover
                         'dataProvider' => $model->search(),
                         'filter' => $model,
                         'emptyText'=>'no hay datos!',

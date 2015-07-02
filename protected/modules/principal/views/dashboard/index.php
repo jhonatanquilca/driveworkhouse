@@ -3,46 +3,117 @@
 
 //$this->pageTitle = Yii::app()->name;
 ?>
-<div class="tray tray-center">
-    <div >
-        <div class="row mb10">
-            <div class="col-sm-6 col-md-4">
-                <div class="bs-component">
-                    <div class="panel panel-tile text-primary light">
-                        <div class="panel-body pn pl20 p5">
-                            <i class="fa fa-comments-o icon-bg"></i>
-                            <h2 class="mt15 lh15">
-                                <b>523</b>
-                            </h2>
-                            <h5 class="text-muted">Comments</h5>
-                        </div>
-                    </div>
+<div class="row mb10">
+          <div class="col-sm-6 col-md-3">
+            <div class="panel bg-alert light of-h mb10">
+              <div class="pn pl20 p5">
+                <div class="icon-bg">
+                  <i class="fa fa-comments-o"></i>
+                </div>
+                <h2 class="mt15 lh15">
+                  <b>523</b>
+                </h2>
+                <h5 class="text-muted">Comments</h5>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-md-3">
+            <div class="panel bg-info light of-h mb10">
+              <div class="pn pl20 p5">
+                <div class="icon-bg">
+                  <i class="fa fa-twitter"></i>
+                </div>
+                <h2 class="mt15 lh15">
+                  <b>348</b>
+                </h2>
+                <h5 class="text-muted">Tweets</h5>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-md-3">
+            <div class="panel bg-danger light of-h mb10">
+              <div class="pn pl20 p5">
+                <div class="icon-bg">
+                  <i class="fa fa-bar-chart-o"></i>
+                </div>
+                <h2 class="mt15 lh15">
+                  <b>267</b>
+                </h2>
+                <h5 class="text-muted">Reach</h5>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-md-3">
+            <div class="panel bg-warning light of-h mb10">
+              <div class="pn pl20 p5">
+                <div class="icon-bg">
+                  <i class="fa fa-envelope"></i>
+                </div>
+                <h2 class="mt15 lh15">
+                  <b>714</b>
+                </h2>
+                <h5 class="text-muted">Comments</h5>
+              </div>
+            </div>
+          </div>
+        </div>
+<div class="row ">
+    <div class="col-md-6">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <span class="panel-icon">
+                    <i class="fa fa-user"></i>
+                </span>
+                <span class="panel-title">     <?php echo 'titulo' ?>                </span>
+                <span class="panel-controls">
+                    <a href="#" class="panel-control-loader"></a>
+                    <!--<a href="#" class="panel-control-remove"></a>-->
+                    <!--<a href="#" class="panel-control-title"></a>-->
+                    <!--<a href="#" class="panel-control-color"></a>-->
+                    <a href="#" class="panel-control-collapse"></a>
+                    <!--<a href="#" class="panel-control-fullscreen"></a>-->
+                </span>
+            </div>
+            <div class="panel-body border pn">
+                <div class="admin-form theme-info panel-body p15">
+
+
+
+                    <!-- search-form -->
+
+                    <?php
+                    echo 'hola'
+                    ?>
                 </div>
             </div>
-            <div class="col-sm-6 col-md-4">
-                <div class="bs-component">
-                    <div class="panel panel-tile text-info light">
-                        <div class="panel-body pn pl20 p5">
-                            <i class="fa fa-bar-chart-o icon-bg"></i>
-                            <h2 class="mt15 lh15">
-                                <b>267</b>
-                            </h2>
-                            <h5 class="text-muted">Reach</h5>
-                        </div>
-                    </div>
-                </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <span class="panel-icon">
+                    <i class="fa fa-user"></i>
+                </span>
+                <span class="panel-title">     <?php echo 'titulo' ?>                </span>
+                <span class="panel-controls">
+                    <a href="#" class="panel-control-loader"></a>
+                    <!--<a href="#" class="panel-control-remove"></a>-->
+                    <!--<a href="#" class="panel-control-title"></a>-->
+                    <!--<a href="#" class="panel-control-color"></a>-->
+                    <a href="#" class="panel-control-collapse"></a>
+                    <!--<a href="#" class="panel-control-fullscreen"></a>-->
+                </span>
             </div>
-            <div class="col-sm-6 col-md-4">
-                <div class="bs-component">
-                    <div class="panel panel-tile text-success light">
-                        <div class="panel-body pn pl20 p5">
-                            <i class="fa fa-envelope icon-bg"></i>
-                            <h2 class="mt15 lh15">
-                                <b>714</b>
-                            </h2>
-                            <h5 class="text-muted">Comments</h5>
-                        </div>
-                    </div>
+            <div class="panel-body border pn">
+                <div class="admin-form theme-info panel-body p15">
+
+
+
+                    <!-- search-form -->
+
+                    <?php
+                    echo 'hola 2'
+                    ?>
                 </div>
             </div>
         </div>
