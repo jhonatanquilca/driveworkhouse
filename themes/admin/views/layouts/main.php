@@ -239,7 +239,8 @@
 
                         <!-- jQuery -->
                         <!--<script src="<?php echo Yii::app()->theme->baseUrl; ?>/js/jquery-1.11.1.min.js"></script>-->
-                        <script src="<?php echo Yii::app()->theme->baseUrl; ?>/js/jquery-ui.min.js"></script>
+                        <!--<script src="<?php echo Yii::app()->theme->baseUrl; ?>/js/jquery-ui.min.js"></script>-->
+                        <script src="<?php echo Yii::app()->theme->baseUrl; ?>/js/jquery-ui-1.9.2.custom.js"></script>
 
                         <!-- Theme Javascript -->
                         <script src="<?php echo Yii::app()->theme->baseUrl; ?>/js/utility/utility.js"></script>

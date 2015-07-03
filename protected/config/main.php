@@ -25,11 +25,17 @@ return array(
         'ext.AweCrud.components.*', // AweCrud components
         'application.modules.cruge.components.*',
         'application.modules.cruge.extensions.crugemailer.*',
+		//clientes       
+        'application.modules.cliente.models.*',
+		//transaccion       
+        'application.modules.transaccion.models.*',
     ),
     'modules' => array(
 // aqui pones tus modulos
         'principal',
-        'prueba',
+        'actividades', 
+		'cliente', 
+		  'transaccion',
         // uncomment the following to enable the Gii tool   
         'gii' => array(
             'class' => 'system.gii.GiiModule',
@@ -133,7 +139,7 @@ return array(
         ),
         // uncomment the following to use a MySQL database
         'db' => array(
-            'connectionString' => 'mysql:host=localhost;dbname=deudas',
+            'connectionString' => 'mysql:host=localhost;dbname=drivehouse',
             'emulatePrepare' => true,
             'username' => 'root',
             'password' => '',
