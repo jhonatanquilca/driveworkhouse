@@ -140,15 +140,15 @@
                                 </li>
                                 <?php if (Yii::app()->user->checkAccess('admin')): ?>
                                     <li class="list-group-item">
-                                        <?php echo CHtml::link('<span class="fa fa-cog"></span> AdministraciÃ³n', Yii::app()->user->ui->userManagementAdminUrl, array('class' => 'animated animated-short fadeInUp')) ?>
+                                        <?php echo CHtml::link('<span class="fa fa-cog"></span> Administración', Yii::app()->user->ui->userManagementAdminUrl, array('class' => 'animated animated-short fadeInUp')) ?>
                                     </li>
                                 <?php endif; ?>
                                 <li class="list-group-item">
-                                    <?php echo CHtml::link('<span class="fa fa-power-off"></span> Cerrar SesiÃ³n', Yii::app()->user->ui->logoutUrl, array('class' => 'animated animated-short fadeInUp')) ?>
+                                    <?php echo CHtml::link('<span class="fa fa-power-off"></span> Cerrar Sesión', Yii::app()->user->ui->logoutUrl, array('class' => 'animated animated-short fadeInUp')) ?>
                                 </li>
                             <?php else: ?>
                                 <li class="list-group-item">
-                                    <?php echo CHtml::link('<span class="fa fa-power-off"></span> Iniciar SesiÃ³n', Yii::app()->user->ui->loginUrl, array('class' => 'animated animated-short fadeInUp')) ?>
+                                    <?php echo CHtml::link('<span class="fa fa-power-off"></span> Iniciar Sesión', Yii::app()->user->ui->loginUrl, array('class' => 'animated animated-short fadeInUp')) ?>
                                 </li>
                             <?php endif; ?>
                         </ul>
