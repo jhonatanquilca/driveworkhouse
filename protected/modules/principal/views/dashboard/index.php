@@ -3,8 +3,135 @@
 
 //$this->pageTitle = Yii::app()->name;
 ?>
+<div class="row mb10">
+          <div class="col-sm-6 col-md-3">
+            <div class="panel bg-alert light of-h mb10">
+              <div class="pn pl20 p5">
+                <div class="icon-bg">
+                  <i class="fa fa-comments-o"></i>
+                </div>
+                <h2 class="mt15 lh15">
+                  <b>523</b>
+                </h2>
+                <h5 class="text-muted">Comments</h5>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-md-3">
+            <div class="panel bg-info light of-h mb10">
+              <div class="pn pl20 p5">
+                <div class="icon-bg">
+                  <i class="fa fa-twitter"></i>
+                </div>
+                <h2 class="mt15 lh15">
+                  <b>348</b>
+                </h2>
+                <h5 class="text-muted">Tweets</h5>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-md-3">
+            <div class="panel bg-danger light of-h mb10">
+              <div class="pn pl20 p5">
+                <div class="icon-bg">
+                  <i class="fa fa-bar-chart-o"></i>
+                </div>
+                <h2 class="mt15 lh15">
+                  <b>267</b>
+                </h2>
+                <h5 class="text-muted">Reach</h5>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-md-3">
+            <div class="panel bg-warning light of-h mb10">
+              <div class="pn pl20 p5">
+                <div class="icon-bg">
+                  <i class="fa fa-envelope"></i>
+                </div>
+                <h2 class="mt15 lh15">
+                  <b>714</b>
+                </h2>
+                <h5 class="text-muted">Comments</h5>
+              </div>
+            </div>
+          </div>
+        </div>
+<div class="row ">
+    <div class="col-md-6">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <span class="panel-icon">
+                    <i class="fa fa-user"></i>
+                </span>
+                <span class="panel-title">     <?php echo 'titulo' ?>                </span>
+                <span class="panel-controls">
+                    <a href="#" class="panel-control-loader"></a>
+                    <!--<a href="#" class="panel-control-remove"></a>-->
+                    <!--<a href="#" class="panel-control-title"></a>-->
+                    <!--<a href="#" class="panel-control-color"></a>-->
+                    <a href="#" class="panel-control-collapse"></a>
+                    <!--<a href="#" class="panel-control-fullscreen"></a>-->
+                </span>
+            </div>
+            <div class="panel-body border pn">
+                <div class="admin-form theme-info panel-body p15">
+
+
+
+                    <!-- search-form -->
+
+                    <?php
+                    echo 'hola'
+                    ?>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <span class="panel-icon">
+                    <i class="fa fa-user"></i>
+                </span>
+                <span class="panel-title">     <?php echo 'titulo' ?>                </span>
+                <span class="panel-controls">
+                    <a href="#" class="panel-control-loader"></a>
+                    <!--<a href="#" class="panel-control-remove"></a>-->
+                    <!--<a href="#" class="panel-control-title"></a>-->
+                    <!--<a href="#" class="panel-control-color"></a>-->
+                    <a href="#" class="panel-control-collapse"></a>
+                    <!--<a href="#" class="panel-control-fullscreen"></a>-->
+                </span>
+            </div>
+            <div class="panel-body border pn">
+                <div class="admin-form theme-info panel-body p15">
+
+
+
+                    <!-- search-form -->
+
+                    <?php
+                    echo 'hola 2';
+					if (getenv("HTTP_CLIENT_IP") && strcasecmp(getenv("HTTP_CLIENT_IP"),"unknown"))
+           $ip = getenv("HTTP_CLIENT_IP");
+   else if (getenv("HTTP_X_FORWARDED_FOR") && strcasecmp(getenv("HTTP_X_FORWARDED_FOR"), "unknown"))
+           $ip = getenv("HTTP_X_FORWARDED_FOR");
+   else if (getenv("REMOTE_ADDR") && strcasecmp(getenv("REMOTE_ADDR"), "unknown"))
+           $ip = getenv("REMOTE_ADDR");
+   else if (isset($_SERVER['REMOTE_ADDR']) && $_SERVER['REMOTE_ADDR'] && strcasecmp($_SERVER['REMOTE_ADDR'], "unknown"))
+           $ip = $_SERVER['REMOTE_ADDR'];
+   else
+           $ip = "IP desconocida";
+   var_dump($ip);
+                    ?>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 <!-- cards -->
-<div class="row cards">
+<!--<div class="row cards">
 
     <div class="card-container col-lg-3 col-sm-6 col-sm-12">
         <div class="card card-redbrown hover">
@@ -164,28 +291,28 @@
 
 
 </div>
-<!-- /cards -->
+ /cards 
 
 
 
 
-<!-- row -->
+ row 
 <div class="row">
 
 
-    <!-- col 8 -->
+     col 8 
     <div class="col-lg-8 col-md-12">
 
 
 
 
-        <!-- tile -->
+         tile 
         <section class="tile transparent">
 
 
 
 
-            <!-- tile header -->
+             tile header 
             <div class="tile-header color transparent-black textured rounded-top-corners">
                 <h1><strong>Statistic</strong> Chart</h1>
                 <div class="controls">
@@ -193,17 +320,17 @@
                     <a href="#" class="remove"><i class="fa fa-times"></i></a>
                 </div>
             </div>
-            <!-- /tile header -->
+             /tile header 
 
 
-            <!-- tile widget -->
+             tile widget 
             <div class="tile-widget color transparent-black textured">
                 <div id="statistics-chart" class="chart statistics" style="height: 250px;"></div>
             </div>
-            <!-- /tile widget -->
+             /tile widget 
 
 
-            <!-- tile body -->
+             tile body 
             <div class="tile-body color transparent-white rounded-bottom-corners">
                 <div class="row">
                     <ul class="inline">
@@ -305,22 +432,22 @@
                     </ul>
                 </div>
             </div>
-            <!-- /tile body -->
+             /tile body 
 
 
 
         </section>
-        <!-- /tile -->
+         /tile 
 
 
 
-        <!-- tile -->
+         tile 
         <section class="tile color transparent-black">
 
 
 
 
-            <!-- tile header -->
+             tile header 
             <div class="tile-header">
                 <h1><strong>Projects</strong> Progress</h1>
                 <div class="search">
@@ -331,10 +458,10 @@
                     <a href="#" class="remove"><i class="fa fa-times"></i></a>
                 </div>
             </div>
-            <!-- /tile header -->
+             /tile header 
 
 
-            <!-- tile body -->
+             tile body 
             <div class="tile-body no-vpadding">
                 <div class="table-responsive">
                     <table class="table table-custom table-sortable nomargin">
@@ -436,10 +563,10 @@
                     </table>
                 </div>
             </div>
-            <!-- /tile body -->
+             /tile body 
 
 
-            <!-- tile footer -->
+             tile footer 
             <div class="tile-footer text-center">
                 <ul class="pagination pagination-sm nomargin pagination-custom">
                     <li class="disabled"><a href="#"><i class="fa fa-angle-double-left"></i></a></li>
@@ -451,32 +578,32 @@
                     <li><a href="#"><i class="fa fa-angle-double-right"></i></a></li>
                 </ul>
             </div>
-            <!-- /tile footer -->
+             /tile footer 
 
 
 
         </section>
-        <!-- /tile -->
+         /tile 
 
 
     </div>
-    <!-- /col 8 -->
+     /col 8 
 
 
 
-    <!-- col 4 -->
+     col 4 
     <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12">
 
 
 
 
-        <!-- tile -->
+         tile 
         <section class="tile color transparent-black textured">
 
 
 
 
-            <!-- tile header -->
+             tile header 
             <div class="tile-header">
                 <h1><strong>Server</strong> Load</h1>
                 <div class="controls">
@@ -484,9 +611,9 @@
                     <a href="#" class="remove"><i class="fa fa-times"></i></a>
                 </div>
             </div>
-            <!-- /tile header -->
+             /tile header 
 
-            <!-- tile widget -->
+             tile widget 
             <div class="tile-widget">
 
                 <div class="progress-list with-heading">
@@ -503,27 +630,27 @@
                 </div>  
                 <p class="description"><strong>394GB</strong> used of <strong class="white-text">2,048GB</strong> on File Server</p>
             </div>
-            <!-- /tile widget -->
+             /tile widget 
 
 
-            <!-- tile body -->
+             tile body 
             <div class="tile-body paddingtop">
                 <div id="serverload-chart"></div>
             </div>
-            <!-- /tile body -->
+             /tile body 
 
 
 
         </section>
-        <!-- /tile -->
+         /tile 
 
 
-        <!-- tile -->
+         tile 
         <section class="tile color transparent-black">
 
 
 
-            <!-- tile header -->
+             tile header 
             <div class="tile-header">
                 <h1><strong>Browser</strong> Usage</h1>
                 <div class="controls">
@@ -531,9 +658,9 @@
                     <a href="#" class="remove"><i class="fa fa-times"></i></a>
                 </div>
             </div>
-            <!-- /tile header -->
+             /tile header 
 
-            <!-- tile body -->
+             tile body 
             <div class="tile-body">
                 <div id="browser-usage" style="height: 230px;" class="morris-chart"></div>
                 <ul class="inline text-center chart-legend">
@@ -545,23 +672,23 @@
                     <li><span class="badge badge-outline" style="border-color: #d9544f"></span> Opera <small>5%</small></li>
                 </ul>
             </div>
-            <!-- /tile body --> 
+             /tile body  
 
 
 
 
         </section>
-        <!-- /tile -->
+         /tile 
 
 
 
-        <!-- tile -->
+         tile 
         <section class="tile transparent">
 
 
 
 
-            <!-- tile header -->
+             tile header 
             <div class="tile-header color redbrown rounded-top-corners text-center">               
                 <button class="btn pull-left btn-black-transparent" type="button"><i class="fa fa-caret-square-o-down"></i></button>
                 <h2><strong>Todo</strong> List</h2>
@@ -570,9 +697,9 @@
                     <a href="#" class="remove"><i class="fa fa-times"></i></a>
                 </div>
             </div>
-            <!-- /tile header -->
+             /tile header 
 
-            <!-- tile body -->
+             tile body 
             <div class="tile-body color transparent-black rounded-bottom-corners">
                 <input type="text" placeholder="Add new todo..." class="w100p bottommargin">
                 <ul class="nolisttypes" id="todolist">
@@ -614,39 +741,39 @@
                     </li>
                 </ul>
             </div>
-            <!-- /tile body -->
+             /tile body 
 
 
 
         </section>
-        <!-- /tile -->
+         /tile 
 
 
     </div>
-    <!-- /col 4 -->
+     /col 4 
 
 
 </div>
-<!-- /row -->
+ /row 
 
 
-<!-- row -->
+ row 
 <div class="row">
 
 
 
 
-    <!-- col 6 -->
+     col 6 
     <div class="col-md-6">
 
 
-        <!-- tile -->
+         tile 
         <section class="tile transparent recent-activity">
 
 
 
 
-            <!-- tile header -->
+             tile header 
             <div class="tile-header transparent">               
                 <h1><strong>Recent</strong> Activity</h1>
                 <div class="controls">
@@ -654,13 +781,13 @@
                     <a href="#" class="remove"><i class="fa fa-times"></i></a>
                 </div>
             </div>
-            <!-- /tile header -->
+             /tile header 
 
 
 
-            <!-- tile widget -->
+             tile widget 
             <div class="tile-widget color transparent-black rounded-top-corners nopadding">
-                <!-- Nav tabs -->
+                 Nav tabs 
                 <ul class="nav nav-tabs tabdrop">
                     <li class="active"><a href="#users-tab" data-toggle="tab">Users</a></li>
                     <li><a href="#orders-tab" data-toggle="tab">Orders</a></li>
@@ -668,16 +795,16 @@
                     <li><a href="#tasks-tab" data-toggle="tab">Tasks</a></li>
                     <li><a href="#comments-tab" data-toggle="tab">Comments</a></li>
                 </ul>
-                <!-- / Nav tabs -->
+                 / Nav tabs 
             </div>
-            <!-- /tile widget -->
+             /tile widget 
 
 
 
 
-            <!-- tile body -->
+             tile body 
             <div class="tile-body tab-content nopadding rounded-bottom-corners">
-                <!-- Tab panes -->
+                 Tab panes 
 
                 <ul id="users-tab" class="tab-pane fade in active">
                     <li>
@@ -904,34 +1031,34 @@
                     </li>
                 </ul>
 
-                <!-- / Tab panes -->
+                 / Tab panes 
             </div>
-            <!-- /tile body -->
+             /tile body 
 
 
 
         </section>
-        <!-- /tile -->
+         /tile 
 
 
     </div>
-    <!-- /col 6 -->
+     /col 6 
 
 
 
 
-    <!-- col 6 -->
+     col 6 
     <div class="col-md-6">
 
 
 
-        <!-- tile -->
+         tile 
         <section class="tile transparent">
 
 
 
 
-            <!-- tile header -->
+             tile header 
             <div class="tile-header transparent">               
                 <h1><strong>Quick</strong> Message</h1>
                 <div class="controls">
@@ -939,11 +1066,11 @@
                     <a href="#" class="remove"><i class="fa fa-times"></i></a>
                 </div>
             </div>
-            <!-- /tile header -->
+             /tile header 
 
 
 
-            <!-- tile widget -->
+             tile widget 
             <div class="tile-widget color transparent-black rounded-top-corners">
                 <form class="form-horizontal" role="form">
                     <div class="form-group">
@@ -966,38 +1093,38 @@
                     </div>
                 </form>
             </div>
-            <!-- /tile widget -->
+             /tile widget 
 
 
 
-            <!-- tile body -->
+             tile body 
             <div class="tile-body nopadding">
                 <div id="quick-message-content"></div>
             </div>
-            <!-- /tile body -->
+             /tile body 
 
 
-            <!-- tile footer -->
+             tile footer 
             <div class="tile-footer rounded-bottom-corners text-right">
                 <a class="submit font-slab" href="#"><strong>Send</strong> message <i class="fa fa-comment"></i></a>
             </div>
-            <!-- /tile footer -->
+             /tile footer 
 
 
 
 
         </section>
-        <!-- /tile -->
+         /tile 
 
 
 
 
     </div>
-    <!-- /col 6 -->
+     /col 6 
 
 
 
 
 </div>
-<!-- /row -->  
-
+ /row   
+-->

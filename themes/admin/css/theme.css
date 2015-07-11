@@ -9574,7 +9574,8 @@ th {
 .table-bordered > thead > tr > td,
 .table-bordered > tbody > tr > td,
 .table-bordered > tfoot > tr > td {
-    border: 1px solid #eeeeee;
+    /*border: 1px solid #eeeeee;*/
+    border: none;
 }
 .table-bordered > thead > tr > th,
 .table-bordered > thead > tr > td {
@@ -14135,6 +14136,7 @@ i.field-icon-right {
     top: 0;
     line-height: 100px;
     font-size: 100px;
+    width: 100px !important;
 }
 .icon-bg.left {
     right: auto;

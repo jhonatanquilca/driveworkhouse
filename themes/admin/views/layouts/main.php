@@ -184,25 +184,25 @@
                         <section id="content_wrapper">
 
                             <!-- Start: Topbar -->
-<!--                                                        <header id="topbar">
-                                                            <div class="topbar-left">
-                                                                <ol class="breadcrumb">
-                                                                    <li class="crumb-active">
-                                                                        <a href="dashboard.html">Dashboard</a>
-                                                                    </li>
-                                                                    <li class="crumb-icon">
-                                                                        <a href="dashboard.html">
-                                                                            <span class="glyphicon glyphicon-home"></span>
-                                                                        </a>
-                                                                    </li>
-                                                                    <li class="crumb-link">
-                                                                        <a href="index-2.html">Home</a>
-                                                                    </li>
-                                                                    <li class="crumb-trail">Dashboard</li>
-                                                                </ol>
-                                                            </div>
-                            
-                                                        </header>-->
+                            <!--                                                        <header id="topbar">
+                                                                                        <div class="topbar-left">
+                                                                                            <ol class="breadcrumb">
+                                                                                                <li class="crumb-active">
+                                                                                                    <a href="dashboard.html">Dashboard</a>
+                                                                                                </li>
+                                                                                                <li class="crumb-icon">
+                                                                                                    <a href="dashboard.html">
+                                                                                                        <span class="glyphicon glyphicon-home"></span>
+                                                                                                    </a>
+                                                                                                </li>
+                                                                                                <li class="crumb-link">
+                                                                                                    <a href="index-2.html">Home</a>
+                                                                                                </li>
+                                                                                                <li class="crumb-trail">Dashboard</li>
+                                                                                            </ol>
+                                                                                        </div>
+                                                        
+                                                                                    </header>-->
                             <!-- End: Topbar -->
 
                             <!-- Begin: Content -->
@@ -239,7 +239,8 @@
 
                         <!-- jQuery -->
                         <!--<script src="<?php echo Yii::app()->theme->baseUrl; ?>/js/jquery-1.11.1.min.js"></script>-->
-                        <script src="<?php echo Yii::app()->theme->baseUrl; ?>/js/jquery-ui.min.js"></script>
+                        <!--<script src="<?php echo Yii::app()->theme->baseUrl; ?>/js/jquery-ui.min.js"></script>-->
+                        <script src="<?php echo Yii::app()->theme->baseUrl; ?>/js/jquery-ui-1.9.2.custom.js"></script>
 
                         <!-- Theme Javascript -->
                         <script src="<?php echo Yii::app()->theme->baseUrl; ?>/js/utility/utility.js"></script>

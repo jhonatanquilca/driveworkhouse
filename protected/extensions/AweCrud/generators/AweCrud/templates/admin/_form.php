@@ -40,35 +40,36 @@
                 <?php echo "<?php echo Yii::t('AweCrud.app', 'Fields with') ?>" ?> <span class="required">*</span>
                 <?php echo "<?php echo Yii::t('AweCrud.app', 'are required') ?>." ?>
             </p>
+            <div class="col-md-6">   
+                <?php echo "<?php echo \$form->errorSummary(\$model, '<p>' . Yii::t('yii', 'Please fix the following input errors:') . '</p>', '',array('class'=>'alert alert-danger pastel')) ?>\n" ?>
+                <?php echo "<?php // add array('class'=>'gui-input')?> \n"; ?>
 
-            <?php echo "<?php echo \$form->errorSummary(\$model, '<p>' . Yii::t('yii', 'Please fix the following input errors:') . '</p>', '',array('class'=>'alert alert-danger pastel')) ?>\n" ?>
-            <?php echo "<?php // add array('class'=>'gui-input')?> \n"; ?>
 
+                <?php foreach ($this->tableSchema->columns as $column): ?>
+                    <?php
+                    if ($column->autoIncrement || in_array($column->name, array_merge($this->create_time, $this->update_time))) {
+                        continue;
+                    }
+                    //skip many to many relations, they are rendered below, this allows handling of nm relationships
+                    foreach ($this->getRelations() as $relation) {
+                        if ($relation[2] == $column->name && $relation[0] == 'CManyManyRelation') {
+                            continue 2;
+                        }
+                    }
+                    ?>
 
-            <?php foreach ($this->tableSchema->columns as $column): ?>
+                    <?php echo "<?php echo " . $this->generateActiveField($this->modelClass, $column) . " ?>\n"; ?>
+                <?php endforeach; ?>
                 <?php
-                if ($column->autoIncrement || in_array($column->name, array_merge($this->create_time, $this->update_time))) {
-                    continue;
-                }
-                //skip many to many relations, they are rendered below, this allows handling of nm relationships
-                foreach ($this->getRelations() as $relation) {
-                    if ($relation[2] == $column->name && $relation[0] == 'CManyManyRelation') {
-                        continue 2;
+                foreach ($this->getRelations() as $relatedModelClass => $relation) {
+                    if ($relation[0] == 'CManyManyRelation') {
+                        echo "<div class=\"row nm_row\">\n";
+                        echo $this->getNMField($relation, $relatedModelClass, $this->modelClass);
+                        echo "</div>\n\n";
                     }
                 }
                 ?>
-
-                <?php echo "<?php echo " . $this->generateActiveField($this->modelClass, $column) . " ?>\n"; ?>
-            <?php endforeach; ?>
-            <?php
-            foreach ($this->getRelations() as $relatedModelClass => $relation) {
-                if ($relation[0] == 'CManyManyRelation') {
-                    echo "<div class=\"row nm_row\">\n";
-                    echo $this->getNMField($relation, $relatedModelClass, $this->modelClass);
-                    echo "</div>\n\n";
-                }
-            }
-            ?>
+            </div>
         </div>
 
         <div class="panel-footer text-right">
