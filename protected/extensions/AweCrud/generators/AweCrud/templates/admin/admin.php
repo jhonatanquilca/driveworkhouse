@@ -71,7 +71,10 @@ return false;
                         'type' => 'striped condensed hover', //striped condensed  bordered hover
                         'dataProvider' => $model->search(),
                         'filter' => $model,
-                        'emptyText'=>'no hay datos!',
+                         'emptyText' => '<div class="alert alert-border-bottom alert-primary pastel light dark text-center">                                            
+                                           <h4><i class="fa fa-info pr10"></i>
+                                            No se encontraron resultados.</h4>                                                                                        
+                                            </div>',
                         'columns' => array(
                         <?php
                         $count = 0;
