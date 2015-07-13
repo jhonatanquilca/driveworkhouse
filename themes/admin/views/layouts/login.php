@@ -13,7 +13,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
         <!-- Font CSS (Via CDN) -->
-        <link rel='stylesheet' type='text/css' href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700'>
+        <link rel='stylesheet' type='text/css' href='<?php echo Yii::app()->theme->baseUrl; ?>/css/font-family.css'>
 
         <!-- Theme CSS -->
         <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->theme->baseUrl; ?>/css/theme.css">
@@ -47,27 +47,27 @@
                 <!-- Start: Content-Wrapper -->
                 <!--<section id="content_wrapper">-->
 
-                    <!-- Begin: Content -->
-                    <section id="content">
+                <!-- Begin: Content -->
+                <section id="content">
 
-                        <div class="admin-form theme-info mw500" id="login">
+                    <div class="admin-form theme-info mw500" id="login">
 
-                            <!-- Login Logo -->
-                            <div class="row table-layout">
-                                <a href="dashboard.html" title="Return to Dashboard">
-                                    <img src="<?php echo Yii::app()->theme->baseUrl; ?>/img/logos/logo.png" title="AdminDesigns Logo" class="center-block img-responsive" style="max-width: 275px;">
-                                </a>
-                            </div>
-
-                            <!-- Login Panel/Form -->
-
-
-                            <?php echo $content ?>
-
+                        <!-- Login Logo -->
+                        <div class="row table-layout">
+                            <a href="dashboard.html" title="Return to Dashboard">
+                                <img src="<?php echo Yii::app()->theme->baseUrl; ?>/img/logos/logo.png" title="AdminDesigns Logo" class="center-block img-responsive" style="max-width: 275px;">
+                            </a>
                         </div>
 
-                    </section>
-                    <!-- End: Content -->
+                        <!-- Login Panel/Form -->
+
+
+                        <?php echo $content ?>
+
+                    </div>
+
+                </section>
+                <!-- End: Content -->
 
                 <!--</section>-->
                 <!-- End: Content-Wrapper -->
@@ -81,9 +81,9 @@
 
         <!-- BEGIN: PAGE SCRIPTS -->
 
- <!-- jQuery -->
-                        <!--<script src="<?php echo Yii::app()->theme->baseUrl; ?>/js/jquery-1.11.1.min.js"></script>-->
-                        <script src="<?php echo Yii::app()->theme->baseUrl; ?>/js/jquery-ui.min.js"></script>
+        <!-- jQuery -->
+                               <!--<script src="<?php echo Yii::app()->theme->baseUrl; ?>/js/jquery-1.11.1.min.js"></script>-->
+        <script src="<?php echo Yii::app()->theme->baseUrl; ?>/js/jquery-ui.min.js"></script>
 
         <!-- CanvasBG Plugin(creates mousehover effect) -->
         <script src="<?php echo Yii::app()->theme->baseUrl; ?>/js/plugins/canvasbg/canvasbg.js"></script>

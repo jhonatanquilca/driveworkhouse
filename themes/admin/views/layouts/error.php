@@ -1,62 +1,128 @@
 <!DOCTYPE html>
 <html >
+
+
     <head>
-        <title><?php echo CHtml::encode($this->pageTitle); ?></title>    
-        <meta charset="utf-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=9" />
+        <!-- Meta, title, CSS, favicons, etc. -->
+        <meta charset="utf-8">
+        <title><?php echo CHtml::encode($this->pageTitle); ?></title>
 
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta name="description" content="stilearn metro admin bootstrap" />
-        <meta name="author" content="stilearning" />
+        <!--<meta name="keywords" content="HTML5 Bootstrap 3 Admin Template UI Theme" />-->
+        <!--<meta name="description" content="AdminDesigns - A Responsive HTML5 Admin UI Framework">-->
+        <!--<meta name="author" content="AdminDesigns">-->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+        <!-- Font CSS (Via CDN) -->
+        <link rel='stylesheet' type='text/css' href='<?php echo Yii::app()->theme->baseUrl; ?>/css/font-family.css'>
 
-        <!-- styles -->
-        <link href="<?php echo Yii::app()->theme->baseUrl; ?>/css/bootstrap.css" rel="stylesheet" />
-        <link href="<?php echo Yii::app()->theme->baseUrl; ?>/css/bootstrap-responsive.css" rel="stylesheet" />
-        <!-- default theme -->
-        <link href="<?php echo Yii::app()->theme->baseUrl; ?>/css/metro-bootstrap.css" rel="stylesheet" />
-        <link href="<?php echo Yii::app()->theme->baseUrl; ?>/css/metro.css" rel="stylesheet" />
-        <link href="<?php echo Yii::app()->theme->baseUrl; ?>/css/metro-responsive.css" rel="stylesheet" />
-        <link href="<?php echo Yii::app()->theme->baseUrl; ?>/css/metro-helper.css" rel="stylesheet" />
-        <link href="<?php echo Yii::app()->theme->baseUrl; ?>/css/icomoon.css" rel="stylesheet" />
+        <!-- Theme CSS -->
+        <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->theme->baseUrl; ?>/css/theme.css">
 
+        <!-- Favicon -->
+        <link rel="shortcut icon" href="<?php echo Yii::app()->theme->baseUrl; ?>/img/favicon.ico">
 
-        <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!--[if lt IE 9]>
-          <script src="js/html5shiv.js"></script>
-          <script src="js/lte-ie7.js"></script>
-        <![endif]-->
-
-        <!-- fav and touch icons -->
-        <link rel="shortcut icon" href="<?php echo Yii::app()->theme->baseUrl; ?>/ico/faviconf.png" />
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-
-
-
-
+         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+         <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+         <![endif]-->
     </head>
-    <!-- END HEAD -->
-    <!-- BEGIN BODY -->
-    <body class="login">
-        <!-- start section content-->
-        <section class="section-content bg-none">
-            <div class="content full-page">
-                <header class="content-header no-border">
-                    <!-- content title-->
-                    <div class="page-header"><h1><a class="color-silver text-4x" href="javascript:window.history.back();" ><i class="icomo-arrow-left"></i></a></h1></div>
-                </header> <!--/ content header -->
-                <!-- content page -->
-                <article class="content-page">
-                    <!-- main page, you're application here -->
-                    <div class="main-page">
-                        <div class="content-inner">
-                            <?php echo $content ?>   
+
+    <!--<body class="error-page alt sb-l-c sb-r-c">-->
+    <!--<body class="error-page alt sb-l-c sb-r-c mobile-view sb-l-m tray-rescale onload-check">-->
+
+    <body class="external-page external-alt error-page alt  sb-l-c sb-r-c">
+
+        <!-- Start: Main -->
+        <div id="main" class="animated fadeIn">
+
+            <!-- Start: Content-Wrapper -->
+            <section id="content_wrapper">
+
+                <!-- begin canvas animation bg -->
+                <div id="canvas-wrapper">
+                    <canvas id="demo-canvas"></canvas>
+                </div>
+
+                <!-- Start: Content-Wrapper -->
+                <!--<section id="content_wrapper">-->
+
+                <!-- Begin: Content -->
+                <section id="content" >
+
+                    <div class="admin-form theme-info mw500" id="login">
+
+                        <!-- Login Logo -->
+                        <div class="row table-layout">
+                            <a href="dashboard.html" title="Return to Dashboard">
+                                <img src="<?php echo Yii::app()->theme->baseUrl; ?>/img/logos/logo.png" title="AdminDesigns Logo" class="center-block img-responsive" style="max-width: 275px;">
+                            </a>
                         </div>
+
+
+
+
+
                     </div>
-                </article>
-            </div>
-        </section>
+                    <?php echo $content ?>
+
+               
+
+
+                </section>
+                <!-- End: Content -->
+
+                <!--</section>-->
+                <!-- End: Content-Wrapper -->
+
+
+            </section>
+            <!-- End: Content-Wrapper -->
+
+        </div>
+        <!-- End: Main -->
+
+        <!-- BEGIN: PAGE SCRIPTS -->
+
+        <!-- jQuery -->
+        <script src="<?php echo Yii::app()->theme->baseUrl; ?>/js/jquery-1.11.1.min.js"></script>
+        <script src="<?php echo Yii::app()->theme->baseUrl; ?>/js/jquery-ui.min.js"></script>
+
+        <!-- CanvasBG Plugin(creates mousehover effect) -->
+        <script src="<?php echo Yii::app()->theme->baseUrl; ?>/js/plugins/canvasbg/canvasbg.js"></script>
+
+        <!-- Theme Javascript -->
+        <script src="<?php echo Yii::app()->theme->baseUrl; ?>/js/utility/utility.js"></script>
+        <!--<script src="<?php echo Yii::app()->theme->baseUrl; ?>/js/demo/demo.js"></script>-->
+        <script src="<?php echo Yii::app()->theme->baseUrl; ?>/js/main.js"></script>
+
+        <!-- Page Javascript -->
+        <script type="text/javascript">
+            jQuery(document).ready(function () {
+
+                "use strict";
+
+                // Init Theme Core      
+                Core.init();
+
+                // Init Demo JS
+//                Demo.init();
+
+                // Init CanvasBG and pass target starting location
+                CanvasBG.init({
+                    Loc: {
+                        x: window.innerWidth / 2,
+                        y: window.innerHeight / 3.3
+                    },
+                });
+
+            });
+        </script>
+
+        <!-- END: PAGE SCRIPTS -->
 
     </body>
-    <!-- END BODY -->
+
+
+    <!-- Mirrored from admindesigns.com/demos/admin/theme/pages_login.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 13 Jun 2015 22:15:34 GMT -->
 </html>
