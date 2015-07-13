@@ -25,17 +25,19 @@ return array(
         'ext.AweCrud.components.*', // AweCrud components
         'application.modules.cruge.components.*',
         'application.modules.cruge.extensions.crugemailer.*',
-		//clientes       
+        //clientes       
         'application.modules.cliente.models.*',
-		//transaccion       
-        'application.modules.transaccion.models.*',
+        //cobranzas       
+        'application.modules.cobranzas.models.*',
+        //actividades 
+        'application.modules.actividades.models.*',
     ),
     'modules' => array(
 // aqui pones tus modulos
         'principal',
-        'actividades', 
-		'cliente', 
-		  'transaccion',
+        'cliente',
+        'cobranzas',
+        'actividades',
         // uncomment the following to enable the Gii tool   
         'gii' => array(
             'class' => 'system.gii.GiiModule',

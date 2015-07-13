@@ -17,7 +17,7 @@
 
                     <?php echo $form->textFieldRow($model, 'entidad_id',array('class'=>'gui-input')); ?>
 
-                    <?php echo $form->dropDownListRow($model, 'tipo', array('CREATE' => 'CREATE','UPDATE' => 'UPDATE','DELETE' => 'DELETE','RESTORE' => 'RESTORE',),array('class'=>'form-control')); ?>
+                    <?php echo $form->dropDownListRow($model, 'tipo', array('CREATE' => 'CREATE','UPDATE' => 'UPDATE','DELETE' => 'DELETE',),array('class'=>'form-control')); ?>
 
                     <?php echo $form->textFieldRow($model, 'usuario_id',array('class'=>'gui-input')); ?>
 

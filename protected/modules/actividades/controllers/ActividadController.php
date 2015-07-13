@@ -10,27 +10,13 @@ class ActividadController extends AweController
 
     public $defaultAction = 'admin';
 
-public function filters() {
-	return array(
-			'accessControl', 
-			);
-}
+    public function filters()
+    {
+        return array(
+            array('CrugeAccessControlFilter'),
+        );
+    }
 
-public function accessRules() {
-	return array(
-			array('allow', 
-				'actions'=>array('index', 'view'),
-				'users'=>array('@'),
-				),
-			array('allow', 
-				'actions'=>array('minicreate', 'create', 'update', 'admin', 'delete'),
-				'users'=>array('admin'),
-				),
-			array('deny', 
-				'users'=>array('*'),
-				),
-			);
-}
 	/**
 	 * Displays a particular model.
 	 * @param integer $id the ID of the model to be displayed

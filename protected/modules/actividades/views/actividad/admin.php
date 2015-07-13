@@ -66,7 +66,7 @@ return false;
                                                         'entidad_id',
                                                         array(
                     'name' => 'tipo',
-                    'filter' => array('CREATE'=>'CREATE','UPDATE'=>'UPDATE','DELETE'=>'DELETE','RESTORE'=>'RESTORE',),
+                    'filter' => array('CREATE'=>'CREATE','UPDATE'=>'UPDATE','DELETE'=>'DELETE',),
                 ),
                                                         'usuario_id',
                                                         'fecha',
