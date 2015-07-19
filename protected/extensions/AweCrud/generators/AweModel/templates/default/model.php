@@ -32,5 +32,8 @@ class <?php echo $modelClass; ?> extends <?php echo $this->baseModelClass."\n"; 
     {
         return Yii::t('app', '<?php echo $modelClass; ?>|<?php echo $this->pluralize($modelClass); ?>', $n);
     }
+    /*---------------------------------------DE BASE----------------------------------*/
+    /*---------------------------------------SCOPES-----------------------------------*/
+    /*--------------------------------------CONSULTAS---------------------------------*/
 
 }

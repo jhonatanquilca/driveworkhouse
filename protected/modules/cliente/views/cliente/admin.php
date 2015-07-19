@@ -11,25 +11,14 @@ $this->menu = array(
     array('label' => Yii::t('AweCrud.app', 'Create') . ' ' . Cliente::label(), 'icon' => 'fa fa-plus', 'url' => array('create'), 'htmlOptions' => array('class' => 'btn-default'),),
 );
 
-Yii::app()->clientScript->registerScript('search', "
-$('.search-button').click(function(){
-$('.search-form').toggle();
-return false;
-});
-$('.search-form form').submit(function(){
-$.fn.yiiGridView.update('cliente-grid', {
-data: $(this).serialize()
-});
-return false;
-});
-");
+
 ?>
 <div class="col-sm-12 pln">
     <div class="bs-component p10">
         <div class="panel panel-primary">
             <div class="panel-heading">
                 <span class="panel-icon">
-                    <i class="fa fa-user"></i>
+                    <i class="fa fa-group "></i>
                 </span>
                 <span class="panel-title">     <?php echo Yii::t('AweCrud.app', 'Manage') ?> <?php echo Cliente::label(2) ?>                </span>
                 <span class="panel-controls">
@@ -45,16 +34,6 @@ return false;
                 <div class="admin-form theme-info panel-body p15">
 
                     <div style="overflow: auto">
-
-                        <?php echo CHtml::link('<i class="icon-search"></i> ' . Yii::t('AweCrud.app', 'Advanced Search'), '#', array('class' => 'search-button btn')) ?>
-                        <div class="search-form" style="display:none">
-                            <?php
-                            $this->renderPartial('_search', array(
-                                'model' => $model,
-                            ));
-                            ?>
-                        </div>
-                        <!-- search-form -->
 
                         <?php
                         $this->widget('bootstrap.widgets.TbGridView', array(
