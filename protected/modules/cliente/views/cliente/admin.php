@@ -7,11 +7,9 @@ $this->breadcrumbs = array(
 );
 
 $this->menu = array(
-    array('label' => Yii::t('AweCrud.app', 'List') . ' ' . Cliente::label(2), 'icon' => 'fa fa-list', 'url' => array('index'), 'htmlOptions' => array('class' => 'btn-default'),),
-    array('label' => Yii::t('AweCrud.app', 'Create') . ' ' . Cliente::label(), 'icon' => 'fa fa-plus', 'url' => array('create'), 'htmlOptions' => array('class' => 'btn-default'),),
+//    array('label' => Yii::t('AweCrud.app', 'List') . ' ' . Cliente::label(2), 'icon' => 'fa fa-list', 'url' => array('index'), 'htmlOptions' => array('class' => 'btn-default'),),
+    array('label' => Yii::t('AweCrud.app', 'Create') . ' ' . Cliente::label(), 'icon' => 'fa fa-plus', 'url' => array('create'), 'htmlOptions' => array('class' => 'btn-inverse'),),
 );
-
-
 ?>
 <div class="col-sm-12 pln">
     <div class="bs-component p10">
@@ -47,8 +45,13 @@ $this->menu = array(
                                             </div>',
                             'columns' => array(
 //                                'id',
-                                'nombre',
-                                'apellido',
+//                                'nombre',
+//                                'apellido', 
+                                array(
+                                    'name' => 'nombre_completo',
+                                    'value' => 'CHtml::link($data->nombre_completo, Yii::app()->createUrl("cliente/cliente/view/id/".$data->id))',
+                                    'type' => 'html',
+                                ),
                                 'documento',
                                 'telefono',
                                 'celular',
@@ -66,7 +69,7 @@ $this->menu = array(
                                  */
                                 array(
                                     'class' => 'CButtonColumn',
-                                    'template' => '{update} {delete}',
+                                    'template' => '{update} {prueba}',
                                     'afterDelete' => 'function(link,success,data){ 
                         if(success) {
                         $("#flashMsg").empty();
@@ -76,17 +79,27 @@ $this->menu = array(
                         }',
                                     'buttons' => array(
                                         'update' => array(
-                                            'label' => '<button class="btn btn-primary"><i class="icon-pencil"></i></button>',
+                                            'label' => '<button class="btn btn-primary"><i class="fa fa-pencil"></i></button>',
                                             'options' => array('title' => 'Actualizar'),
                                             'imageUrl' => false,
                                         //'visible' => 'Util::checkAccess(array("action_incidenciaPrioridad_update"))'
                                         ),
-                                        'delete' => array(
-                                            'label' => '<button class="btn btn-danger"><i class="icon-trash"></i></button>',
-                                            'options' => array('title' => 'Eliminar'),
+//                                        'delete' => array(
+                                        'prueba' => array(
+                                            'label' => '<button class="btn btn-warning"><i class="fa fa-list"></i></button>',
+                                            'options' => array('title' => 'Modal'),
+                                            'url' => '"cliente/cliente/modal/id_cliente/".$data->id',
                                             'imageUrl' => false,
-                                        //'visible' => 'Util::checkAccess(array("action_incidenciaPrioridad_delete"))'
+                                            'click' => 'js:function(e){e.preventDefault(); viewModal($(this).attr("href"),function() {maskAttributes();});  return false; }',
+//                                            'click' => 'js:function(){alert("hoas"); return false;}',
+                                        //'visible' => 'Util::checkAccess(array("action_incidenciaPrioridad_update"))'
                                         ),
+//                                        'delete' => array(
+//                                            'label' => '<button class="btn btn-danger"><i class="icon-trash"></i></button>',
+//                                            'options' => array('title' => 'Eliminar'),
+//                                            'imageUrl' => false,
+                                    //'visible' => 'Util::checkAccess(array("action_incidenciaPrioridad_delete"))'
+//                                        ),
                                     ),
                                     'htmlOptions' => array(
                                         'width' => '100px'
@@ -100,5 +113,4 @@ $this->menu = array(
             </div>
         </div>
     </div>
-</div>
 </div>

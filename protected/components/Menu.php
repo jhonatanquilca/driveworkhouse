@@ -15,7 +15,7 @@ class Menu {
             array('label' => '<span class="fa fa-group fa-x2"></span><span class="sidebar-title">Clientes</span><span class="sidebar-title-tray"></span>',
                 'url' => array('/cliente/cliente/admin/'),
                 'access' => 'action_cliente_admin',
-                'active_rules' => array('module' => 'cliente', 'controller' => 'cliente', 'action' => 'admin')
+                'active_rules' => array('module' => 'cliente', 'controller' => 'cliente'/*, 'action' => 'admin'*/)
             ),
             array('label' => '<span class="fa fa-money"></span><span class="sidebar-title">Cobranzas</span><span class="caret"></span>', 'url' => '#',
                 'itemOptions' => array('class' => 'dropdown-list'),

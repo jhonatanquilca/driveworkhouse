@@ -9,10 +9,10 @@
 var margin = function () {
     /*agreagdo*/
     if ($('body').hasClass('sb-l-m')) {
-        window.console.log('asdas');
+//        window.console.log('asdas');
         $('.sidebar-left-content.nano-content').css('margin-right', '-17px');
     } else {
-        window.console.log('aaaa');
+//        window.console.log('aaaa');
         $('.sidebar-left-content.nano-content').css('margin-right', '0px');
     }
 };

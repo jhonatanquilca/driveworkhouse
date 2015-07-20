@@ -1,14 +1,15 @@
-var Script = function() {
-    window.console.log('coamsckmsakcm');
+var Script = function () {
+//    window.console.log('coamsckmsakcm');
     $('.dropdown-list.active > a').addClass("menu-open");
-//    maskAttributes();
+    maskAttributes();
+    dessabilitarEntreOnForm();
 //bandera para saltar la proÃ§imera accion al validar los formularios
     var primero = false;
     /**
      * @author Alex Yepez Chavez
      * validacion de formularios para bloquear botones de accion
      */
-    $("form").submit(function(e) {
+    $("form").submit(function (e) {
 //        alert($('form button.btn-success').attr('class'));
         if (verificarValidacionModal("form"))
         {
@@ -33,7 +34,7 @@ var Script = function() {
 
 //    sidebar dropdown menu
 
-    jQuery('#sidebar .sub-menu > a').click(function() {
+    jQuery('#sidebar .sub-menu > a').click(function () {
         var last = jQuery('.sub-menu.open', $('#sidebar'));
         last.removeClass("open");
         jQuery('.arrow', last).removeClass("open");
@@ -81,7 +82,7 @@ var Script = function() {
 
 // widget tools
 
-    jQuery('.widget .tools .icon-chevron-down, .widget .tools .icon-chevron-up').click(function() {
+    jQuery('.widget .tools .icon-chevron-down, .widget .tools .icon-chevron-up').click(function () {
         var el = jQuery(this).parents(".widget").children(".widget-body");
         if (jQuery(this).hasClass("icon-chevron-down")) {
             jQuery(this).removeClass("icon-chevron-down").addClass("icon-chevron-up");
@@ -92,7 +93,7 @@ var Script = function() {
         }
     });
 
-    jQuery('.widget .tools .icon-remove').click(function() {
+    jQuery('.widget .tools .icon-remove').click(function () {
         jQuery(this).parents(".widget").remove();
     });
 
@@ -113,7 +114,7 @@ var Script = function() {
 
     var buttons = $('.form-actions-float');
     floatButtons();
-    $(window).scroll(function() {
+    $(window).scroll(function () {
         floatButtons();
     });
 
@@ -124,7 +125,7 @@ var Script = function() {
             buttons.removeClass('flotante');
         }
     }
-    
+
     // Buscar logros (Gamification)
 //    $.ajax({
 //        type: "GET",
@@ -155,16 +156,53 @@ var Script = function() {
 
 function showModalLoading() {
     var html = "";
-    html += "<div class='modal-header'><a class='close' data-dismiss='modal'>&times;</a><h4><i class='icon-refresh'></i> Cargando</h4></div>";
-    html += "<div class='loading'><img src='" + themeUrl + "images/truulo-loading.gif' /></div>";
-    $("#mainModal").html(html);
-    $("#mainModal").modal("show");
+    html +=
+            '<div id="modal-form" class="popup-basic mfp-with-anim">'
+            + '<div class="panel">'
+            + '<div class="panel-heading">'
+            + '<span class="panel-title">'
+            + 'Cargando</span>'
+            + '</div>'
+            + '<form method="post" action="http://admindesigns.com/" id="comment">'
+            + '<div class="panel-body p25 text-center">'
+            + '<div class="section row">'
+            + '<div class="loading"><img src="' + themeUrl + 'img/loaders/loader.gif" /></div>'
+            + '</div>'
+            + '</div>'
+            + '</form>'
+            + '</div>'
+            + '</div>'
+            + '</div>';
+    showModalData(html);
+
+
 }
 
+
 function showModalData(html) {
-    $("#mainModal").html(html);
-//    $('select.fix').selectBox();
+    var animaciones = ["mfp-flipInY", "mfp-flipInX", "mfp-zoomIn", "mfp-zoomOut", "mfp-rotateUp", "mfp-rotateDown",
+        "mfp-rotateLeft", "mfp-rotateRight", "mfp-slideUp", "mfp-slideDown", "mfp-slideLeft", "mfp-slideRight",
+        "mfp-slideRight", "mfp-slideRight", "mfp-with-fade"/*, "mfp-fullscale"*/];
+
+//    $.magnificPopup.close();
+    // Inline Admin-Form example 
+    $.magnificPopup.open({
+        removalDelay: 500, //delay removal by X to allow out-animation,
+        items: {
+            src: html
+//            src: $('#modal-form')
+        },
+        closeOnBgClick: false, // no cierra el modal si da clic en la parte oscura
+//                        overflowY: 'hidden', // 
+        callbacks: {
+            beforeOpen: function (e) {
+                this.st.mainClass = animaciones[Math.floor(Math.random() * animaciones.length)];
+            }
+        },
+        midClick: false // allow opening popup on middle mouse click. Always set it to true if you don't provide alternative source.
+    });
 }
+
 /**
  * 
  * @param {cadena} url
@@ -175,14 +213,25 @@ function viewModal(url, CallBack)
     $.ajax({
         type: "POST",
         url: baseUrl + url,
-        beforeSend: function() {
-            showModalLoading();
+        beforeSend: function () {
+//            showModalLoading();
         },
-        success: function(data) {
+        success: function (data) {
+
             showModalData(data);
             CallBack();
 
         }
+    });
+}
+
+
+function AjaxAtualizacionInformacion(Formulario)
+{
+    BloquearBotonesModal(Formulario);
+    AjaxGestionModal(Formulario, function (list, data) {
+
+        ActualizarInformacion(list);
     });
 }
 /**
@@ -195,20 +244,20 @@ function AjaxGestionModal($form, CallBack) {
     var form = $($form);
     var settings = form.data('settings');
     settings.submitting = true;
-    $.fn.yiiactiveform.validate(form, function(messages) {
+    $.fn.yiiactiveform.validate(form, function (messages) {
 
-        $.each(messages, function() {
+        $.each(messages, function () {
             console.log(this);
         });
         if ($.isEmptyObject(messages)) {
-            $.each(settings.attributes, function() {
+            $.each(settings.attributes, function () {
                 $.fn.yiiactiveform.updateInput(this, messages, form);
             });
             AjaxGuardarModal(true, $form, CallBack);
         }
         else {
             settings = form.data('settings'),
-                    $.each(settings.attributes, function() {
+                    $.each(settings.attributes, function () {
                         $.fn.yiiactiveform.updateInput(this, messages, form);
                     });
             DesBloquearBotonesModal($form, 'Enviar', 'AjaxAtualizacionInformacion');
@@ -226,12 +275,12 @@ function AjaxAccionModal($form, CallBack) {
     var form = $($form);
     var settings = form.data('settings');
     settings.submitting = true;
-    $.fn.yiiactiveform.validate(form, function(messages) {
-        $.each(messages, function() {
+    $.fn.yiiactiveform.validate(form, function (messages) {
+        $.each(messages, function () {
             console.log(this);
         });
         if ($.isEmptyObject(messages)) {
-            $.each(settings.attributes, function() {
+            $.each(settings.attributes, function () {
 
                 $.fn.yiiactiveform.updateInput(this, messages, form);
             });
@@ -240,7 +289,7 @@ function AjaxAccionModal($form, CallBack) {
         }
         else {
             settings = form.data('settings'),
-                    $.each(settings.attributes, function() {
+                    $.each(settings.attributes, function () {
                         $.fn.yiiactiveform.updateInput(this, messages, form);
                     });
             DesBloquearBotonesModal($form, 'Enviar', 'AjaxCrearAccion');
@@ -279,7 +328,7 @@ function verificarValidacionModal($contenedor)
 {
     var verificar = true;
     $contenedor = $contenedor + ' div.control-group';
-    $($contenedor).each(function(index, elemento) {
+    $($contenedor).each(function (index, elemento) {
         if ($(elemento).hasClass('error'))
         {
             verificar = false;
@@ -306,9 +355,9 @@ function AjaxGuardarModal(verificador, Formulario, callBack)
             dataType: 'json',
             url: $(Formulario).attr('action'),
             data: $(Formulario).serialize(),
-            beforeSend: function(xhr) {
+            beforeSend: function (xhr) {
             },
-            success: function(data) {
+            success: function (data) {
                 if (data.success) {
                     $("#mainModal").modal("hide");
                     callBack(listaActualizar);
@@ -337,9 +386,9 @@ function AjaxGuardarAccionModal(verificador, Formulario, CallBack)
             dataType: 'json',
             url: $(Formulario).attr('action'),
             data: $(Formulario).serialize(),
-            beforeSend: function(xhr) {
+            beforeSend: function (xhr) {
             },
-            success: function(data) {
+            success: function (data) {
                 if (data.success) {
                     $("#mainModal").modal("hide");
                     $("#maiMessages").removeClass('hidden');
@@ -371,11 +420,11 @@ function AjaxUpdateElement(url, elemento, callBack)
         type: "POST",
         dataType: 'json',
         url: url,
-        beforeSend: function(xhr) {
+        beforeSend: function (xhr) {
             var html = "<div class='loading'><img src='" + themeUrl + "images/truulo-loading.gif' /></div>";
             $(elemento).html(html);
         },
-        success: function(data) {
+        success: function (data) {
             if (data.success) {
                 $(elemento).html(data.html);
                 callBack();
@@ -387,34 +436,58 @@ function AjaxUpdateElement(url, elemento, callBack)
 }
 ///**
 // * Carga de formatos a input en formularios
-// * @autor Armando Maldonado <amaldonado@tradesystem.com.ec>
 // * @returns {undefined}
 // */
-//function maskAttributes() {
-//    $('input.telefono').mask('000-000000');
-//    $('input.celular').mask('0000000000');
-//    $('input.ID').mask('0000000000');
-//    $('input.fax').mask('000-000000');
-//    $('input.numeric').mask('00000000000');
-//    $('input.money').mask('P999999999999999999999.ZZ', {
-//        translation: {
-//            'Z': {pattern: /[0-9]/, optional: true},
-//            'P': {pattern: /[1-9]/, },
-//        }});
-//    //continuar cargando formatos para input
-//}
+function maskAttributes() {
+    $('.fecha').mask('99/99/9999');
+//    $('.time').mask('99:99:99');
+//    $('.date_time').mask('99/99/9999 99:99:99');
+//    $('.zip').mask('99999-999');
+//    $('.phone').mask('(999) 999-9999');
+//    $('.phoneext').mask("(999) 999-9999 x99999");
+//    $(".money").mask("999,999,999.999");
+//    $(".product").mask("999.999.999.999");
+//    $(".tin").mask("99-9999999");
+//    $(".ssn").mask("999-99-9999");
+//    $(".ip").mask("9ZZ.9ZZ.9ZZ.9ZZ");
+//    $(".eyescript").mask("~9.99 ~9.99 999");
+//    $(".custom").mask("9.99.999.9999");
 
-function rotateCoin(degree,speed,orientation) {
-    $('#moneda').css({ WebkitTransform: 'rotateY('+degree+'deg)'});
-    $('#moneda').css({ '-o-transform': 'rotateY('+degree+'deg)'});
-    $('#moneda').css({ '-transform': 'rotateY('+degree+'deg)'});
-    $('#moneda').css({ '-moz-transform': 'rotateY('+degree+'deg)'});
-    $('#moneda').css({ '-moz-transition': speed+'s'});
-    $('#moneda').css({ '-moz-transform-style': 'preserve-3d'});
-    $('#moneda').css({ '-webkit-transition': speed+'s'});
-    $('#moneda').css({ '-webkit-transform-style': 'preserve-3d'});
-    $('#moneda').css({ '-o-transition': speed+'s'});
-    $('#moneda').css({ '-o-transition-style': 'preserve-3d'});
-    $('#moneda').css({ '-transition': speed+'s'});
-    $('#moneda').css({ '-transform-style': 'preserve-3d'});
+
+    $('input.telefono').mask('9 999 999');
+    $('input.celular').mask('999999999');
+    $('input.ID').mask('999999999');
+    $('input.fax').mask('999-999999');
+    $('input.numeric').mask('99999999999');
+    $('input.money').mask('P999999999999999999999.ZZ', {
+        translation: {
+            'Z': {pattern: /[0-9]/, optional: true},
+            'P': {pattern: /[1-9]/, },
+        }});
+    //continuar cargando formatos para input
+}
+
+function rotateCoin(degree, speed, orientation) {
+    $('#moneda').css({WebkitTransform: 'rotateY(' + degree + 'deg)'});
+    $('#moneda').css({'-o-transform': 'rotateY(' + degree + 'deg)'});
+    $('#moneda').css({'-transform': 'rotateY(' + degree + 'deg)'});
+    $('#moneda').css({'-moz-transform': 'rotateY(' + degree + 'deg)'});
+    $('#moneda').css({'-moz-transition': speed + 's'});
+    $('#moneda').css({'-moz-transform-style': 'preserve-3d'});
+    $('#moneda').css({'-webkit-transition': speed + 's'});
+    $('#moneda').css({'-webkit-transform-style': 'preserve-3d'});
+    $('#moneda').css({'-o-transition': speed + 's'});
+    $('#moneda').css({'-o-transition-style': 'preserve-3d'});
+    $('#moneda').css({'-transition': speed + 's'});
+    $('#moneda').css({'-transform-style': 'preserve-3d'});
+}
+
+function dessabilitarEntreOnForm() {
+    $("form").keypress(function (e) {
+//        alert(e.which);
+        if (e.which == 13) {
+            return false;
+        }
+    });
+
 }

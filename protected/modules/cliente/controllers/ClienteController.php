@@ -37,7 +37,8 @@ class ClienteController extends AweController {
         if (isset($_POST['Cliente'])) {
             $model->attributes = $_POST['Cliente'];
             if ($model->save()) {
-                $this->redirect(array('view', 'id' => $model->id));
+//                $this->redirect(array('view', 'id' => $model->id));
+                $this->redirect(array('admin'));
             }
         }
 
@@ -60,7 +61,8 @@ class ClienteController extends AweController {
         if (isset($_POST['Cliente'])) {
             $model->attributes = $_POST['Cliente'];
             if ($model->save()) {
-                $this->redirect(array('view', 'id' => $model->id));
+//                $this->redirect(array('view', 'id' => $model->id));
+                $this->redirect(array('admin'));
             }
         }
 
@@ -130,6 +132,48 @@ class ClienteController extends AweController {
         if (isset($_POST['ajax']) && $_POST['ajax'] === 'cliente-form') {
             echo CActiveForm::validate($model);
             Yii::app()->end();
+        }
+    }
+
+//    ejemplo modal\
+    public function actionModal($id_cliente = null) {
+        $result = array();
+        $model = new Cliente;
+
+
+
+
+        $this->performAjaxValidation($model, 'cliente-form');
+
+        $validadorPartial = false;
+        if (Yii::app()->request->isAjaxRequest) {
+//            
+
+            if (isset($_POST['Cliente'])) {
+
+                $model->attributes = $_POST['Cliente'];
+
+
+
+                $result['success'] = $model->save();
+
+                if (!$result['success']) {
+
+                    $result['mensage'] = "Error al guardar";
+                } else {
+//                    Actividad::registrarActividad($model, Actividad::TIPO_CREATE);
+                }
+
+                $validadorPartial = TRUE;
+                echo json_encode($result);
+            }
+
+            if (!$validadorPartial) {
+
+                $this->renderPartial('_form_modal', array(
+                    'model' => $model
+                        ), false, true);
+            }
         }
     }
 

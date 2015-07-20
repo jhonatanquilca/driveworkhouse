@@ -15,6 +15,8 @@
         <!-- Theme CSS -->
         <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->theme->baseUrl; ?>/css/admin-forms.css">
         <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->theme->baseUrl; ?>/css/theme.css">
+        <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->theme->baseUrl; ?>/js/plugins/magnific/magnific-popup.css">
+        <!--C:\wamp\www\driveworkhouse\themes\admin\js\plugins\magnific\magnific-popup.css-->
 
         <!-- Favicon -->
         <link rel="shortcut icon" href="<?php echo Yii::app()->theme->baseUrl; ?>/img/favicon.ico">
@@ -27,12 +29,12 @@
         <script>
             var baseUrl = "<?php echo Yii::app()->baseUrl . '/'; ?>";
             var themeUrl = "<?php echo Yii::app()->theme->baseUrl . '/'; ?>";
-            var user_id = "<?php echo Yii::app()->user->id; ?>";
-        </script>
+            var user_id = "<?php echo Yii::app()->user->id; ?>";</script>
     </head>
 
-    <body class="of-y-h sb-l-o sb-r-c onload-check" style="min-height: 340px;">
-
+    <body class="of-y-h sb-l-o sb-r-c onload-check  admin-modals-page " >
+        <!--admin-modals-page   mobile-view sb-l-m tray-rescale onload-check-->
+        <!--admin-modals-page sb-l-o sb-r-c mobile-view sb-l-m tray-rescale onload-check-->
 
         <!-- Start: Main -->
         <div id="main">
@@ -113,9 +115,9 @@
                                                 </li>
                                             </ul>
                                         </li>-->
-<!--                    <li class="menu-divider hidden-xs">
-                        <i class="fa fa-circle"></i>
-                    </li>-->
+                    <!--                    <li class="menu-divider hidden-xs">
+                                            <i class="fa fa-circle"></i>
+                                        </li>-->
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle fw600 p15" data-toggle="dropdown"> 
                             <img src="<?php echo Yii::app()->theme->baseUrl; ?>/img/avatars/1.jpg" alt="avatar" class="mw30 br64 mr15"> 
@@ -208,7 +210,7 @@
 
                 <!-- Begin: Content -->
                 <!--<section id="content" class="animated fadeIn" >-->
-                <?php // echo $content; ?>
+                <?php // echo $content;  ?>
 
                 <!--                            </section>-->
                 <!-- End: Content -->
@@ -247,29 +249,32 @@
         <script src="<?php echo Yii::app()->theme->baseUrl; ?>/js/utility/utility.js"></script>
         <!--<script src="<?php echo Yii::app()->theme->baseUrl; ?>/js/demo/demo.js"></script>-->
         <script src="<?php echo Yii::app()->theme->baseUrl; ?>/js/main.js"></script>
+        <!--plugins adicionales-->
+        <script src="<?php echo Yii::app()->theme->baseUrl; ?>/js/plugins/jquerymask/jquery.maskedinput.min.js" type="text/javascript"></script>
+        <script src="<?php echo Yii::app()->theme->baseUrl; ?>/js/plugins/magnific/jquery.magnific-popup.js" type="text/javascript"></script>
+        <script type="text/javascript" src="<?php echo Yii::app()->theme->baseUrl; ?>/js/common-scripts.js"></script>  
 
         <script type="text/javascript">
-//              jQuery(document).ready(function() {
+            jQuery(document).ready(function () {
 
-            "use strict";
-
+                "use strict";
 // Init Theme Core    
-            Core.init();
-            $(document).ready(function () {
-                if (!$('body').hasClass('sb-l-m')) {
-                    $('.sidebar-left-content.nano-content').css('margin-right', '-17px');
-                } else {
-                    $('.sidebar-left-content.nano-content').css('margin-right', '0px');
-                }
+                Core.init();
+                $(document).ready(function () {
+                    if (!$('body').hasClass('sb-l-m')) {
+                        $('.sidebar-left-content.nano-content').css('margin-right', '-17px');
+                    } else {
+                        $('.sidebar-left-content.nano-content').css('margin-right', '0px');
+                    }
 
-            });
+                });
 // Init Demo JS  
 //                                            Demo.init();
 
 //              });
 //                            para los paneles de portltes
-            $('.admin-panels').adminpanel({
-                grid: '.admin-grid',
+                $('.admin-panels').adminpanel({
+                    grid: '.admin-grid',
 //                                callback: function () {
 //                                    window.console.log('on callback');
 //                                    bootbox.confirm('<h3>A Custom Callback!</h3>', function () {
@@ -284,13 +289,25 @@
 //                                    demoHighCharts.init();
 //                                    runVectorMaps();
 //                                },
-                onSave: function () {
+                    onSave: function () {
 //                                    window.console.log('onsave');
-                    $(window).trigger('resize');
-                }
+                        $(window).trigger('resize');
+                    }
+                });
+
+
+
+
+
+
+
+
+
+
             });
         </script>
-        <script type="text/javascript" src="<?php echo Yii::app()->theme->baseUrl; ?>/js/common-scripts.js"></script>  
+
+
         <!-- END: PAGE SCRIPTS -->
 
     </body>

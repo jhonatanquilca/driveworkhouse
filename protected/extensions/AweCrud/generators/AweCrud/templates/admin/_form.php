@@ -34,8 +34,9 @@
             'type' => 'horizontal',
             'id' => '<?php echo $this->class2id($this->modelClass) ?>-form',
             'enableAjaxValidation' => <?php echo $this->validation == 1 || $this->validation == 3 ? 'true' : 'false' ?>,
-            'enableClientValidation'=> <?php echo $this->validation == 2 || $this->validation == 3 ? 'true' : 'false' ?>,
-            )); ?>
+            'clientOptions' => array('validateOnSubmit' => <?php echo $this->validation == 2 || $this->validation == 3 ? 'true' : 'false' ?>, 'validateOnChange' => <?php echo $this->validation == 1 || $this->validation == 3 ? 'true' : 'false' ?>,),
+            'enableClientValidation' => <?php echo $this->validation == 2 || $this->validation == 3 ? 'true' : 'false' ?>,
+            ));?>
             <p class="note">
                 <?php echo "<?php echo Yii::t('AweCrud.app', 'Fields with') ?>" ?> <span class="required">*</span>
                 <?php echo "<?php echo Yii::t('AweCrud.app', 'are required') ?>." ?>
