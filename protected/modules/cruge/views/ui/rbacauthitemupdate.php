@@ -2,15 +2,29 @@
 /* $model:  es una instancia que implementa a CrugeAuthItemEditor */
 $this->pageTitle = Yii::t('app', 'Roles y Asignaciones');
 ?>
-<div class="widget blue">
-    <div class="widget-title">
-        <h4><i class="icon-key"></i> <?php echo ucwords(CrugeTranslator::t("editando")." ".CrugeTranslator::t($model->categoria));?></h4>
-        <span class="tools">
-            <a href="javascript:;" class="icon-chevron-down"></a>
-            <!--a href="javascript:;" class="icon-remove"></a-->
-        </span>
-     </div>
-    <div class="widget-body">
-        <?php $this->renderPartial('_authitemform',array('model'=>$model),false);?>
+<div class="row">
+    <div class="col-sm-12 pl15">
+        <div class="bs-component p10"> 
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <span class="panel-icon">
+                        <i class="fa fa-key"></i>
+                    </span>
+                    <span class="panel-title"><?php echo ucwords(CrugeTranslator::t("editando") . " " . CrugeTranslator::t($model->categoria)); ?></span>
+                    <span class="panel-controls">
+                        <a href="#" class="panel-control-loader"></a>
+                        <!--<a href="#" class="panel-control-remove"></a>-->
+                        <!--<a href="#" class="panel-control-title"></a>-->
+                        <!--<a href="#" class="panel-control-color"></a>-->
+                        <a href="#" class="panel-control-collapse"></a>
+                        <!--<a href="#" class="panel-control-fullscreen"></a>-->
+                    </span>
+                </div>
+                <div class="panel-body border pn"> 
+                    <?php $this->renderPartial('_authitemform', array('model' => $model), false); ?>
+
+                </div>
+            </div>
+        </div>
     </div>
 </div>

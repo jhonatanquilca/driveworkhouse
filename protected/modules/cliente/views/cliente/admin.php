@@ -36,7 +36,7 @@ $this->menu = array(
                         <?php
                         $this->widget('bootstrap.widgets.TbGridView', array(
                             'id' => 'cliente-grid',
-                            'type' => 'striped condensed hover', //striped condensed  bordered hover
+                            'type' => 'striped condensed hover bordered', //striped condensed  bordered hover
                             'dataProvider' => $model->search(),
                             'filter' => $model,
                             'emptyText' => '<div class="alert alert-border-bottom alert-primary pastel light dark text-center">                                            

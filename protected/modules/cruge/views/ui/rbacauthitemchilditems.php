@@ -24,13 +24,22 @@
 	$treeDataOps = array();
 
 	// titulos
-        echo "<div class='widget blue'>";
-        echo "<div class='widget-title'>";
-        echo "<h4><i class='icon-key'></i> ".ucfirst($model->name)." (".
+        
+    
+        echo "<div class='row'>";
+        echo "<div class='col-sm-12 pl15'>";
+        echo "<div class='bs-component p10'>";
+        echo "<div class='panel panel-primary'>";
+        echo "<div class='panel-heading'>";
+        echo "<span class='panel-icon'><i class='fa fa-key'></i></span>";
+        
+        echo "<span class='panel-title'> ".ucfirst($model->name)." (".
 		CrugeTranslator::t($rbac->getAuthItemTypeName($model->type)).")</h4>";
-        echo "<span class='tools'><a href='javascript:;' class='icon-chevron-down'></a></span>";
+        
+        
+        echo '<span class="panel-controls"><a href="#" class="panel-control-loader"></a><a href="#" class="panel-control-collapse"></a></span>';
         echo "</div>";
-        echo "<div class='widget-body'>";
+        echo "<div class='panel-body border'>";
         
 	echo "<h3 class='hint'>".$model->description."</h3>";
 	echo "<p>".ucfirst(CrugeTranslator::t(
@@ -267,6 +276,9 @@
 		)
 	));
         
+        echo "</div>";
+        echo "</div>";
+        echo "</div>";
         echo "</div>";
 ?>
 
