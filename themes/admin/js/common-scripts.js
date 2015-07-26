@@ -184,7 +184,6 @@ function showModalData(html) {
         "mfp-rotateLeft", "mfp-rotateRight", "mfp-slideUp", "mfp-slideDown", "mfp-slideLeft", "mfp-slideRight",
         "mfp-slideRight", "mfp-slideRight", "mfp-with-fade"/*, "mfp-fullscale"*/];
 
-//    $.magnificPopup.close();
     // Inline Admin-Form example 
     $.magnificPopup.open({
         removalDelay: 500, //delay removal by X to allow out-animation,
@@ -218,7 +217,7 @@ function viewModal(url, CallBack)
 //            showModalLoading();
         },
         success: function (data) {
-
+//            $.magnificPopup.close();
             showModalData(data);
             CallBack();
 
@@ -232,7 +231,7 @@ function AjaxAtualizacionInformacion(Formulario)
     BloquearBotonesModal(Formulario);
     AjaxGestionModal(Formulario, function (list, data) {
 
-        ActualizarInformacion(list);
+//        ActualizarInformacion(list);
     });
 }
 /**
@@ -360,7 +359,8 @@ function AjaxGuardarModal(verificador, Formulario, callBack)
             },
             success: function (data) {
                 if (data.success) {
-                    $("#mainModal").modal("hide");
+                    $.magnificPopup.close();
+
                     callBack(listaActualizar);
 
                 } else {

@@ -44,6 +44,14 @@
             <div class="col-md-6">   
                 <?php echo "<?php echo \$form->errorSummary(\$model, '<p>' . Yii::t('yii', 'Please fix the following input errors:') . '</p>', '',array('class'=>'alert alert-danger pastel')) ?>\n" ?>
                 <?php echo "<?php // add array('class'=>'gui-input')?> \n"; ?>
+                <?php echo' <!--@TODO: Utilizar la estructura comentada si el formulario es de--> 
+                <!--type=vertical caso contrario si es hirizontal no cambia-->
+                <!--                <div class="control-group">
+                
+                <?php // echo $form->textFieldRow($model, \'nombre\', array(\'maxlength\' => 64,\'class\' => \'gui-input\')) ?>
+                
+                                </div>-->
+                                ' ?>
 
 
                 <?php foreach ($this->tableSchema->columns as $column): ?>

@@ -27,9 +27,21 @@ Yii::app()->clientScript->scriptMap['jquery.js'] = false;
                 <?php echo Yii::t('AweCrud.app', 'are required') ?>.            </p>
             <?php // echo $form->errorSummary($model, '<p>' . Yii::t('yii', 'Please fix the following input errors:') . '</p>', '', array('class' => 'alert alert-danger pastel'))  ?>
 
-            <?php echo $form->textFieldRow($model, 'nombre', array('maxlength' => 32, 'class' => 'gui-input')) ?>
+            <!--@TODO: Utilizar la estructura comentada si el formulario es de--> 
+            <!--type=vertical caso contrario si es hirizontal no cambia-->
+            <div class="control-group">
+                       <?php echo $form->textFieldRow($model, 'nombre', array('maxlength' => 32, 'class' => 'gui-input')) ?>
 
-            <?php echo $form->textFieldRow($model, 'apellido', array('maxlength' => 32, 'class' => 'gui-input')) ?>
+
+            </div>
+            <div class="control-group">
+
+                <?php echo $form->textFieldRow($model, 'apellido', array('maxlength' => 32, 'class' => 'gui-input')) ?>
+            </div>
+            <div class="control-group">
+
+            <?php echo $form->textFieldRow($model, 'usuario_creacion_id', array('class' => 'gui-input')) ?>
+            </div>
 
             <?php echo $form->textFieldRow($model, 'documento', array('maxlength' => 20, 'class' => 'gui-input')) ?>
 
@@ -43,7 +55,6 @@ Yii::app()->clientScript->scriptMap['jquery.js'] = false;
 
             <?php // echo $form->dropDownListRow($model, 'estado', array('ACTIVO' => 'ACTIVO', 'INACTIVO' => 'INACTIVO',), array('class' => 'form-control'))  ?>
 
-            <?php echo $form->textFieldRow($model, 'usuario_creacion_id', array('class' => 'gui-input'))  ?>
 
             <?php // echo $form->textFieldRow($model, 'usuario_actualizacion_id', array('class' => 'gui-input'))  ?>
         </div>
