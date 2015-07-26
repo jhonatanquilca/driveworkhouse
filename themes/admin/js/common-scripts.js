@@ -193,7 +193,8 @@ function showModalData(html) {
 //            src: $('#modal-form')
         },
         closeOnBgClick: false, // no cierra el modal si da clic en la parte oscura
-//                        overflowY: 'hidden', // 
+//        overflowY: 'auto', // 
+
         callbacks: {
             beforeOpen: function (e) {
                 this.st.mainClass = animaciones[Math.floor(Math.random() * animaciones.length)];

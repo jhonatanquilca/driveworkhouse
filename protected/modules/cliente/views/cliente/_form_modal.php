@@ -4,7 +4,7 @@
 /** @var AweActiveForm $form */
 Yii::app()->clientScript->scriptMap['jquery.js'] = false;
 ?>
-<div id="modal-form" class="popup-basic admin-form mfp-with-anim ">
+<div id="modal-form" class="popup-basic admin-form mfp-with-anim">
     <div class="panel">
         <div class="panel-heading">
             <span class="panel-title">
@@ -21,7 +21,7 @@ Yii::app()->clientScript->scriptMap['jquery.js'] = false;
             'enableClientValidation' => false
         ));
         ?>
-        <div class="panel-body p25">   
+        <div class="panel-body panel-scroller scroller-lg scroller-pn scroller-overlay pl25 pr25 ptn pbn">   
             <p class="note">
                 <?php echo Yii::t('AweCrud.app', 'Fields with') ?> <span class="required">*</span>
                 <?php echo Yii::t('AweCrud.app', 'are required') ?>.            </p>
@@ -43,12 +43,12 @@ Yii::app()->clientScript->scriptMap['jquery.js'] = false;
 
             <?php // echo $form->dropDownListRow($model, 'estado', array('ACTIVO' => 'ACTIVO', 'INACTIVO' => 'INACTIVO',), array('class' => 'form-control'))  ?>
 
-            <?php // echo $form->textFieldRow($model, 'usuario_creacion_id', array('class' => 'gui-input'))  ?>
+            <?php echo $form->textFieldRow($model, 'usuario_creacion_id', array('class' => 'gui-input'))  ?>
 
             <?php // echo $form->textFieldRow($model, 'usuario_actualizacion_id', array('class' => 'gui-input'))  ?>
         </div>
 
-        <div class="panel-footer text-right">
+        <div class="panel-footer">
 
             <?php
             $this->widget('bootstrap.widgets.TbButton', array(
@@ -79,3 +79,9 @@ Yii::app()->clientScript->scriptMap['jquery.js'] = false;
     </div>
     <!-- end: .panel -->
 </div>
+<script type="text/javascript">
+    jQuery(document).ready(function () {
+        Core.init();
+
+    });
+</script>
