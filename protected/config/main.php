@@ -127,7 +127,6 @@ return array(
                 'AweCrud' => 'ext.AweCrud.messages', // AweCrud messages directory.
             ),
         ),
-        // uncomment the following to enable URLs in path-format        
         'urlManager' => array(
             'urlFormat' => 'path',
             'showScriptName' => false,
@@ -139,6 +138,18 @@ return array(
                 '<controller:\w+>/<action:\w+>' => '<controller>/<action>',
             ),
         ),
+        // uncomment the following to enable URLs in path-format        
+//        'urlManager' => array(
+//            'urlFormat' => 'path',
+//            'showScriptName' => false,
+//            //false no muestrael nombre del archivo en url
+//            //Configura tambien el htaccces principal
+//            'rules' => array(
+//                '<controller:\w+>/<id:\d+>' => '<controller>/view',
+//                '<controller:\w+>/<action:\w+>/<id:\d+>' => '<controller>/<action>',
+//                '<controller:\w+>/<action:\w+>' => '<controller>/<action>',
+//            ),
+//        ),
         // uncomment the following to use a MySQL database
         'db' => array(
             'connectionString' => 'mysql:host=localhost;dbname=drivehouse',
@@ -147,6 +158,14 @@ return array(
             'password' => '',
             'charset' => 'utf8',
         ),
+        /* base de datos hostinget */
+//        'db' => array(
+//            'connectionString' => 'mysql:host=mysql.hostinger.co;dbname=u354432050_drive',
+//            'emulatePrepare' => true,
+//            'username' => 'u354432050_drive',
+//            'password' => '1004476568',
+//            'charset' => 'utf8',
+//        ),
         'errorHandler' => array(
             // use 'site/error' action to display errors
 //            'errorAction' => 'site/error',
@@ -175,7 +194,7 @@ return array(
         'crugemailer' => array(
             'class' => 'application.modules.cruge.components.CrugeMailer',
             'mailfrom' => 'email-desde-donde-quieres-enviar-los-mensajes@xxxx.com',
-            'subjectprefix' => 'Bliblioteca CRM - ',
+            'subjectprefix' => 'Deudas - ',
             'debug' => true,
         ),
         'format' => array(

@@ -59,7 +59,7 @@ Yii::app()->clientScript->scriptMap['jquery.js'] = false;
             <?php // echo $form->textFieldRow($model, 'usuario_actualizacion_id', array('class' => 'gui-input'))  ?>
         </div>
 
-        <div class="panel-footer">
+        <div class="panel-footer text-right">
 
             <?php
             $this->widget('bootstrap.widgets.TbButton', array(

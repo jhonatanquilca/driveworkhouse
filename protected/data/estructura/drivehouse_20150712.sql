@@ -23,9 +23,7 @@ CREATE TABLE IF NOT EXISTS `actividad` (
   `usuario_id` INT(11) NOT NULL,
   `fecha` DATETIME NOT NULL,
   `detalle` TEXT NULL,
-  PRIMARY KEY (`id`))
-ENGINE = InnoDB
-AUTO_INCREMENT = 14;
+  PRIMARY KEY (`id`));
 
 
 -- -----------------------------------------------------
@@ -45,9 +43,7 @@ CREATE TABLE IF NOT EXISTS `cliente` (
   `usuario_actualizacion_id` INT(11) NULL,
   `fecha_creacion` DATETIME NOT NULL,
   `fecha_actualizacion` DATETIME NULL,
-  PRIMARY KEY (`id`))
-ENGINE = InnoDB
-AUTO_INCREMENT = 13;
+  PRIMARY KEY (`id`));
 
 
 -- -----------------------------------------------------
@@ -63,7 +59,6 @@ CREATE TABLE IF NOT EXISTS `mail_plantilla` (
   `usuario_creacion_id` INT(11) NOT NULL,
   `usuario_actualizacion_id` VARCHAR(45) NULL DEFAULT NULL,
   PRIMARY KEY (`id`))
-ENGINE = InnoDB
 DEFAULT CHARACTER SET = latin1;
 
 
@@ -87,8 +82,7 @@ CREATE TABLE IF NOT EXISTS `mail` (
     FOREIGN KEY (`plantilla_id`)
     REFERENCES `mail_plantilla` (`id`)
     ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
+    ON UPDATE NO ACTION);
 
 
 -- -----------------------------------------------------
@@ -99,8 +93,7 @@ CREATE TABLE IF NOT EXISTS `descripcion_palntilla` (
   `nombre` VARCHAR(45) NOT NULL,
   `descripcion` TEXT NOT NULL,
   `estado` ENUM('ACTIVO','INACTIVO') NULL,
-  PRIMARY KEY (`id`))
-ENGINE = InnoDB;
+  PRIMARY KEY (`id`));
 
 
 -- -----------------------------------------------------
@@ -113,7 +106,6 @@ CREATE TABLE IF NOT EXISTS `cruge_authitem` (
   `bizrule` TEXT NULL DEFAULT NULL,
   `data` TEXT NULL DEFAULT NULL,
   PRIMARY KEY (`name`))
-ENGINE = InnoDB
 DEFAULT CHARACTER SET = latin1;
 
 
@@ -133,7 +125,6 @@ CREATE TABLE IF NOT EXISTS `cruge_user` (
   `totalsessioncounter` INT(11) NULL DEFAULT '0',
   `currentsessioncounter` INT(11) NULL DEFAULT '0',
   PRIMARY KEY (`iduser`))
-ENGINE = InnoDB
 AUTO_INCREMENT = 10
 DEFAULT CHARACTER SET = latin1;
 
@@ -159,7 +150,6 @@ CREATE TABLE IF NOT EXISTS `cruge_authassignment` (
     REFERENCES `cruge_user` (`iduser`)
     ON DELETE CASCADE
     ON UPDATE NO ACTION)
-ENGINE = InnoDB
 DEFAULT CHARACTER SET = latin1;
 
 
@@ -181,7 +171,6 @@ CREATE TABLE IF NOT EXISTS `cruge_authitemchild` (
     REFERENCES `cruge_authitem` (`name`)
     ON DELETE CASCADE
     ON UPDATE CASCADE)
-ENGINE = InnoDB
 DEFAULT CHARACTER SET = latin1;
 
 
@@ -202,7 +191,6 @@ CREATE TABLE IF NOT EXISTS `cruge_field` (
   `useregexpmsg` VARCHAR(512) NULL DEFAULT NULL,
   `predetvalue` MEDIUMBLOB NULL DEFAULT NULL,
   PRIMARY KEY (`idfield`))
-ENGINE = InnoDB
 DEFAULT CHARACTER SET = latin1;
 
 
@@ -227,7 +215,6 @@ CREATE TABLE IF NOT EXISTS `cruge_fieldvalue` (
     REFERENCES `cruge_field` (`idfield`)
     ON DELETE CASCADE
     ON UPDATE NO ACTION)
-ENGINE = InnoDB
 DEFAULT CHARACTER SET = latin1;
 
 
@@ -247,7 +234,6 @@ CREATE TABLE IF NOT EXISTS `cruge_session` (
   `ipaddressout` VARCHAR(45) NULL DEFAULT NULL,
   PRIMARY KEY (`idsession`),
   INDEX `crugesession_iduser` (`iduser` ASC))
-ENGINE = InnoDB
 AUTO_INCREMENT = 2
 DEFAULT CHARACTER SET = latin1;
 
@@ -274,7 +260,6 @@ CREATE TABLE IF NOT EXISTS `cruge_system` (
   `registerusingtermslabel` VARCHAR(100) NULL DEFAULT NULL,
   `registrationonlogin` INT(11) NULL DEFAULT '1',
   PRIMARY KEY (`idsystem`))
-ENGINE = InnoDB
 AUTO_INCREMENT = 2
 DEFAULT CHARACTER SET = latin1;
 
@@ -304,8 +289,7 @@ CREATE TABLE IF NOT EXISTS `pago` (
     FOREIGN KEY (`cliente_id`)
     REFERENCES `cliente` (`id`)
     ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
+    ON UPDATE NO ACTION);
 
 
 -- -----------------------------------------------------
@@ -333,8 +317,7 @@ CREATE TABLE IF NOT EXISTS `deuda` (
     FOREIGN KEY (`cliente_id`)
     REFERENCES `cliente` (`id`)
     ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
+    ON UPDATE NO ACTION);
 
 
 SET SQL_MODE=@OLD_SQL_MODE;
