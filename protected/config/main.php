@@ -13,8 +13,8 @@ return array(
     'theme' => 'admin',
     // preloading 'log' component
     'preload' => array(
+        'bootstrap',
         'log',
-        'bootstrap'
     ),
     //Descomenta esta linea para tener un controlador por defecto
     'defaultController' => 'principal/dashboard/index',
@@ -114,6 +114,7 @@ return array(
             'responsiveCss' => true,
 //            'ajaxCssImport' => false,
         ),
+        
         'user' => array(
             // enable cookie-based authentication
             'allowAutoLogin' => true,

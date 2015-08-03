@@ -15,8 +15,7 @@
         <!-- Theme CSS -->
         <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->theme->baseUrl; ?>/css/admin-forms.css">
         <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->theme->baseUrl; ?>/css/theme.css">
-        <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->theme->baseUrl; ?>/js/plugins/magnific/magnific-popup.css">
-        <!--C:\wamp\www\driveworkhouse\themes\admin\js\plugins\magnific\magnific-popup.css-->
+        <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->theme->baseUrl; ?>/plugins/magnific/magnific-popup.css">
 
         <!-- Favicon -->
         <link rel="shortcut icon" href="<?php echo Yii::app()->theme->baseUrl; ?>/img/favicon.ico">
@@ -250,8 +249,8 @@
         <!--<script src="<?php echo Yii::app()->theme->baseUrl; ?>/js/demo/demo.js"></script>-->
         <script src="<?php echo Yii::app()->theme->baseUrl; ?>/js/main.js"></script>
         <!--plugins adicionales-->
-        <script src="<?php echo Yii::app()->theme->baseUrl; ?>/js/plugins/jquerymask/jquery.maskedinput.min.js" type="text/javascript"></script>
-        <script src="<?php echo Yii::app()->theme->baseUrl; ?>/js/plugins/magnific/jquery.magnific-popup.js" type="text/javascript"></script>
+        <script src="<?php echo Yii::app()->theme->baseUrl; ?>/plugins/jquerymask/jquery.maskedinput.min.js" type="text/javascript"></script>
+        <script src="<?php echo Yii::app()->theme->baseUrl; ?>/plugins/magnific/jquery.magnific-popup.js" type="text/javascript"></script>
         <script type="text/javascript" src="<?php echo Yii::app()->theme->baseUrl; ?>/js/common-scripts.js"></script>  
 
         <script type="text/javascript">
