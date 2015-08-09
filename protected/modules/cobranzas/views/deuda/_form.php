@@ -39,11 +39,21 @@ Util::tsRegisterAssetJs('_form.js');
                 <?php echo Yii::t('AweCrud.app', 'Fields with') ?> <span class="required">*</span>
                 <?php echo Yii::t('AweCrud.app', 'are required') ?>.            </p>
             <div class="col-md-6">   
-                <?php echo $form->errorSummary($model, '<p>' . Yii::t('yii', 'Please fix the following input errors:') . '</p>', '', array('class' => 'alert alert-danger pastel')) ?>
+                <?php // echo $form->errorSummary($model, '<p>' . Yii::t('yii', 'Please fix the following input errors:') . '</p>', '', array('class' => 'alert alert-danger pastel')) ?>
 
-                <?php echo $form->dropDownListRow($model, 'cliente_id', array('' => ' -- Seleccione -- ') + CHtml::listData(Cliente::model()->findAll(), 'id', 'Nombre_completo'), array('class' => 'form-control')) ?>
+                <?php // echo $form->dropDownListRow($model, 'cliente_id', array('' => ' -- Seleccione -- ') + CHtml::listData(Cliente::model()->findAll(), 'id', 'Nombre_completo'), array('class' => 'form-control')) 
+                ?>
+                <?php
+                $data = array();
+                if (!$model->isNewRecord) {
+                    $data=array($model->cliente_id=>  Cliente::model()->findByPk($model->cliente_id)->nombre_completo);
+                }
+                ?>
+                <?php // echo $form->dropDownListRow($model, 'cliente_id', $data, array('class' => 'form-control select2')) ?>
+                <?php echo $form->dropDownListRow($model, 'cliente_id', $data, array('class' => 'form-control select2')) ?>
 
-                <?php echo $form->dropDownListRow($model, 'descripcion_palntilla_id', array('' => ' -- Seleccione -- ') + CHtml::listData(DescripcionPalntilla::model()->findAll(), 'id', DescripcionPalntilla::representingColumn()), array('class' => 'form-control')) ?>
+                <?php // echo $form->dropDownListRow($model, 'descripcion_palntilla_id', array('' => ' -- Seleccione -- ') + CHtml::listData(DescripcionPalntilla::model()->findAll(), 'id', DescripcionPalntilla::representingColumn()), array('class' => 'form-control'))     ?>
+                <?php echo $form->dropDownListRow($model, 'descripcion_palntilla_id', array(), array('class' => 'form-control select2')) ?>
 
                 <?php echo $form->textFieldRow($model, 'monto', array('class' => 'gui-input')) ?>
 
@@ -51,7 +61,7 @@ Util::tsRegisterAssetJs('_form.js');
 
                 <?php echo $form->textFieldRow($model, 'usuario_actualizacion_id', array('class' => 'gui-input')) ?>
 
-                <?php echo $form->textAreaRow($model, 'observaciones', array('rows' => 3, 'cols' => 50, 'class' => 'gui-input')) ?>
+<?php echo $form->textAreaRow($model, 'observaciones', array('rows' => 3, 'cols' => 50, 'class' => 'gui-input')) ?>
 
 
 
@@ -77,6 +87,6 @@ Util::tsRegisterAssetJs('_form.js');
             ?>
         </div>
 
-        <?php $this->endWidget(); ?>
+<?php $this->endWidget(); ?>
     </div>
 </div>

@@ -99,12 +99,27 @@ class Cliente extends BaseCliente {
 
     /* -----------------------------SCOPES------------------------- */
     /* ----------------------------CONSULTAS----------------------- */
+
+    public function getListSelect2($search_value = null) {
+//        select t.id as id, CONCAT(t.nombre, CONCAT(" ", t.apellido)) as text from cliente t
+//        where CONCAT(t.nombre, CONCAT(" ", t.apellido)) like 'stan%'
+        $command = Yii::app()->db->createCommand()
+                ->select("t.id as id,CONCAT(t.nombre, CONCAT(' ',t.apellido)) as text")
+                ->from('cliente t');
+
+        if ($search_value) {
+            $command->andWhere("CONCAT(t.nombre, CONCAT(' ', t.apellido)) like '$search_value%'");
+        }
+        $command->limit(10);
+        return $command->queryAll();
+    }
+
     /* -------------------------FUNCIONES EXTRA-------------------- */
 
     public function getNombre_completo() {
         $return = $this->nombre;
-        $return = $return.($this->apellido?' '.$this->apellido:'');
-        
+        $return = $return . ($this->apellido ? ' ' . $this->apellido : '');
+
         $this->nombre_completo = $return;
         return $this->nombre_completo;
     }

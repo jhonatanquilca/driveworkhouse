@@ -1,33 +1,61 @@
-var inputClineteId;
-var descripcionPalntillaId;
+var inputClineteId, inputClineteDescripcionPalntillaId;
 $(function () {
+
+    select2Error();
     inputClineteId = $('#Deuda_cliente_id');
     inputClineteId.select2({
         placeholder: "Seleccione un Cliente",
-//        allowClear: true,
+//        multiple: "multiple",
+        ajax: {
+            url: baseUrl + 'cliente/cliente/ajaxlistClientes',
+            dataType: 'json',
+//            delay: 250,
+            data: function (params) {
+                return {
+                    search_value: params.term, // search term
+                    page: params.page
+                };
+            },
+            processResults: function (data, page) {
+                return {
+                    results: data
+                };
+            },
+//            cache: true
+        },
+//        language: {
+//            inputTooShort: function () {
+//                return "You sads...";
+//            }
+//        },
+        width: "100%",
     });
-    
-        descripcionPalntillaId = $('#Deuda_descripcion_palntilla_id');
-        descripcionPalntillaId.select2({
-        placeholder: "Seleccione una Plantilla",
-//        allowClear: true,
+    inputClineteDescripcionPalntillaId = $('#Deuda_descripcion_palntilla_id');
+    inputClineteDescripcionPalntillaId.select2({
+        placeholder: "Seleccione un Cliente",
+        ajax: {
+            url: baseUrl + 'cliente/cliente/ajaxlistClientes',
+            dataType: 'json',
+//            delay: 25000000000,
+            data: function (params) {
+                return {
+                    search_value: params.term, // search term
+                    page: params.page
+                };
+            },
+            processResults: function (data, page) {
+                return {
+                    results: data
+                };
+            },
+            cache: true
+        },
+        width: "100%",
     });
-
-
-select2Error(inputClineteId);
-
 });
+//function select2Error(id) {
+//    $('#select2-' + id + '-container' + '>span').css('color', '#b94a48');
 
-function select2Error(object){
-id=object.attr('id');
-console.log(id);
-if(object.hasClass('error')){
-$('#select2-'+id+'>span').css('color','#b94a48');
-console.log($('#select2-'+id+'>span'));
+//    $('#select2-' + id + '-container').parent().css('border-color', '#b94a48');
 
-$('#select2-'+id+'-container').parent().css('border-color','#b94a48');
-console.log($('#select2-'+id+'-container').parent());
-}
-}
-
-
+//}

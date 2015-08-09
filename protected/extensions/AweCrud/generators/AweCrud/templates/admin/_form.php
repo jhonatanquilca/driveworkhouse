@@ -49,6 +49,9 @@
                 <!--                <div class="control-group">
                 
                 <?php // echo $form->textFieldRow($model, \'nombre\', array(\'maxlength\' => 64,\'class\' => \'gui-input\')) ?>
+                para select2 con este tema
+                <?php //echo $form->dropDownListRow($model, \'cliente_id\', array(), array(\'class\' => \'form-control select2\',"style"=>"width: 100%")) ?>
+
                 
                                 </div>-->
                                 ' ?>

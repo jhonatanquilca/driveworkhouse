@@ -78,10 +78,10 @@ class ClienteController extends AweController {
      */
     public function actionDelete($id) {
         if (Yii::app()->request->isPostRequest) {
-            // we only allow deletion via POST request
+// we only allow deletion via POST request
             $this->loadModel($id)->delete();
 
-            // if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
+// if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
             if (!isset($_GET['ajax']))
                 $this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('admin'));
         } else
@@ -174,6 +174,14 @@ class ClienteController extends AweController {
                     'model' => $model
                         ), false, true);
             }
+        }
+    }
+
+    /* ----------ajax actions--------------- */
+
+    public function actionAjaxlistClientes($search_value = null) {
+        if (Yii::app()->request->isAjaxRequest) {
+            echo CJSON::encode(Cliente::model()->getListSelect2($search_value));
         }
     }
 

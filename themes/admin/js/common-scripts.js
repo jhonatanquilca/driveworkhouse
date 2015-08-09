@@ -1,4 +1,6 @@
 var Script = function () {
+
+
 //    window.console.log('coamsckmsakcm');
     $('.dropdown-list.active > a').addClass("menu-open");
     maskAttributes();
@@ -490,5 +492,22 @@ function dessabilitarEntreOnForm() {
             return false;
         }
     });
+
+}
+
+
+//by jhonatan
+
+function select2Error() {
+    $(document).ready(function () {
+        $.each($('.form-control.select2.error'), function (key, value) {
+            $('#select2-' + $(value).attr('id') + '-container' + '>span').css('color', '#b94a48');
+
+            $('#select2-' + $(value).attr('id') + '-container').parent().css('border-color', '#b94a48');
+        });
+
+    });
+
+
 
 }
