@@ -4,89 +4,63 @@
 //$this->pageTitle = Yii::app()->name;
 ?>
 <div class="row mb10">
-          <div class="col-sm-6 col-md-3">
-            <div class="panel bg-alert light of-h mb10">
-              <div class="pn pl20 p5">
+    <div class="col-sm-6 col-md-3">
+        <div class="panel bg-alert light of-h mb10">
+            <div class="pn pl20 p5">
                 <div class="icon-bg">
-                  <i class="fa fa-comments-o"></i>
+                    <i class="fa fa-comments-o"></i>
                 </div>
                 <h2 class="mt15 lh15">
-                  <b>523</b>
+                    <b>523</b>
                 </h2>
                 <h5 class="text-muted">Comments</h5>
-              </div>
             </div>
-          </div>
-          <div class="col-sm-6 col-md-3">
-            <div class="panel bg-info light of-h mb10">
-              <div class="pn pl20 p5">
+        </div>
+    </div>
+    <div class="col-sm-6 col-md-3">
+        <div class="panel bg-info light of-h mb10">
+            <div class="pn pl20 p5">
                 <div class="icon-bg">
-                  <i class="fa fa-twitter"></i>
+                    <i class="fa fa-twitter"></i>
                 </div>
                 <h2 class="mt15 lh15">
-                  <b>348</b>
+                    <b>348</b>
                 </h2>
                 <h5 class="text-muted">Tweets</h5>
-              </div>
             </div>
-          </div>
-          <div class="col-sm-6 col-md-3">
-            <div class="panel bg-danger light of-h mb10">
-              <div class="pn pl20 p5">
+        </div>
+    </div>
+    <div class="col-sm-6 col-md-3">
+        <div class="panel bg-danger light of-h mb10">
+            <div class="pn pl20 p5">
                 <div class="icon-bg">
-                  <i class="fa fa-bar-chart-o"></i>
+                    <i class="fa fa-bar-chart-o"></i>
                 </div>
                 <h2 class="mt15 lh15">
-                  <b>267</b>
+                    <b>267</b>
                 </h2>
                 <h5 class="text-muted">Reach</h5>
-              </div>
             </div>
-          </div>
-          <div class="col-sm-6 col-md-3">
-            <div class="panel bg-warning light of-h mb10">
-              <div class="pn pl20 p5">
+        </div>
+    </div>
+    <div class="col-sm-6 col-md-3">
+        <div class="panel bg-warning light of-h mb10">
+            <div class="pn pl20 p5">
                 <div class="icon-bg">
-                  <i class="fa fa-envelope"></i>
+                    <i class="fa fa-envelope"></i>
                 </div>
                 <h2 class="mt15 lh15">
-                  <b>714</b>
+                    <b>714</b>
                 </h2>
                 <h5 class="text-muted">Comments</h5>
-              </div>
             </div>
-          </div>
         </div>
+    </div>
+</div>
 <div class="row ">
     <div class="col-md-6">
-        <div class="panel panel-primary">
-            <div class="panel-heading">
-                <span class="panel-icon">
-                    <i class="fa fa-user"></i>
-                </span>
-                <span class="panel-title">     <?php echo 'titulo' ?>                </span>
-                <span class="panel-controls">
-                    <a href="#" class="panel-control-loader"></a>
-                    <!--<a href="#" class="panel-control-remove"></a>-->
-                    <!--<a href="#" class="panel-control-title"></a>-->
-                    <!--<a href="#" class="panel-control-color"></a>-->
-                    <a href="#" class="panel-control-collapse"></a>
-                    <!--<a href="#" class="panel-control-fullscreen"></a>-->
-                </span>
-            </div>
-            <div class="panel-body border pn">
-                <div class="admin-form theme-info panel-body p15">
+               <?php echo $this->renderPartial('portlets/calendario'); ?>
 
-
-
-                    <!-- search-form -->
-
-                    <?php
-                    echo 'hola'
-                    ?>
-                </div>
-            </div>
-        </div>
     </div>
     <div class="col-md-6">
         <div class="panel panel-primary">
@@ -113,17 +87,17 @@
 
                     <?php
                     echo 'hola 2';
-					if (getenv("HTTP_CLIENT_IP") && strcasecmp(getenv("HTTP_CLIENT_IP"),"unknown"))
-           $ip = getenv("HTTP_CLIENT_IP");
-   else if (getenv("HTTP_X_FORWARDED_FOR") && strcasecmp(getenv("HTTP_X_FORWARDED_FOR"), "unknown"))
-           $ip = getenv("HTTP_X_FORWARDED_FOR");
-   else if (getenv("REMOTE_ADDR") && strcasecmp(getenv("REMOTE_ADDR"), "unknown"))
-           $ip = getenv("REMOTE_ADDR");
-   else if (isset($_SERVER['REMOTE_ADDR']) && $_SERVER['REMOTE_ADDR'] && strcasecmp($_SERVER['REMOTE_ADDR'], "unknown"))
-           $ip = $_SERVER['REMOTE_ADDR'];
-   else
-           $ip = "IP desconocida";
-   var_dump($ip);
+                    if (getenv("HTTP_CLIENT_IP") && strcasecmp(getenv("HTTP_CLIENT_IP"), "unknown"))
+                        $ip = getenv("HTTP_CLIENT_IP");
+                    else if (getenv("HTTP_X_FORWARDED_FOR") && strcasecmp(getenv("HTTP_X_FORWARDED_FOR"), "unknown"))
+                        $ip = getenv("HTTP_X_FORWARDED_FOR");
+                    else if (getenv("REMOTE_ADDR") && strcasecmp(getenv("REMOTE_ADDR"), "unknown"))
+                        $ip = getenv("REMOTE_ADDR");
+                    else if (isset($_SERVER['REMOTE_ADDR']) && $_SERVER['REMOTE_ADDR'] && strcasecmp($_SERVER['REMOTE_ADDR'], "unknown"))
+                        $ip = $_SERVER['REMOTE_ADDR'];
+                    else
+                        $ip = "IP desconocida";
+                    var_dump($ip);
                     ?>
                 </div>
             </div>

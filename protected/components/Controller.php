@@ -16,6 +16,11 @@ class Controller extends CController {
      * @var array context menu items. This property will be assigned to {@link CMenu::items}.
      */
     public $menu = array();
+    /**
+     * @var array context js an css plugins inport
+     */
+    public $scripts = array();
+
 
     /**
      * @var array the breadcrumbs of the current page. The value of this property will

@@ -259,14 +259,14 @@
                 "use strict";
 // Init Theme Core    
                 Core.init();
-                $(document).ready(function () {
+//                $(document).ready(function () {
                     if (!$('body').hasClass('sb-l-m')) {
                         $('.sidebar-left-content.nano-content').css('margin-right', '-17px');
                     } else {
                         $('.sidebar-left-content.nano-content').css('margin-right', '0px');
                     }
 
-                });
+//                });
 // Init Demo JS  
 //                                            Demo.init();
 

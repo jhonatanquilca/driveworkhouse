@@ -4169,11 +4169,17 @@ td.legendColorBox {
 .fc-event-primary {
     border-left-color: #4a89dc;
 }
+.fc-border-event-primary{
+    border-color: #4a89dc;
+}
 .fc-event-primary .fc-event-icon {
     color: #4a89dc;
 }
 .fc-event-info {
     border-left-color: #3bafda;
+}
+.fc-border-event-info {
+    border-color: #3bafda;
 }
 .fc-event-info .fc-event-icon {
     color: #3bafda;
@@ -4181,11 +4187,17 @@ td.legendColorBox {
 .fc-event-success {
     border-left-color: #70ca63;
 }
+.fc-border-event-success {
+    border-color: #70ca63;
+}
 .fc-event-success .fc-event-icon {
     color: #70ca63;
 }
 .fc-event-warning {
     border-left-color: #f6bb42;
+}
+.fc-border-event-warning {
+    border-color: #f6bb42;
 }
 .fc-event-warning .fc-event-icon {
     color: #f6bb42;
@@ -4193,11 +4205,17 @@ td.legendColorBox {
 .fc-event-danger {
     border-left-color: #e9573f;
 }
+.fc-border-event-danger {
+    border-color: #e9573f;
+}
 .fc-event-danger .fc-event-icon {
     color: #e9573f;
 }
 .fc-event-alert {
     border-left-color: #967adc;
+}
+.fc-border-event-alert {
+    border-color: #967adc;
 }
 .fc-event-alert .fc-event-icon {
     color: #967adc;
@@ -4205,6 +4223,10 @@ td.legendColorBox {
 .fc-event-system {
     border-left-color: #37bc9b;
 }
+.fc-border-event-system {
+    border-left-color: #37bc9b;
+}
+
 .fc-event-system .fc-event-icon {
     color: #37bc9b;
 }
