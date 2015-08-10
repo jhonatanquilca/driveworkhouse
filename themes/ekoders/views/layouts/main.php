@@ -326,8 +326,8 @@
         <!-- core JavaScript -->
         <script src="<?php echo Yii::app()->theme->baseUrl; ?>/js/jquery.min.js"></script>
         <script src="<?php echo Yii::app()->theme->baseUrl; ?>/js/bootstrap.min.js"></script>
-        <script src="<?php echo Yii::app()->theme->baseUrl; ?>/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
-        <script src="<?php echo Yii::app()->theme->baseUrl; ?>/js/plugins/pace/pace.min.js"></script>
+        <script src="<?php echo Yii::app()->theme->baseUrl; ?>/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+        <script src="<?php echo Yii::app()->theme->baseUrl; ?>/plugins/pace/pace.min.js"></script>
 
         <!-- PAGE LEVEL PLUGINS JS -->
 
@@ -336,7 +336,7 @@
 
         <!-- REQUIRE FOR SPEECH COMMANDS -->
         <script src="<?php echo Yii::app()->theme->baseUrl; ?>/js/speech-commands.js"></script>
-        <script src="<?php echo Yii::app()->theme->baseUrl; ?>/js/plugins/gritter/jquery.gritter.min.js"></script>	
+        <script src="<?php echo Yii::app()->theme->baseUrl; ?>/plugins/gritter/jquery.gritter.min.js"></script>	
 
         <!-- initial page level scripts for examples -->	
     </body>

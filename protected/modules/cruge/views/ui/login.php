@@ -6,13 +6,13 @@
     <div class="panel heading-border panel-info mt1 br-n">
         <!--<div class="panel-heading ">-->
         <!--</div>-->
-        
+
 
         <?php
         $form = $this->beginWidget('CActiveForm', array(
             'id' => 'logon-form',
             'htmlOptions' => array(
-            'style' => '
+                'style' => '
     margin-bottom: 0px; !important
 ',
             ),
@@ -24,54 +24,66 @@
         ?>
         <div class="panel-body bg-light ptn pb15">
             <div class="section-divider mv30">
-            <span style="background: #FAFAFA;"><?php echo CrugeTranslator::t('logon', 'Login to your account') ?></span>
-        </div>
-            <div class="section">
-
-                <label for="CrugeLogon_username" class="field-label text-muted fs18 mb10 required">Usuario</label>
-                <label for="CrugeLogon_username" class="field prepend-icon">
-                    <?php
-                    echo $form->textField($model, 'username', array(
-                        'placeholder' => CrugeTranslator::t(
-                                'logon', 'Username'
-                        ), 'class' => 'gui-input')
-                    );
-                    ?>
-                    <label for="CrugeLogon_username" class="field-icon">
-                        <i class="fa fa-user"></i>
-                    </label>
-                </label>
-    
-                <?php echo $form->error($model, 'username',array('style'=>'color: #b94a48;')); ?>
+            <!--<span style="background: #FAFAFA;"><?php echo CrugeTranslator::t('logon', 'Login to your account') ?></span>-->
+                <span style="background: #FAFAFA;"><?php echo CrugeTranslator::t('logon', 'Accede a tu cuenta') ?></span>
             </div>
-            <div class="section">
+    
 
-                <label for="CrugeLogon_password" class="field-label text-muted fs18 mb10 required">Password</label>
-                <label for="CrugeLogon_password" class="field prepend-icon">
+            <div class="control-group  <?php echo isset($model->getErrors()['username'])?'error':''  ?> ">
 
-                    <?php
-                    echo $form->passwordField($model, 'password', array(
-                        'placeholder' => CrugeTranslator::t(
-                                'logon', "Password"
-                        ), 'class' => 'gui-input'
-                    ));
-                    ?>
-                    <label for="CrugeLogon_password" class="field-icon">
-                        <i class="fa fa-lock"></i>
+                <label for="CrugeLogon_username" class="control-label text-muted fs18 mb10 required">Usuario</label>
+                <div class="controls">
+                    <label for="CrugeLogon_username" class="field prepend-icon">
+                        <?php
+                        echo $form->textField($model, 'username', array(
+                            'placeholder' => CrugeTranslator::t(
+                                    'logon', 'Username'
+                            ), 'class' => 'gui-input')
+                        );
+                        ?>
+                        <label for="CrugeLogon_username" class="field-icon">
+                            <i class="fa fa-user"></i>
+                        </label>
                     </label>
-                </label>
-                <?php echo $form->error($model, 'password',array('style'=>'color: #b94a48;')); ?>
+
+                </div>
+    <?php echo $form->error($model, 'username', array('style' => 'color: #b94a48;')); ?>
+            </div>
+            <div class="control-group <?php echo isset($model->getErrors()['password'])?'error':''  ?>">
+
+                <label for="CrugeLogon_password" class="control-label text-muted fs18 mb10 required">Password</label>
+                <div class="controls">
+                    <label for="CrugeLogon_password" class="field prepend-icon">
+
+                        <?php
+                        echo $form->passwordField($model, 'password', array(
+                            'placeholder' => CrugeTranslator::t(
+                                    'logon', "Password"
+                            ), 'class' => 'gui-input'
+                        ));
+                        ?>
+                        <label for="CrugeLogon_password" class="field-icon">
+                            <i class="fa fa-lock"></i>
+                        </label>
+                    </label>
+
+                </div>
+    <?php echo $form->error($model, 'password', array('style' => 'color: #b94a48;')); ?>
             </div>
         </div>
         <div class="panel-footer clearfix">
 
-            <div class="checkbox-custom checkbox-primary mt10 ib">
-                <?php echo $form->checkBox($model, 'rememberMe'); ?>
-                <label for="CrugeLogon_rememberMe">Primary</label>
-            </div>
+            <label class="switch ib switch-primary mt10">
+                <!--<input type="checkbox" name="CrugeLogon[rememberMe]" id="CrugeLogon_rememberMe">-->
+    <?php echo $form->checkBox($model, 'rememberMe', array('class' => 'origen')); ?>
+
+                <label for="CrugeLogon_rememberMe" data-on="SI" data-off="NO"></label>
+                <span>Recordarme</span>
+            </label>
+
 
             <button class="button btn-primary mr10 pull-right" type="submit">
-                <?php echo CrugeTranslator::t('logon', "Login") ?>                           
+    <?php echo CrugeTranslator::t('logon', "Login") ?>                           
             </button>
             <script type="text/javascript">
 
@@ -110,16 +122,16 @@
         }
         ?>
 
-        <?php $this->endWidget(); ?>
+    <?php $this->endWidget(); ?>
     </div>
-<!--<div class="login-links" ">-->
-        <!--<p>-->
-            <?php // echo Yii::app()->user->ui->passwordRecoveryLink; ?>
+    <!--<div class="login-links" ">-->
+            <!--<p>-->
+    <?php // echo Yii::app()->user->ui->passwordRecoveryLink;  ?>
 
-        <!--</p>-->
-        <!--<p>Haven't yet Registered?-->
-            <!--<a href="pages_login-alt.html" title="Sign In">Sign up here</a>-->
-        <!--</p>-->
+    <!--</p>-->
+    <!--<p>Haven't yet Registered?-->
+    <!--<a href="pages_login-alt.html" title="Sign In">Sign up here</a>-->
+    <!--</p>-->
     <!--</div>-->
 
     <!-- Registration Links(alt) -->

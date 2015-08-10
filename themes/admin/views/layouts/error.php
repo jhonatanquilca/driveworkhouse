@@ -89,7 +89,7 @@
         <script src="<?php echo Yii::app()->theme->baseUrl; ?>/js/jquery-ui.min.js"></script>
 
         <!-- CanvasBG Plugin(creates mousehover effect) -->
-        <script src="<?php echo Yii::app()->theme->baseUrl; ?>/js/plugins/canvasbg/canvasbg.js"></script>
+        <script src="<?php echo Yii::app()->theme->baseUrl; ?>/plugins/canvasbg/canvasbg.js"></script>
 
         <!-- Theme Javascript -->
         <script src="<?php echo Yii::app()->theme->baseUrl; ?>/js/utility/utility.js"></script>
