@@ -58,11 +58,11 @@
     </div>
 </div>
 <div class="row ">
-    <div class="col-md-6">
+    <div class="col-md-8">
                <?php echo $this->renderPartial('portlets/calendario'); ?>
 
     </div>
-    <div class="col-md-6">
+    <div class="col-md-4">
         <div class="panel panel-primary">
             <div class="panel-heading">
                 <span class="panel-icon">
