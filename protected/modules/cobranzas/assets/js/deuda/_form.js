@@ -21,19 +21,19 @@ $(function() {
                     results: data
                 };
             },
-//            cache: true
+            cache: true
         },
 //        language: {
 //            inputTooShort: function () {
 //                return "You sads...";
 //            }
 //        },
-
+        allowClear: true,
         width: "100%",
     });
     inputClineteDescripcionPalntillaId = $('#Deuda_descripcion_palntilla_id');
     inputClineteDescripcionPalntillaId.select2({
-        placeholder: "Seleccione un Cliente",
+        placeholder: "Seleccione una Descripción",
         ajax: {
             url: baseUrl + 'cobranzas/descripcionPalntilla/ajaxlistDescripcionPlantilla',
             dataType: 'json',
@@ -51,6 +51,7 @@ $(function() {
             },
             cache: true
         },
+        allowClear: true,
         width: "100%",
     });
 });
