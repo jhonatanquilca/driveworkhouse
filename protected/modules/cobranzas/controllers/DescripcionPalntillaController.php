@@ -133,4 +133,12 @@ class DescripcionPalntillaController extends AweController {
         }
     }
 
+    /* ----------ajax actions--------------- */
+
+    public function actionAjaxlistDescripcionPlantilla($search_value = null) {
+        if (Yii::app()->request->isAjaxRequest) {
+            echo CJSON::encode(DescripcionPalntilla::model()->getListSelect2($search_value));
+        }
+    }
+
 }

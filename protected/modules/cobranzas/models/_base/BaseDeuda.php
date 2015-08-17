@@ -19,8 +19,8 @@
  * @property integer $descripcion_palntilla_id
  * @property integer $cliente_id
  *
- * @property Cliente $cliente
  * @property DescripcionPalntilla $descripcionPalntilla
+ * @property Cliente $cliente
  */
 abstract class BaseDeuda extends AweActiveRecord {
 
@@ -49,8 +49,8 @@ abstract class BaseDeuda extends AweActiveRecord {
 
     public function relations() {
         return array(
-            'cliente' => array(self::BELONGS_TO, 'Cliente', 'cliente_id'),
             'descripcionPalntilla' => array(self::BELONGS_TO, 'DescripcionPalntilla', 'descripcion_palntilla_id'),
+            'cliente' => array(self::BELONGS_TO, 'Cliente', 'cliente_id'),
         );
     }
 
@@ -68,8 +68,8 @@ abstract class BaseDeuda extends AweActiveRecord {
                 'observaciones' => Yii::t('app', 'Observaciones'),
                 'descripcion_palntilla_id' => Yii::t('app', 'Descripcion Palntilla'),
                 'cliente_id' => Yii::t('app', 'Cliente'),
-                'cliente' => null,
                 'descripcionPalntilla' => null,
+                'cliente' => null,
         );
     }
 
