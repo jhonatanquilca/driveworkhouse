@@ -4,47 +4,47 @@
 //$this->pageTitle = Yii::app()->name;
 ?>
 <div class="row mb10">
-    <div class="col-sm-6 col-md-3">
-        <div class="panel bg-alert light of-h mb10">
+    <div class="col-sm-6 col-md-3" >
+        <div class="panel panel-tile bg-success light of-h mb10 " url="cliente/cliente/admin">
             <div class="pn pl20 p5">
                 <div class="icon-bg">
-                    <i class="fa fa-comments-o"></i>
+                    <i class="fa fa-group"></i>
                 </div>
                 <h2 class="mt15 lh15">
-                    <b>523</b>
+                    <b><?php echo count(Cliente::model()->findAll()); ?></b>
                 </h2>
-                <h5 class="text-muted">Comments</h5>
+                <h5 class="text-muted">Clientes</h5>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-6 col-md-3" >
+        <div class="panel panel-tile bg-warning light of-h mb10" url="cobranzas/deuda/admin">
+            <div class="pn pl20 p5">
+                <div class="icon-bg">
+                    <i class="fa fa fa-shopping-cart"></i>
+                </div>
+                <h2 class="mt15 lh15">
+                    <b>$348.56</b>
+                </h2>
+                <h5 class="text-muted">Deudas</h5>
             </div>
         </div>
     </div>
     <div class="col-sm-6 col-md-3">
-        <div class="panel bg-info light of-h mb10">
+        <div class="panel panel-tile bg-info light of-h mb10" url="cobranzas/deuda/admin">
             <div class="pn pl20 p5">
                 <div class="icon-bg">
-                    <i class="fa fa-twitter"></i>
+                    <i class="fa fa fa-legal"></i>
                 </div>
                 <h2 class="mt15 lh15">
-                    <b>348</b>
+                    <b>$267.00</b>
                 </h2>
-                <h5 class="text-muted">Tweets</h5>
+                <h5 class="text-muted">Pagos</h5>
             </div>
         </div>
     </div>
-    <div class="col-sm-6 col-md-3">
-        <div class="panel bg-danger light of-h mb10">
-            <div class="pn pl20 p5">
-                <div class="icon-bg">
-                    <i class="fa fa-bar-chart-o"></i>
-                </div>
-                <h2 class="mt15 lh15">
-                    <b>267</b>
-                </h2>
-                <h5 class="text-muted">Reach</h5>
-            </div>
-        </div>
-    </div>
-    <div class="col-sm-6 col-md-3">
-        <div class="panel bg-warning light of-h mb10">
+    <!--<div class="col-sm-6 col-md-3">
+        <div class="panel panel-tile bg-warning light of-h mb10">
             <div class="pn pl20 p5">
                 <div class="icon-bg">
                     <i class="fa fa-envelope"></i>
@@ -55,14 +55,14 @@
                 <h5 class="text-muted">Comments</h5>
             </div>
         </div>
-    </div>
+    </div>-->
 </div>
 <div class="row ">
-    <div class="col-md-8">
+    <div class="col-md-6">
                <?php echo $this->renderPartial('portlets/calendario'); ?>
 
     </div>
-    <div class="col-md-4">
+    <div class="col-md-6">
         <div class="panel panel-primary">
             <div class="panel-heading">
                 <span class="panel-icon">

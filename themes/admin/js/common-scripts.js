@@ -1,10 +1,10 @@
 var Script = function () {
 
 
-//    window.console.log('coamsckmsakcm');
     $('.dropdown-list.active > a').addClass("menu-open");
     maskAttributes();
     dessabilitarEntreOnForm();
+$(".panel-tile").on("click",function(){window.location.href = baseUrl+$(this).attr("url")})
 //bandera para saltar la proÃ§imera accion al validar los formularios
     var primero = false;
     /**
