@@ -54,6 +54,7 @@ class Cliente extends BaseCliente {
             array('documento', 'length', 'max' => 20),
             array('telefono, celular', 'length', 'max' => 24),
             array('email_1, email_2', 'length', 'max' => 255),
+            array('email_1, email_2', 'email'),
             array('estado', 'length', 'max' => 8),
             array('fecha_actualizacion', 'safe'),
             array('estado', 'in', 'range' => array('ACTIVO', 'INACTIVO')), // enum,

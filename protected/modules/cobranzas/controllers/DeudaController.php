@@ -31,13 +31,16 @@ class DeudaController extends AweController {
      */
     public function actionCreate() {
         $model = new Deuda;
+        $model->usuario_creacion_id = Yii::app()->user->id;
+        $model->fecha_actualizacion = Util::FechaActual();
 
         $this->performAjaxValidation($model, 'deuda-form');
 
         if (isset($_POST['Deuda'])) {
             $model->attributes = $_POST['Deuda'];
             if ($model->save()) {
-                $this->redirect(array('view', 'id' => $model->id));
+//                $this->redirect(array('view', 'id' => $model->id));
+                $this->redirect(array('admin'));
             }
         }
 
@@ -53,13 +56,16 @@ class DeudaController extends AweController {
      */
     public function actionUpdate($id) {
         $model = $this->loadModel($id);
+        $model->usuario_actualizacion_id = Yii::app()->user->id;
+
 
         $this->performAjaxValidation($model, 'deuda-form');
 
         if (isset($_POST['Deuda'])) {
             $model->attributes = $_POST['Deuda'];
             if ($model->save()) {
-                $this->redirect(array('view', 'id' => $model->id));
+//                $this->redirect(array('view', 'id' => $model->id));
+                $this->redirect(array('admin'));
             }
         }
 

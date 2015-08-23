@@ -46,7 +46,7 @@
 
                 <?php echo $form->textFieldRow($model, 'celular', array('maxlength' => 24, 'class' => 'gui-input celular')) ?>
 
-                <?php echo $form->textFieldRow($model, 'email_1', array('maxlength' => 255, 'class' => 'gui-input')) ?>
+                <?php echo $form->textFieldRow($model, 'email_1', array('maxlength' => 255, 'class' => 'gui-input','placeholder'=>'Email Principal Ej:ejemplo@gmail.com')) ?>
 
                 <?php echo $form->textFieldRow($model, 'email_2', array('maxlength' => 255, 'class' => 'gui-input')) ?>
 

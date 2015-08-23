@@ -249,7 +249,8 @@
         <!--<script src="<?php echo Yii::app()->theme->baseUrl; ?>/js/demo/demo.js"></script>-->
         <script src="<?php echo Yii::app()->theme->baseUrl; ?>/js/main.js"></script>
         <!--plugins adicionales-->
-        <script src="<?php echo Yii::app()->theme->baseUrl; ?>/plugins/jquerymask/jquery.maskedinput.min.js" type="text/javascript"></script>
+        <!--<script src="<?php echo Yii::app()->theme->baseUrl; ?>/plugins/jquerymask/jquery.maskedinput.min.js" type="text/javascript"></script>-->
+        <script src="<?php echo Yii::app()->theme->baseUrl; ?>/js/jquery.mask.min.js" type="text/javascript"></script>
         <script src="<?php echo Yii::app()->theme->baseUrl; ?>/plugins/magnific/jquery.magnific-popup.js" type="text/javascript"></script>
         <script type="text/javascript" src="<?php echo Yii::app()->theme->baseUrl; ?>/js/common-scripts.js"></script>  
 

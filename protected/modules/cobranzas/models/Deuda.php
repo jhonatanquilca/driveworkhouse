@@ -16,6 +16,25 @@ class Deuda extends BaseDeuda {
     }
 
     /* ---------------------------------------DE BASE---------------------------------- */
+
+    public function search() {
+        $criteria = new CDbCriteria;
+
+        $criteria->compare('id', $this->id);
+        $criteria->compare('monto', $this->monto);
+        $criteria->compare('usuario_creacion_id', $this->usuario_creacion_id);
+        $criteria->compare('fecha_creacion', $this->fecha_creacion, true);
+        $criteria->compare('usuario_actualizacion_id', $this->usuario_actualizacion_id);
+        $criteria->compare('fecha_actualizacion', $this->fecha_actualizacion, true);
+        $criteria->compare('observaciones', $this->observaciones, true);
+        $criteria->compare('descripcion_palntilla_id', $this->descripcion_palntilla_id);
+        $criteria->compare('cliente_id', $this->cliente_id);
+
+        return new CActiveDataProvider($this, array(
+            'criteria' => $criteria,
+        ));
+    }
+
     /* ---------------------------------------SCOPES----------------------------------- */
     /* --------------------------------------CONSULTAS--------------------------------- */
 
@@ -35,7 +54,7 @@ class Deuda extends BaseDeuda {
         t.fecha_creacion as end,
         \"fc-event-danger fc-border-event-danger\" as className")
                 ->from("deuda t")
-                ->join("cliente c","c.id = t.cliente_id")
+                ->join("cliente c", "c.id = t.cliente_id")
                 ->order("t.fecha_creacion ASC");
 //        var_dump($command->queryAll());
 //        die();

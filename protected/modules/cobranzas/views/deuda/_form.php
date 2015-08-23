@@ -13,7 +13,7 @@ Util::tsRegisterAssetJs('_form.js');
 <div class="panel panel-primary">
     <div class="panel-heading">
         <span class="panel-icon">
-            <i class="fa fa-user"></i>
+            <i class="fa fa-shopping-cart"></i>
         </span>
         <span class="panel-title">     <?php echo Yii::t('AweCrud.app', $model->isNewRecord ? 'Create' : 'Update') . ' ' . Deuda::label(); ?>        </span>
         <span class="panel-controls">
@@ -55,11 +55,11 @@ Util::tsRegisterAssetJs('_form.js');
                 echo $form->dropDownListRow($model, 'descripcion_palntilla_id', $data, array('class' => 'form-control select2'))
                 ?>
 
-                <?php echo $form->textFieldRow($model, 'monto', array('class' => 'gui-input')) ?>
+                <?php echo $form->textFieldRow($model, 'monto', array('class' => 'gui-input money')) ?>
 
-                <?php echo $form->textFieldRow($model, 'usuario_creacion_id', array('class' => 'gui-input')) ?>
+                <?php // echo $form->textFieldRow($model, 'usuario_creacion_id', array('class' => 'gui-input')) ?>
 
-                <?php echo $form->textFieldRow($model, 'usuario_actualizacion_id', array('class' => 'gui-input')) ?>
+                <?php // echo $form->textFieldRow($model, 'usuario_actualizacion_id', array('class' => 'gui-input')) ?>
 
                 <?php echo $form->textAreaRow($model, 'observaciones', array('rows' => 3, 'cols' => 50, 'class' => 'gui-input')) ?>
 
@@ -68,7 +68,7 @@ Util::tsRegisterAssetJs('_form.js');
             </div>
         </div>
 
-        <div class="panel-footer text-right">
+        <div class="panel-footer text-center">
             <?php
             $this->widget('bootstrap.widgets.TbButton', array(
                 'buttonType' => 'submit',

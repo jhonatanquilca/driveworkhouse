@@ -4,7 +4,9 @@ var Script = function () {
     $('.dropdown-list.active > a').addClass("menu-open");
     maskAttributes();
     dessabilitarEntreOnForm();
-$(".panel-tile").on("click",function(){window.location.href = baseUrl+$(this).attr("url")})
+    $(".panel-tile").on("click", function () {
+        window.location.href = baseUrl + $(this).attr("url")
+    })
 //bandera para saltar la proÃ§imera accion al validar los formularios
     var primero = false;
     /**
@@ -462,10 +464,11 @@ function maskAttributes() {
     $('input.ID').mask('999999999');
     $('input.fax').mask('999-999999');
     $('input.numeric').mask('99999999999');
-    $('input.money').mask('P999999999999999999999.ZZ', {
+//    $('input.money').mask();
+    $('input.money').mask('P99.ZZ', {
         translation: {
             'Z': {pattern: /[0-9]/, optional: true},
-            'P': {pattern: /[1-9]/, },
+            'P': {pattern: /[0-9]/, },
         }});
     //continuar cargando formatos para input
 }
