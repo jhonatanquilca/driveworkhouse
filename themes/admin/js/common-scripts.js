@@ -1,10 +1,10 @@
-var Script = function () {
+var Script = function() {
 
 
     $('.dropdown-list.active > a').addClass("menu-open");
     maskAttributes();
     dessabilitarEntreOnForm();
-    $(".panel-tile").on("click", function () {
+    $(".panel-tile").on("click", function() {
         window.location.href = baseUrl + $(this).attr("url")
     })
 //bandera para saltar la proÃ§imera accion al validar los formularios
@@ -13,7 +13,7 @@ var Script = function () {
      * @author Alex Yepez Chavez
      * validacion de formularios para bloquear botones de accion
      */
-    $("form").submit(function (e) {
+    $("form").submit(function(e) {
 //        alert($('form button.btn-success').attr('class'));
         if (verificarValidacionModal("form"))
         {
@@ -38,7 +38,7 @@ var Script = function () {
 
 //    sidebar dropdown menu
 
-    jQuery('#sidebar .sub-menu > a').click(function () {
+    jQuery('#sidebar .sub-menu > a').click(function() {
         var last = jQuery('.sub-menu.open', $('#sidebar'));
         last.removeClass("open");
         jQuery('.arrow', last).removeClass("open");
@@ -86,7 +86,7 @@ var Script = function () {
 
 // widget tools
 
-    jQuery('.widget .tools .icon-chevron-down, .widget .tools .icon-chevron-up').click(function () {
+    jQuery('.widget .tools .icon-chevron-down, .widget .tools .icon-chevron-up').click(function() {
         var el = jQuery(this).parents(".widget").children(".widget-body");
         if (jQuery(this).hasClass("icon-chevron-down")) {
             jQuery(this).removeClass("icon-chevron-down").addClass("icon-chevron-up");
@@ -97,7 +97,7 @@ var Script = function () {
         }
     });
 
-    jQuery('.widget .tools .icon-remove').click(function () {
+    jQuery('.widget .tools .icon-remove').click(function() {
         jQuery(this).parents(".widget").remove();
     });
 
@@ -118,7 +118,7 @@ var Script = function () {
 
     var buttons = $('.form-actions-float');
     floatButtons();
-    $(window).scroll(function () {
+    $(window).scroll(function() {
         floatButtons();
     });
 
@@ -199,7 +199,7 @@ function showModalData(html) {
 //        overflowY: 'auto', // 
 
         callbacks: {
-            beforeOpen: function (e) {
+            beforeOpen: function(e) {
                 this.st.mainClass = animaciones[Math.floor(Math.random() * animaciones.length)];
             }
         },
@@ -217,10 +217,10 @@ function viewModal(url, CallBack)
     $.ajax({
         type: "POST",
         url: baseUrl + url,
-        beforeSend: function () {
+        beforeSend: function() {
 //            showModalLoading();
         },
-        success: function (data) {
+        success: function(data) {
 //            $.magnificPopup.close();
             showModalData(data);
             CallBack();
@@ -233,7 +233,7 @@ function viewModal(url, CallBack)
 function AjaxAtualizacionInformacion(Formulario)
 {
     BloquearBotonesModal(Formulario);
-    AjaxGestionModal(Formulario, function (list, data) {
+    AjaxGestionModal(Formulario, function(list, data) {
 
 //        ActualizarInformacion(list);
     });
@@ -248,20 +248,20 @@ function AjaxGestionModal($form, CallBack) {
     var form = $($form);
     var settings = form.data('settings');
     settings.submitting = true;
-    $.fn.yiiactiveform.validate(form, function (messages) {
+    $.fn.yiiactiveform.validate(form, function(messages) {
 
-        $.each(messages, function () {
+        $.each(messages, function() {
             console.log(this);
         });
         if ($.isEmptyObject(messages)) {
-            $.each(settings.attributes, function () {
+            $.each(settings.attributes, function() {
                 $.fn.yiiactiveform.updateInput(this, messages, form);
             });
             AjaxGuardarModal(true, $form, CallBack);
         }
         else {
             settings = form.data('settings'),
-                    $.each(settings.attributes, function () {
+                    $.each(settings.attributes, function() {
                         $.fn.yiiactiveform.updateInput(this, messages, form);
                     });
             DesBloquearBotonesModal($form, 'Enviar', 'AjaxAtualizacionInformacion');
@@ -279,12 +279,12 @@ function AjaxAccionModal($form, CallBack) {
     var form = $($form);
     var settings = form.data('settings');
     settings.submitting = true;
-    $.fn.yiiactiveform.validate(form, function (messages) {
-        $.each(messages, function () {
+    $.fn.yiiactiveform.validate(form, function(messages) {
+        $.each(messages, function() {
             console.log(this);
         });
         if ($.isEmptyObject(messages)) {
-            $.each(settings.attributes, function () {
+            $.each(settings.attributes, function() {
 
                 $.fn.yiiactiveform.updateInput(this, messages, form);
             });
@@ -293,7 +293,7 @@ function AjaxAccionModal($form, CallBack) {
         }
         else {
             settings = form.data('settings'),
-                    $.each(settings.attributes, function () {
+                    $.each(settings.attributes, function() {
                         $.fn.yiiactiveform.updateInput(this, messages, form);
                     });
             DesBloquearBotonesModal($form, 'Enviar', 'AjaxCrearAccion');
@@ -332,7 +332,7 @@ function verificarValidacionModal($contenedor)
 {
     var verificar = true;
     $contenedor = $contenedor + ' div.control-group';
-    $($contenedor).each(function (index, elemento) {
+    $($contenedor).each(function(index, elemento) {
         if ($(elemento).hasClass('error'))
         {
             verificar = false;
@@ -359,9 +359,9 @@ function AjaxGuardarModal(verificador, Formulario, callBack)
             dataType: 'json',
             url: $(Formulario).attr('action'),
             data: $(Formulario).serialize(),
-            beforeSend: function (xhr) {
+            beforeSend: function(xhr) {
             },
-            success: function (data) {
+            success: function(data) {
                 if (data.success) {
                     $.magnificPopup.close();
 
@@ -391,9 +391,9 @@ function AjaxGuardarAccionModal(verificador, Formulario, CallBack)
             dataType: 'json',
             url: $(Formulario).attr('action'),
             data: $(Formulario).serialize(),
-            beforeSend: function (xhr) {
+            beforeSend: function(xhr) {
             },
-            success: function (data) {
+            success: function(data) {
                 if (data.success) {
                     $("#mainModal").modal("hide");
                     $("#maiMessages").removeClass('hidden');
@@ -425,11 +425,11 @@ function AjaxUpdateElement(url, elemento, callBack)
         type: "POST",
         dataType: 'json',
         url: url,
-        beforeSend: function (xhr) {
+        beforeSend: function(xhr) {
             var html = "<div class='loading'><img src='" + themeUrl + "images/truulo-loading.gif' /></div>";
             $(elemento).html(html);
         },
-        success: function (data) {
+        success: function(data) {
             if (data.success) {
                 $(elemento).html(data.html);
                 callBack();
@@ -465,11 +465,13 @@ function maskAttributes() {
     $('input.fax').mask('999-999999');
     $('input.numeric').mask('99999999999');
 //    $('input.money').mask();
-    $('input.money').mask('P99.ZZ', {
-        translation: {
-            'Z': {pattern: /[0-9]/, optional: true},
-            'P': {pattern: /[0-9]/, },
-        }});
+    $('input.money').mask('000,000,000,000,000.00', {reverse: true});
+
+//    $('input.money').mask('P99.ZZ', {
+//        translation: {
+//            'Z': {pattern: /[0-9]/, optional: true},
+//            'P': {pattern: /[0-9]/, },
+//        }});
     //continuar cargando formatos para input
 }
 
@@ -489,7 +491,7 @@ function rotateCoin(degree, speed, orientation) {
 }
 
 function dessabilitarEntreOnForm() {
-    $("form").keypress(function (e) {
+    $("form").keypress(function(e) {
 //        alert(e.which);
         if (e.which == 13) {
             return false;
@@ -502,8 +504,8 @@ function dessabilitarEntreOnForm() {
 //by jhonatan
 
 function select2Error() {
-    $(document).ready(function () {
-        $.each($('.form-control.select2.error'), function (key, value) {
+    $(document).ready(function() {
+        $.each($('.form-control.select2.error'), function(key, value) {
             $('#select2-' + $(value).attr('id') + '-container' + '>span').css('color', '#b94a48');
 
             $('#select2-' + $(value).attr('id') + '-container').parent().css('border-color', '#b94a48');
