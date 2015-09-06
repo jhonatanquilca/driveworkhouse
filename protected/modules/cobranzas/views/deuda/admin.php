@@ -38,22 +38,27 @@ $this->menu = array(
                             'type' => 'striped condensed hover bordered', //striped condensed hover bordered
                             'dataProvider' => $model->search(),
                             'filter' => $model,
+//                            'showTableOnEmpty' => false,
                             'emptyText' => '<div class="alert alert-border-bottom alert-primary pastel light dark text-center">                                            
                                            <h4><i class="fa fa-info pr10"></i>
                                             No se encontraron resultados.</h4>                                                                                        
                                             </div>',
                             'columns' => array(
+//                                'cliente_id',
                                 array(
                                     'name' => 'cliente_id',
                                     'value' => 'isset($data->cliente) ? $data->cliente->nombre_completo : null',
 //                                    'filter' => CHtml::listData(Cliente::model()->findAll(), 'id', Cliente::representingColumn()),
                                 ),
 //                                'id',
-                                'monto',
                                 array(
-                                    'name' => 'usuario_creacion_id', 
+                                    'name' => 'monto',
+                                    'value' => '"$ " .number_format($data->monto,2)'
+                                ),
+                                array(
+                                    'name' => 'usuario_creacion_id',
 //                                    'value' => '$data->usuario_creacion_id', 
-                                    'value' => ' Yii::app()->user->um->loadUserById($data->usuario_creacion_id)->username;', 
+                                    'value' => ' Yii::app()->user->um->loadUserById($data->usuario_creacion_id)->username;',
                                 ),
                                 array(
                                     'name' => 'fecha_creacion',

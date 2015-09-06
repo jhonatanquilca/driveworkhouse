@@ -11,18 +11,7 @@ $this->menu = array(
     array('label' => Yii::t('AweCrud.app', 'Create') . ' ' . Pago::label(), 'icon' => 'fa fa-plus', 'url' => array('create'), 'htmlOptions' => array('class' => 'btn-default'),),
 );
 
-Yii::app()->clientScript->registerScript('search', "
-$('.search-button').click(function(){
-$('.search-form').toggle();
-return false;
-});
-$('.search-form form').submit(function(){
-$.fn.yiiGridView.update('pago-grid', {
-data: $(this).serialize()
-});
-return false;
-});
-");
+
 ?>
 <div class="col-sm-12 pln">
     <div class="bs-component p10">
@@ -45,23 +34,13 @@ return false;
                 <div class="admin-form theme-info panel-body p15">
 
                     <div style="overflow: auto">
-
-                        <?php echo CHtml::link('<i class="icon-search"></i> ' . Yii::t('AweCrud.app', 'Advanced Search'), '#', array('class' => 'search-button btn')) ?>
-                        <div class="search-form" style="display:none">
-                            <?php
-                            $this->renderPartial('_search', array(
-                                'model' => $model,
-                            ));
-                            ?>
-                        </div>
-                        <!-- search-form -->
-
                         <?php
                         $this->widget('bootstrap.widgets.TbGridView', array(
                             'id' => 'pago-grid',
                             'type' => 'striped condensed hover', //striped condensed  bordered hover
                             'dataProvider' => $model->search(),
                             'filter' => $model,
+//                            'showTableOnEmpty' => false,
                             'emptyText' => '<div class="alert alert-border-bottom alert-primary pastel light dark text-center">                                            
                                            <h4><i class="fa fa-info pr10"></i>
                                             No se encontraron resultados.</h4>                                                                                        

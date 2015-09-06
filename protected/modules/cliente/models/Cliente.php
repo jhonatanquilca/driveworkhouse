@@ -84,16 +84,23 @@ class Cliente extends BaseCliente {
         $criteria->compare('fecha_actualizacion', $this->fecha_actualizacion, true);
         $criteria->compare('CONCAT(t.nombre, CONCAT(" ",t.apellido))', $this->nombre_completo, true);
 
+        if (!Yii::app()->request->isAjaxRequest) {
+            $criteria->order = 'CONCAT(CONCAT(t.nombre," "),t.apellido)  ASC';
+        }
+
         $sort->attributes = array(
-            '*',
             'nombre_completo' => array(
                 'asc' => 'CONCAT(CONCAT(t.nombre," "),t.apellido) asc',
                 'desc' => 'CONCAT(CONCAT(t.nombre," "),t.apellido) desc',
                 'default' => 'desc',
             ),
+            '*',
         );
         return new CActiveDataProvider($this, array(
             'criteria' => $criteria,
+            'pagination' => array(
+                'pageSize' => 7
+            ),
             'sort' => $sort
         ));
     }

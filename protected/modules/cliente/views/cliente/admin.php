@@ -28,7 +28,7 @@ $this->menu = array(
                     <!--<a href="#" class="panel-control-fullscreen"></a>-->
                 </span>
             </div>
-            <div class="panel-body border pn">
+            <div class="panel-body border pn ">
                 <div class="admin-form theme-info panel-body p15">
 
                     <div style="overflow: auto">
@@ -37,8 +37,10 @@ $this->menu = array(
                         $this->widget('bootstrap.widgets.TbGridView', array(
                             'id' => 'cliente-grid',
                             'type' => 'striped condensed hover bordered', //striped condensed  bordered hover
+                            'template' => '<bold>{items}</bold><div class="row-fluid"><div class="col-lg-6" style="display: -webkit-box;">{summary}</div><div class="col-lg-6">{pager}</div></div>',
                             'dataProvider' => $model->search(),
                             'filter' => $model,
+//                            'showTableOnEmpty' => false,
                             'emptyText' => '<div class="alert alert-border-bottom alert-primary pastel light dark text-center">                                            
                                            <h4><i class="fa fa-info pr10"></i>
                                             No se encontraron resultados.</h4>                                                                                        
@@ -55,6 +57,10 @@ $this->menu = array(
                                 'documento',
                                 'telefono',
                                 'celular',
+                                array(
+                                    'name' => 'usuario_creacion_id',
+                                    'value' => 'Yii::app()->user->um->loadUserById($data->usuario_creacion_id)->username'
+                                ),
                                 /*
                                   'email_1',
                                   'email_2',
@@ -62,14 +68,13 @@ $this->menu = array(
                                   'name' => 'estado',
                                   'filter' => array('ACTIVO'=>'ACTIVO','INACTIVO'=>'INACTIVO',),
                                   ),
-                                  'usuario_creacion_id',
                                   'usuario_actualizacion_id',
                                   'fecha_creacion',
                                   'fecha_actualizacion',
                                  */
                                 array(
                                     'class' => 'CButtonColumn',
-                                    'template' => '{update} {prueba}',
+                                    'template' => '{update}',
                                     'afterDelete' => 'function(link,success,data){ 
                         if(success) {
                         $("#flashMsg").empty();
@@ -84,16 +89,14 @@ $this->menu = array(
                                             'imageUrl' => false,
                                         //'visible' => 'Util::checkAccess(array("action_incidenciaPrioridad_update"))'
                                         ),
-//                                        'delete' => array(
-                                        'prueba' => array(
-                                            'label' => '<button class="btn btn-warning"><i class="fa fa-list"></i></button>',
-                                            'options' => array('title' => 'Modal'),
-                                            'url' => '"cliente/cliente/modal/id_cliente/".$data->id',
-                                            'imageUrl' => false,
-                                            'click' => 'js:function(e){e.preventDefault(); viewModal($(this).attr("href"),function() {maskAttributes();});  return false; }',
-//                                            'click' => 'js:function(){alert("hoas"); return false;}',
-                                        //'visible' => 'Util::checkAccess(array("action_incidenciaPrioridad_update"))'
-                                        ),
+//                                        'prueba' => array(
+//                                            'label' => '<button class="btn btn-warning"><i class="fa fa-list"></i></button>',
+//                                            'options' => array('title' => 'Modal'),
+//                                            'url' => '"cliente/cliente/modal/id_cliente/".$data->id',
+//                                            'imageUrl' => false,
+//                                            'click' => 'js:function(e){e.preventDefault(); viewModal($(this).attr("href"),function() {maskAttributes();});  return false; }',
+//                                        //'visible' => 'Util::checkAccess(array("action_incidenciaPrioridad_update"))'
+//                                        ),
 //                                        'delete' => array(
 //                                            'label' => '<button class="btn btn-danger"><i class="icon-trash"></i></button>',
 //                                            'options' => array('title' => 'Eliminar'),
@@ -102,7 +105,7 @@ $this->menu = array(
 //                                        ),
                                     ),
                                     'htmlOptions' => array(
-                                        'width' => '100px'
+                                        'width' => '50px'
                                     )
                                 ),
                             ),

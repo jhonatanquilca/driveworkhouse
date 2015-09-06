@@ -19,6 +19,10 @@ class Deuda extends BaseDeuda {
 
     public function search() {
         $criteria = new CDbCriteria;
+        $sort = new CSort;
+        $sort->multiSort = true;
+
+        $criteria->with = array('cliente');
 
         $criteria->compare('id', $this->id);
         $criteria->compare('monto', $this->monto);
@@ -28,10 +32,32 @@ class Deuda extends BaseDeuda {
         $criteria->compare('fecha_actualizacion', $this->fecha_actualizacion, true);
         $criteria->compare('observaciones', $this->observaciones, true);
         $criteria->compare('descripcion_palntilla_id', $this->descripcion_palntilla_id);
-        $criteria->compare('cliente_id', $this->cliente_id);
+//        $criteria->compare('cliente_id', $this->cliente_id);
+        $criteria->compare('CONCAT(cliente.nombre, CONCAT(" ",cliente.apellido))', $this->cliente_id);
+
+        if (!Yii::app()->request->isAjaxRequest) {
+            $criteria->order = 't.fecha_creacion DESC';
+        }
+
+
+
+
+
+        $sort->attributes = array(
+            'cliente_id' => array(
+                'asc' => 'CONCAT(CONCAT(cliente.nombre," "),cliente.apellido) asc',
+                'desc' => 'CONCAT(CONCAT(cliente.nombre," "),cliente.apellido) desc',
+                'default' => 'desc',
+            ),
+            '*',
+        );
 
         return new CActiveDataProvider($this, array(
             'criteria' => $criteria,
+            'pagination' => array(
+                'pageSize' => 7
+            ),
+            'sort' => $sort
         ));
     }
 
