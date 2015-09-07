@@ -8,7 +8,7 @@ $this->breadcrumbs=array(
 
 $this->menu=array(
 //array('label' => Yii::t('AweCrud.app', 'List').' '.Pago::label(2), 'icon' => 'fa fa-list', 'url' => array('index'),'htmlOptions'=>array('class'=>'btn-default'),),
-array('label' => Yii::t('AweCrud.app', 'Manage'), 'icon' => 'fa fa-list', 'url' => array('admin'),'htmlOptions'=>array('class'=>'btn-default'),),
+array('label' => Yii::t('AweCrud.app', 'Manage'), 'icon' => 'fa fa-list', 'url' => array('admin'),'htmlOptions'=>array('class'=>'btn-inverse'),),
 );
 ?>
 <div class="col-sm-12 pln">

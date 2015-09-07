@@ -209,6 +209,23 @@
 
                 <!-- Begin: Content -->
                 <!--<section id="content" class="animated fadeIn" >-->
+                <!-- FLASH MESSAGES -->
+                <div class="row">
+                    <div id="maiMessages" class="flash-messages">
+                        <?php
+                        $messages = Yii::app()->user->getFlashes();
+                        if ($messages) {
+                            foreach ($messages as $key => $message) {
+                                echo '<div class="alert alert-' . $key . ' alert-dismissable ml20 mr20">'
+                                . '<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>'
+                                . $message . "</div>\n";
+                            }
+                        }
+                        ?>
+
+
+                    </div>
+                </div>
                 <?php // echo $content;  ?>
 
                 <!--                            </section>-->
@@ -261,11 +278,11 @@
 // Init Theme Core    
                 Core.init();
 //                $(document).ready(function () {
-                    if (!$('body').hasClass('sb-l-m')) {
-                        $('.sidebar-left-content.nano-content').css('margin-right', '-17px');
-                    } else {
-                        $('.sidebar-left-content.nano-content').css('margin-right', '0px');
-                    }
+                if (!$('body').hasClass('sb-l-m')) {
+                    $('.sidebar-left-content.nano-content').css('margin-right', '-17px');
+                } else {
+                    $('.sidebar-left-content.nano-content').css('margin-right', '0px');
+                }
 
 //                });
 // Init Demo JS  

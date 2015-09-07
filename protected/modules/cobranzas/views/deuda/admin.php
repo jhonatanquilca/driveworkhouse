@@ -13,7 +13,7 @@ $this->menu = array(
 ?>
 <div class="col-sm-12 pln">
     <div class="bs-component p10">
-        <div class="panel panel-primary">
+        <div class="panel panel-warning">
             <div class="panel-heading">
                 <span class="panel-icon">
                     <i class="fa fa-shopping-cart"></i>
@@ -47,8 +47,8 @@ $this->menu = array(
 //                                'cliente_id',
                                 array(
                                     'name' => 'cliente_id',
-                                    'value' => 'isset($data->cliente) ? $data->cliente->nombre_completo : null',
-//                                    'filter' => CHtml::listData(Cliente::model()->findAll(), 'id', Cliente::representingColumn()),
+                                    'value' => 'CHtml::link($data->cliente->nombre_completo , Yii::app()->createUrl("cliente/cliente/view/", array("id"=>$data->cliente_id)))',
+                                    'type' => 'raw',
                                 ),
 //                                'id',
                                 array(

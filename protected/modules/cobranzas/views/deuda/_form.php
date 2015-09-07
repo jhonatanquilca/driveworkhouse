@@ -51,7 +51,8 @@ Util::tsRegisterAssetJs('_form.js');
 
                 <?php
                 // echo $form->dropDownListRow($model, 'descripcion_palntilla_id', array('' => ' -- Seleccione -- ') + CHtml::listData(DescripcionPalntilla::model()->findAll(), 'id', DescripcionPalntilla::representingColumn()), array('class' => 'form-control'))     
-                $data = $model->cliente_id ? array($model->descripcion_palntilla_id => DescripcionPalntilla::model()->findByPk($model->descripcion_palntilla_id)->nombre) : array();
+                $data = $model->descripcion_palntilla_id ? array($model->descripcion_palntilla_id => DescripcionPalntilla::model()->findByPk($model->descripcion_palntilla_id)->nombre) : array();
+                
                 echo $form->dropDownListRow($model, 'descripcion_palntilla_id', $data, array('class' => 'form-control select2'))
                 ?>
 

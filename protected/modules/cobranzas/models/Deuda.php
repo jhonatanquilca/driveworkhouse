@@ -39,10 +39,6 @@ class Deuda extends BaseDeuda {
             $criteria->order = 't.fecha_creacion DESC';
         }
 
-
-
-
-
         $sort->attributes = array(
             'cliente_id' => array(
                 'asc' => 'CONCAT(CONCAT(cliente.nombre," "),cliente.apellido) asc',
@@ -87,5 +83,14 @@ class Deuda extends BaseDeuda {
         return $command->queryAll();
     }
 
-    /* '''''''''-------------------------FUNCIONES EXTRA------------------------------ */
+    public function getMontoTotalByClitente($clinete_id) {
+//        select sum(t.monto) from deuda t where t.cliente_id=13;
+        $command = Yii::app()->db->createCommand()
+                ->select('sum(t.monto) as total')
+                ->from('deuda t')
+                ->where('t.cliente_id=:cliente_id', array(':cliente_id' => $clinete_id));
+        return $command->queryRow()['total'];
+    }
+
+    /* -----------------------------FUNCIONES EXTRA------------------------------ */
 }

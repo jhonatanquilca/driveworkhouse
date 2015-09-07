@@ -7,18 +7,16 @@ $this->breadcrumbs = array(
 );
 
 $this->menu = array(
-    array('label' => Yii::t('AweCrud.app', 'List') . ' ' . Pago::label(2), 'icon' => 'fa fa-list', 'url' => array('index'), 'htmlOptions' => array('class' => 'btn-default'),),
-    array('label' => Yii::t('AweCrud.app', 'Create') . ' ' . Pago::label(), 'icon' => 'fa fa-plus', 'url' => array('create'), 'htmlOptions' => array('class' => 'btn-default'),),
+//    array('label' => Yii::t('AweCrud.app', 'List') . ' ' . Pago::label(2), 'icon' => 'fa fa-list', 'url' => array('index'), 'htmlOptions' => array('class' => 'btn-default'),),
+    array('label' => Yii::t('AweCrud.app', 'Create') . ' ' . Pago::label(), 'icon' => 'fa fa-plus', 'url' => array('create'), 'htmlOptions' => array('class' => 'btn-inverse'),),
 );
-
-
 ?>
 <div class="col-sm-12 pln">
     <div class="bs-component p10">
         <div class="panel panel-primary">
             <div class="panel-heading">
                 <span class="panel-icon">
-                    <i class="fa fa-user"></i>
+                    <i class="fa fa-legal"></i>
                 </span>
                 <span class="panel-title">     <?php echo Yii::t('AweCrud.app', 'Manage') ?> <?php echo Pago::label(2) ?>                </span>
                 <span class="panel-controls">
@@ -37,7 +35,7 @@ $this->menu = array(
                         <?php
                         $this->widget('bootstrap.widgets.TbGridView', array(
                             'id' => 'pago-grid',
-                            'type' => 'striped condensed hover', //striped condensed  bordered hover
+                            'type' => 'striped condensed  bordered hover', //striped condensed  bordered hover
                             'dataProvider' => $model->search(),
                             'filter' => $model,
 //                            'showTableOnEmpty' => false,
@@ -47,11 +45,26 @@ $this->menu = array(
                                             </div>',
                             'columns' => array(
 //                                'id',
-                                'monto',
-                                'usuario_creacion_id',
-                                'fecha_creacion',
-                                'usuario_actualizacion',
-                                'fecha_actualizacion',
+                                array(
+                                    'name' => 'cliente_id',
+                                    'value' => 'CHtml::link($data->cliente->nombre_completo , Yii::app()->createUrl("cliente/cliente/view/", array("id"=>$data->cliente_id)))',
+                                    'type' => 'raw',
+                                ),
+                                array(
+                                    'name' => 'monto',
+                                    'value' => '"$ " .number_format($data->monto,2)'
+                                ),
+                                array(
+                                    'name' => 'usuario_creacion_id',
+//                                    'value' => '$data->usuario_creacion_id', 
+                                    'value' => ' Yii::app()->user->um->loadUserById($data->usuario_creacion_id)->username;',
+                                ),
+                                array(
+                                    'name' => 'fecha_creacion',
+                                    'value' => 'Util::FormatDate($data->fecha_creacion, "d/m/Y")',
+                                ),
+//                                'usuario_actualizacion',
+//                                'fecha_actualizacion',
                                 /*
                                   'obserbaciones',
                                   array(
@@ -67,7 +80,7 @@ $this->menu = array(
                                  */
                                 array(
                                     'class' => 'CButtonColumn',
-                                    'template' => '{update} {delete}',
+                                    'template' => '{update}',
                                     'afterDelete' => 'function(link,success,data){ 
                         if(success) {
                         $("#flashMsg").empty();
@@ -77,17 +90,12 @@ $this->menu = array(
                         }',
                                     'buttons' => array(
                                         'update' => array(
-                                            'label' => '<button class="btn btn-primary"><i class="icon-pencil"></i></button>',
+                                            'label' => '<button class="btn btn-primary"><i class="fa fa-pencil"></i></button>',
                                             'options' => array('title' => 'Actualizar'),
                                             'imageUrl' => false,
                                         //'visible' => 'Util::checkAccess(array("action_incidenciaPrioridad_update"))'
                                         ),
-                                        'delete' => array(
-                                            'label' => '<button class="btn btn-danger"><i class="icon-trash"></i></button>',
-                                            'options' => array('title' => 'Eliminar'),
-                                            'imageUrl' => false,
-                                        //'visible' => 'Util::checkAccess(array("action_incidenciaPrioridad_delete"))'
-                                        ),
+
                                     ),
                                     'htmlOptions' => array(
                                         'width' => '100px'

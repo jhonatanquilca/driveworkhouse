@@ -32,7 +32,7 @@ class DeudaController extends AweController {
     public function actionCreate() {
         $model = new Deuda;
         $model->usuario_creacion_id = Yii::app()->user->id;
-        $model->fecha_actualizacion = Util::FechaActual();
+//        $model->fecha_actualizacion = Util::FechaActual();
 
         $this->performAjaxValidation($model, 'deuda-form');
 

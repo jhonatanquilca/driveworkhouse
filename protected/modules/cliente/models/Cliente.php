@@ -11,6 +11,7 @@ class Cliente extends BaseCliente {
     const ESTADO_INACTIVO = "INACTIVO";
 
     private $nombre_completo;
+    private $deuda;
 
     public static function model($className = __CLASS__) {
         return parent::model($className);
@@ -36,7 +37,7 @@ class Cliente extends BaseCliente {
             'email_1' => Yii::t('app', 'Email Principal'),
             'email_2' => Yii::t('app', 'Email Secundario'),
             'estado' => Yii::t('app', 'Estado'),
-            'usuario_creacion_id' => Yii::t('app', 'Usuario Creación'),
+            'usuario_creacion_id' => Yii::t('app', 'Creador'),
             'usuario_actualizacion_id' => Yii::t('app', 'Usuario Actualización'),
             'fecha_creacion' => Yii::t('app', 'Fecha Creación'),
             'fecha_actualizacion' => Yii::t('app', 'Fecha Actualización'),
@@ -68,7 +69,7 @@ class Cliente extends BaseCliente {
         $criteria = new CDbCriteria;
         $sort = new CSort;
         $sort->multiSort = true;
-
+$criteria->select='*,((select sum(d.monto) from deuda d where d.cliente_id=t.id)-(select sum(p.monto) from deuda p where p.cliente_id=t.id)) as deuda';
         $criteria->compare('id', $this->id);
         $criteria->compare('nombre', $this->nombre, true);
         $criteria->compare('apellido', $this->apellido, true);
@@ -83,6 +84,7 @@ class Cliente extends BaseCliente {
         $criteria->compare('fecha_creacion', $this->fecha_creacion, true);
         $criteria->compare('fecha_actualizacion', $this->fecha_actualizacion, true);
         $criteria->compare('CONCAT(t.nombre, CONCAT(" ",t.apellido))', $this->nombre_completo, true);
+        $criteria->compare('(select sum(d.monto) from deuda d where d.cliente_id=t.id)-(select sum(p.monto) from deuda p where p.cliente_id=t.id)', $this->deuda, true);
 
         if (!Yii::app()->request->isAjaxRequest) {
             $criteria->order = 'CONCAT(CONCAT(t.nombre," "),t.apellido)  ASC';
@@ -92,6 +94,11 @@ class Cliente extends BaseCliente {
             'nombre_completo' => array(
                 'asc' => 'CONCAT(CONCAT(t.nombre," "),t.apellido) asc',
                 'desc' => 'CONCAT(CONCAT(t.nombre," "),t.apellido) desc',
+                'default' => 'desc',
+            ),
+            'deuda' => array(
+                'asc' => '(select sum(d.monto) from deuda d where d.cliente_id=t.id)-(select sum(p.monto) from deuda p where p.cliente_id=t.id) asc',
+                'desc' => '(select sum(d.monto) from deuda d where d.cliente_id=t.id)-(select sum(p.monto) from deuda p where p.cliente_id=t.id) desc',
                 'default' => 'desc',
             ),
             '*',
@@ -135,6 +142,18 @@ class Cliente extends BaseCliente {
     public function setNombre_completo($nombre_completo) {
         $this->nombre_completo = $nombre_completo;
         return $this->nombre_completo;
+    }
+
+    public function getDeuda() {
+        $return = number_format(Deuda::model()->getMontoTotalByClitente($this->id) - Pago::model()->getMontoTotalByClitente($this->id), 2);
+        $this->deuda = $this->id ? $return : '';
+//        $this->deuda =  $return;
+        return $this->deuda;
+    }
+
+    public function setDeuda($monto) {
+        $this->deuda = $monto;
+        return $this->deuda;
     }
 
 }

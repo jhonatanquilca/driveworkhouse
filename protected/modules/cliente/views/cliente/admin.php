@@ -13,7 +13,7 @@ $this->menu = array(
 ?>
 <div class="col-sm-12 pln">
     <div class="bs-component p10">
-        <div class="panel panel-primary">
+        <div class="panel panel-success">
             <div class="panel-heading">
                 <span class="panel-icon">
                     <i class="fa fa-group "></i>
@@ -54,6 +54,14 @@ $this->menu = array(
                                     'value' => 'CHtml::link($data->nombre_completo, Yii::app()->createUrl("cliente/cliente/view/id/".$data->id))',
                                     'type' => 'html',
                                 ),
+                                array(
+                                    'name' => 'deuda',
+                                    'value' => '"$ ".$data->deuda',
+                                    'filter' => false,
+                                    'htmlOptions' => array(
+                                        'width' => '80px'
+                                    )
+                                ),
                                 'documento',
                                 'telefono',
                                 'celular',
@@ -75,13 +83,6 @@ $this->menu = array(
                                 array(
                                     'class' => 'CButtonColumn',
                                     'template' => '{update}',
-                                    'afterDelete' => 'function(link,success,data){ 
-                        if(success) {
-                        $("#flashMsg").empty();
-                        $("#flashMsg").css("display","");
-                        $("#flashMsg").html(data).animate({opacity: 1.0}, 5500).fadeOut("slow");
-                        }
-                        }',
                                     'buttons' => array(
                                         'update' => array(
                                             'label' => '<button class="btn btn-primary"><i class="fa fa-pencil"></i></button>',
