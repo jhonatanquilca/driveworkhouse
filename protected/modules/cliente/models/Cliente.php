@@ -50,6 +50,7 @@ class Cliente extends BaseCliente {
     public function rules() {
         return array(
             array('nombre, apellido, usuario_creacion_id', 'required'),
+            array('nombre+apellido', 'application.extensions.uniqueMultiColumnValidator.uniqueMultiColumnValidator', 'message' => 'Nombre y Apellido ya estan registrados.'),
             array('usuario_creacion_id, usuario_actualizacion_id', 'numerical', 'integerOnly' => true),
             array('nombre, apellido', 'length', 'max' => 32),
             array('documento', 'length', 'max' => 20),
@@ -69,7 +70,7 @@ class Cliente extends BaseCliente {
         $criteria = new CDbCriteria;
         $sort = new CSort;
         $sort->multiSort = true;
-$criteria->select='*,((select sum(d.monto) from deuda d where d.cliente_id=t.id)-(select sum(p.monto) from deuda p where p.cliente_id=t.id)) as deuda';
+        $criteria->select = '*,((select sum(d.monto) from deuda d where d.cliente_id=t.id)-(select sum(p.monto) from deuda p where p.cliente_id=t.id)) as deuda';
         $criteria->compare('id', $this->id);
         $criteria->compare('nombre', $this->nombre, true);
         $criteria->compare('apellido', $this->apellido, true);
