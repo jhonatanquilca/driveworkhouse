@@ -9,7 +9,7 @@
 /**
  * Description of ClienteWsController
  *
- * @author Administrador
+ * @author Jhonatan Quilca
  */
 class ClienteWsController extends Controller {
 
@@ -30,7 +30,12 @@ class ClienteWsController extends Controller {
         $array = array();
 
         if (!empty($model->findAll())) {
-            $array['data'] = $model->findAll();
+            $command=  Yii::app()->db->createCommand()
+                    ->select('t.*,CONCAT(t.nombre, CONCAT(" ",t.apellido)) AS nombre_completo')
+                    ->from('cliente t')
+                    ->order('CONCAT(t.nombre, CONCAT(" ",t.apellido)) ASC');
+//            $array['data'] = $model->findAll();
+            $array['data'] = $command->queryAll();
             $array['success'] = true;
         } else {
             $array['success'] = false;
