@@ -13,25 +13,14 @@
  */
 class ClienteWsController extends Controller {
 
-//put your code here
-    public function actions() {
-        return array(
-            'webService' => array('class' => 'CWebServiceAction',),
-        );
-    }
-
-    /**
-     * sccion para visualizar todos los elemetos
-      @return string                       <----- defines tipo de retorno
-      @soap                                <----- declara este metodo como "remoto"
-     */
-    public function admin() {
+    public function actionAdmin() {
         $model = new Cliente('search');
         $array = array();
 
         if (!empty($model->findAll())) {
-            $command=  Yii::app()->db->createCommand()
-                    ->select('t.*,CONCAT(t.nombre, CONCAT(" ",t.apellido)) AS nombre_completo')
+            $command = Yii::app()->db->createCommand()
+                    ->select('t.*,CONCAT(t.nombre, CONCAT(" ",t.apellido)) AS nombre_completo,
+round((select if(ISNULL( sum(d.monto)),0, sum(d.monto)) from deuda d where d.cliente_id=t.id)-(select if(ISNULL( sum(p.monto)),0, sum(p.monto)) from pago p where p.cliente_id=t.id),2) as deuda')
                     ->from('cliente t')
                     ->order('CONCAT(t.nombre, CONCAT(" ",t.apellido)) ASC');
 //            $array['data'] = $model->findAll();
@@ -41,16 +30,11 @@ class ClienteWsController extends Controller {
             $array['success'] = false;
         }
 
-        return json_encode($array);
+        print json_encode($array);
+        Yii::app()->end();
     }
 
-    /**
-     * accion para la vista informacion de un cliente
-     * @param string $id              <----- id de cliente
-      @return string                       <----- defines tipo de retorno
-      @soap                                <----- declara este metodo como "remoto"
-     */
-    public function view($id) {
+    public function actionView($id) {
         $model = Cliente::model()->findByPk($id);
         $array = array();
 
@@ -62,23 +46,11 @@ class ClienteWsController extends Controller {
         }
 
 
-        return json_encode($array);
+        print json_encode($array);
+        Yii::app()->end();
     }
 
-    /**
-     * accion para crear un nuevo cliente
-     * @param string $nombre
-     * @param string $apellido
-     * @param string $documento 
-     * @param string $telefono 
-     * @param string $celular 
-     * @param string $email_1 
-     * @param string $email_2 
-     * @param string $usuario_creacion_id 
-      @return string                       <----- defines tipo de retorno
-      @soap                                <----- declara este metodo como "remoto"
-     */
-    public function create($nombre, $apellido, $documento = null, $telefono = null, $celular = null, $email_1 = null, $email_2 = null, $usuario_creacion_id = null) {
+    public function actionCreate($nombre, $apellido, $documento = null, $telefono = null, $celular = null, $email_1 = null, $email_2 = null, $usuario_creacion_id = null) {
         $model = new Cliente;
         $array = array();
 
@@ -97,24 +69,11 @@ class ClienteWsController extends Controller {
             $array['success'] = false;
             $array['errors'] = $model->errors;
         }
-        return json_encode($array);
+        print json_encode($array);
+        Yii::app()->end();
     }
 
-    /**
-     * accion para actualizar un nuevo cliente
-     * @param string $id
-     * @param string $nombre
-     * @param string $apellido
-     * @param string $documento 
-     * @param string $telefono 
-     * @param string $celular 
-     * @param string $email_1 
-     * @param string $email_2 
-     * @param string $usuario_actualizacion_id 
-      @return string                       <----- defines tipo de retorno
-      @soap                                <----- declara este metodo como "remoto"
-     */
-    public function update($id, $nombre, $apellido, $documento = null, $telefono = null, $celular = null, $email_1 = null, $email_2 = null, $usuario_actualizacion_id = null) {
+    public function actionUpdate($id, $nombre, $apellido, $documento = null, $telefono = null, $celular = null, $email_1 = null, $email_2 = null, $usuario_actualizacion_id = null) {
         $model = Cliente::model()->findByPk($id);
         $array = array();
 
@@ -132,7 +91,8 @@ class ClienteWsController extends Controller {
             $array['success'] = false;
             $array['errors'] = $model->errors;
         }
-        return json_encode($array);
+        print json_encode($array);
+        Yii::app()->end();
     }
 
 }
