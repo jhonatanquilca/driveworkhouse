@@ -44,7 +44,7 @@ round((select if(ISNULL( sum(d.monto)),0, sum(d.monto)) from deuda d where d.cli
         $model = new Cliente('search');
         $array = array();
 
-        if (!empty($model->findAll())) {
+        
             $command = Yii::app()->db->createCommand()
                     ->select('distinct(t.id), t.nombre, t.apellido, t.documento, t.telefono, t.celular, t.email_1, t.email_2,
         CONCAT(t.nombre, CONCAT(" ", t.apellido)) AS nombre_completo,
@@ -53,6 +53,7 @@ round((select if(ISNULL( sum(d.monto)),0, sum(d.monto)) from deuda d where d.cli
                     ->where('CONCAT(t.nombre, CONCAT(" ", t.apellido)) LIKE :param or t.documento LIKE :param', array(':param' => '%' . $param . '%'))
                     ->order('CONCAT(t.nombre, CONCAT(" ",t.apellido)) ASC');
 
+if (!empty($command->queryAll())) {
             $array['data'] = $command->queryAll();
             $array['success'] = true;
         } else {
