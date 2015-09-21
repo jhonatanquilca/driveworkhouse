@@ -60,10 +60,14 @@ class Cliente extends BaseCliente {
             array('estado', 'length', 'max' => 8),
             array('fecha_actualizacion', 'safe'),
             array('estado', 'in', 'range' => array('ACTIVO', 'INACTIVO')), // enum,
-            array('documento, telefono, celular, email_1, email_2, estado, usuario_actualizacion_id, fecha_actualizacion', 'default', 'setOnEmpty' => true, 'value' => null),
-            array('id, nombre, apellido, documento, telefono, celular, email_1, email_2, estado, usuario_creacion_id, usuario_actualizacion_id, fecha_creacion, fecha_actualizacion', 'safe', 'on' => 'search'),
-            array('nombre_completo', 'safe', 'on' => 'search'),
+            array('documento, telefono, celular, email_1, email_2, estado, usuario_actualizacion_id, fecha_actualizacion,nombre_completo,deuda', 'default', 'setOnEmpty' => true, 'value' => null),
+            array('id, nombre, apellido, documento, telefono, celular, email_1, email_2, estado, usuario_creacion_id, usuario_actualizacion_id, fecha_creacion, fecha_actualizacion,nombre_completo,deuda', 'safe', 'on' => 'search'),
         );
+    }
+
+    public function safeAttributes() {
+        /* Asignación general sin dependencia de escenarios */
+        return 'id, nombre, apellido, documento, telefono, celular, email_1, email_2, estado, usuario_creacion_id, usuario_actualizacion_id, fecha_creacion, fecha_actualizacion,nombre_completo,deuda';
     }
 
     public function search() {
