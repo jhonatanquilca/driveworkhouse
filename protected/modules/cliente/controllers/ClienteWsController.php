@@ -69,6 +69,7 @@ round((select if(ISNULL( sum(d.monto)),0, sum(d.monto)) from deuda d where d.cli
         $array = array();
 
         if ($model !== null) {
+			$model->usuario_creacion_id=Yii::app()->user->um->loadUserById($model->usuario_creacion_id)->username;
             $array['data'] = $model->attributes;
             $array['data']['nombre_completo'] = $model->nombre_completo;
             $array['data']['deuda'] = $model->deuda;
