@@ -152,13 +152,22 @@ return array(
 //            ),
 //        ),
         // uncomment the following to use a MySQL database
-        'db' => array(
-            'connectionString' => 'mysql:host=localhost;dbname=drivehouse',
-            'emulatePrepare' => true,
+     'db' => array(
+          'connectionString' => 'mysql:host=localhost;dbname=drivehouse',
+          'emulatePrepare' => true,
             'username' => 'root',
             'password' => '',
             'charset' => 'utf8',
-        ),
+       ),
+        /* base de datos serversfree.com */
+//        'db' => array(
+//            'connectionString' => 'mysql:host=mysql.serversfree.com;dbname=u806364782_house',
+//            'emulatePrepare' => true,
+//            'username' => 'u806364782_house',
+//            'password' => 'jq1004476568i',
+//            'charset' => 'utf8',
+//        ),
+
         /* base de datos hostinget */
 //        'db' => array(
 //            'connectionString' => 'mysql:host=mysql.hostinger.co;dbname=u354432050_drive',
