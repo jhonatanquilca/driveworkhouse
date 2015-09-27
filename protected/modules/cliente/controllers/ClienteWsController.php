@@ -140,4 +140,17 @@ round((select if(ISNULL( sum(d.monto)),0, sum(d.monto)) from deuda d where d.cli
         Yii::app()->end();
     }
 
+    public function actionDelete($id) {
+        $model = Cliente::model()->findByPk($id);
+        $array = array();
+
+        if ($model !== null) {
+            $array['success'] = $model->delete();
+        } else {
+            $array['success'] = false;
+        }
+        print json_encode($array);
+        Yii::app()->end();
+    }
+
 }
