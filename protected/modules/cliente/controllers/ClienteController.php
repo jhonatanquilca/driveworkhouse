@@ -32,7 +32,7 @@ class ClienteController extends AweController {
      * If creation is successful, the browser will be redirected to the 'view' page.
      */
     public function actionCreate() {
-        $model = new Cliente;
+        $model = new Cliente('create');
         $model->usuario_creacion_id = Yii::app()->user->id;
         $this->performAjaxValidation($model, 'cliente-form');
 

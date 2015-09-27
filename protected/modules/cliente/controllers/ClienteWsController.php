@@ -17,7 +17,7 @@ class ClienteWsController extends Controller {
         $model = new Cliente('search');
         $array = array();
 
-        if (count($model->findAll())>0) {
+        if (count($model->findAll()) > 0) {
             $command = Yii::app()->db->createCommand()
                     ->select('t.*,CONCAT(t.nombre, CONCAT(" ",t.apellido)) AS nombre_completo,
 round((select if(ISNULL( sum(d.monto)),0, sum(d.monto)) from deuda d where d.cliente_id=t.id)-(select if(ISNULL( sum(p.monto)),0, sum(p.monto)) from pago p where p.cliente_id=t.id),2) as deuda')
@@ -53,7 +53,7 @@ round((select if(ISNULL( sum(d.monto)),0, sum(d.monto)) from deuda d where d.cli
                 ->where('CONCAT(t.nombre, CONCAT(" ", t.apellido)) LIKE :param or t.documento LIKE :param', array(':param' => '%' . $param . '%'))
                 ->order('CONCAT(t.nombre, CONCAT(" ",t.apellido)) ASC');
 
-        if (count($command->queryAll())>0) {
+        if (count($command->queryAll()) > 0) {
             $array['data'] = $command->queryAll();
             $array['success'] = true;
         } else {
@@ -85,7 +85,7 @@ round((select if(ISNULL( sum(d.monto)),0, sum(d.monto)) from deuda d where d.cli
 
     public function actionCreate() {
         //$nombre, $apellido, $documento = null, $telefono = null, $celular = null, $email_1 = null, $email_2 = null, $usuario_creacion_id = null
-        $model = new Cliente;
+        $model = new Cliente('create');
         $array = array();
         $_POST['Cliente'] = json_decode(file_get_contents("php://input"), true);
 

@@ -50,7 +50,7 @@ class Cliente extends BaseCliente {
     public function rules() {
         return array(
             array('nombre, apellido, usuario_creacion_id', 'required'),
-            array('nombre+apellido', 'application.extensions.uniqueMultiColumnValidator.uniqueMultiColumnValidator', 'message' => 'Nombre y Apellido ya estan registrados.'),
+            array('nombre+apellido', 'application.extensions.uniqueMultiColumnValidator.uniqueMultiColumnValidator', 'message' => 'Nombre y Apellido ya estan registrados.','on'=>'create'),
             array('usuario_creacion_id, usuario_actualizacion_id', 'numerical', 'integerOnly' => true),
             array('nombre, apellido', 'length', 'max' => 32),
             array('documento', 'length', 'max' => 20),
