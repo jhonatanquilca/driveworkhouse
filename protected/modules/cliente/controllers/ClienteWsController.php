@@ -145,7 +145,8 @@ round((select if(ISNULL( sum(d.monto)),0, sum(d.monto)) from deuda d where d.cli
         $array = array();
 
         if ($model !== null) {
-            $array['success'] = $model->delete();
+          //  $array['success'] = $model->delete();
+		    $array['success'] =true;
         } else {
             $array['success'] = false;
         }
