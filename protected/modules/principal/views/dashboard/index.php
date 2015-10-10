@@ -5,7 +5,7 @@
 ?>
 <div class="row mb10">
     <div class="col-sm-6 col-md-3" >
-        <div class="panel panel-tile bg-success light of-h mb10 " url="cliente/cliente/admin">
+        <div class="panel panel-tile bg-success light of-h mb10 cursor" url="cliente/cliente/admin">
             <div class="pn pl20 p5">
                 <div class="icon-bg">
                     <i class="fa fa-group"></i>
@@ -18,26 +18,26 @@
         </div>
     </div>
     <div class="col-sm-6 col-md-3" >
-        <div class="panel panel-tile bg-warning light of-h mb10" url="cobranzas/deuda/admin">
+        <div class="panel panel-tile bg-warning light of-h mb10 cursor" url="cobranzas/deuda/admin">
             <div class="pn pl20 p5">
                 <div class="icon-bg">
                     <i class="fa fa fa-shopping-cart"></i>
                 </div>
                 <h2 class="mt15 lh15">
-                    <b>$348.56</b>
+                    <b>$<?php echo Deuda::model()->getMontoTotal()?Deuda::model()->getMontoTotal():0 ?></b>
                 </h2>
                 <h5 class="text-muted">Deudas</h5>
             </div>
         </div>
     </div>
     <div class="col-sm-6 col-md-3">
-        <div class="panel panel-tile bg-info light of-h mb10" url="cobranzas/deuda/admin">
+        <div class="panel panel-tile bg-info light of-h mb10 cursor" url="cobranzas/deuda/admin">
             <div class="pn pl20 p5">
                 <div class="icon-bg">
                     <i class="fa fa fa-legal"></i>
                 </div>
                 <h2 class="mt15 lh15">
-                    <b>$267.00</b>
+                    <b>$<?php echo Pago::model()->getMontoTotal()?Pago::model()->getMontoTotal():0 ?> </b>
                 </h2>
                 <h5 class="text-muted">Pagos</h5>
             </div>
@@ -58,11 +58,11 @@
     </div>-->
 </div>
 <div class="row ">
-    <div class="col-md-6">
+    <div class="col-md-12">
                <?php echo $this->renderPartial('portlets/calendario'); ?>
 
     </div>
-    <div class="col-md-6">
+<!--    <div class="col-md-6">
         <div class="panel panel-primary">
             <div class="panel-heading">
                 <span class="panel-icon">
@@ -71,11 +71,11 @@
                 <span class="panel-title">     <?php echo 'titulo' ?>                </span>
                 <span class="panel-controls">
                     <a href="#" class="panel-control-loader"></a>
-                    <!--<a href="#" class="panel-control-remove"></a>-->
-                    <!--<a href="#" class="panel-control-title"></a>-->
-                    <!--<a href="#" class="panel-control-color"></a>-->
+                    <a href="#" class="panel-control-remove"></a>
+                    <a href="#" class="panel-control-title"></a>
+                    <a href="#" class="panel-control-color"></a>
                     <a href="#" class="panel-control-collapse"></a>
-                    <!--<a href="#" class="panel-control-fullscreen"></a>-->
+                    <a href="#" class="panel-control-fullscreen"></a>
                 </span>
             </div>
             <div class="panel-body border pn">
@@ -83,7 +83,7 @@
 
 
 
-                    <!-- search-form -->
+                     search-form 
 
                     <?php
                     echo 'hola 2';
@@ -102,7 +102,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div>-->
 </div>
 <!-- cards -->
 <!--<div class="row cards">

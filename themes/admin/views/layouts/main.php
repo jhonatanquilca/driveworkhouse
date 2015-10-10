@@ -120,9 +120,8 @@
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle fw600 p15" data-toggle="dropdown"> 
                             <img src="<?php echo Yii::app()->theme->baseUrl; ?>/img/avatars/1.jpg" alt="avatar" class="mw30 br64 mr15"> 
-                            <!--<a class="aweso-user"></a>-->
-                            <?php echo Yii::app()->user->name ? Yii::app()->user->name : "Guest" ?>
-                            <span class="caret caret-tp hidden-xs"></span>
+                            <?php echo Yii::app()->user->name ? Yii::app()->user->name : "User" ?>
+                            <span class="center-children caret caret-tp hidden-xs"></span>
                         </a>
 
                         <ul class="dropdown-menu list-group dropdown-persist w250" role="menu">                            

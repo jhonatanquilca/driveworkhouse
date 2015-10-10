@@ -33,11 +33,30 @@ $this->menu = array(
 
                     <div style="overflow: auto">
                         <?php
+                        $date_filter = $this->widget('zii.widgets.jui.CJuiDatePicker', array(
+                            'name' => 'Deuda[fecha_creacion]',
+                            'language' => 'es',
+                            'value' => $model->fecha_creacion,
+                            'options' => array(
+                                'dateFormat' => 'dd/mm/yy',
+//                                'dateFormat' => 'yy-mm-dd',
+                            ),
+                            'htmlOptions' => array(
+//                                'style' => 'width:70px;',
+                            ),
+                                ), true);
                         $this->widget('bootstrap.widgets.TbGridView', array(
                             'id' => 'deuda-grid',
                             'type' => 'striped condensed hover bordered', //striped condensed hover bordered
                             'dataProvider' => $model->search(),
                             'filter' => $model,
+                            'afterAjaxUpdate' => "function() {
+                                      jQuery('#Deuda_fecha_creacion').datepicker(
+                                         jQuery.extend({showMonthAfterYear:false}, 
+                                         jQuery.datepicker.regional['es'], 
+                                  {'dateFormat':'dd/mm/yy'}));
+                
+                                   }",
 //                            'showTableOnEmpty' => false,
                             'emptyText' => '<div class="alert alert-border-bottom alert-primary pastel light dark text-center">                                            
                                            <h4><i class="fa fa-info pr10"></i>
@@ -63,6 +82,7 @@ $this->menu = array(
                                 array(
                                     'name' => 'fecha_creacion',
                                     'value' => 'Util::FormatDate($data->fecha_creacion, "d/m/Y")',
+                                    'filter' => $date_filter,
                                 ),
 //                                'usuario_actualizacion_id',
 //                                'fecha_actualizacion',

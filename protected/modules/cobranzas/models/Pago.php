@@ -24,17 +24,17 @@ class Pago extends BasePago {
 
         $criteria->with = array('cliente');
 
-        $criteria->compare('id', $this->id);
-        $criteria->compare('monto', $this->monto);
-        $criteria->compare('usuario_creacion_id', $this->usuario_creacion_id);
-        $criteria->compare('fecha_creacion', $this->fecha_creacion, true);
-        $criteria->compare('usuario_actualizacion', $this->usuario_actualizacion);
-        $criteria->compare('fecha_actualizacion', $this->fecha_actualizacion, true);
-        $criteria->compare('obserbaciones', $this->obserbaciones, true);
+        $criteria->compare('t.id', $this->id);
+        $criteria->compare('t.monto', $this->monto);
+        $criteria->compare('t.usuario_creacion_id', $this->usuario_creacion_id);
+        $criteria->compare('t.fecha_creacion', Util::FormatDate($this->fecha_creacion, 'Y-m-d'), true);
+        $criteria->compare('t.usuario_actualizacion', $this->usuario_actualizacion);
+        $criteria->compare('t.fecha_actualizacion', $this->fecha_actualizacion, true);
+        $criteria->compare('t.obserbaciones', $this->obserbaciones, true);
         $criteria->compare('descripcion_palntilla_id', $this->descripcion_palntilla_id);
 //        $criteria->compare('cliente_id', $this->cliente_id);
 
-        $criteria->compare('CONCAT(cliente.nombre, CONCAT(" ",cliente.apellido))', $this->cliente_id);
+        $criteria->compare('CONCAT(cliente.nombre, CONCAT(" ",cliente.apellido))', $this->cliente_id, true);
 
         if (!Yii::app()->request->isAjaxRequest) {
             $criteria->order = 't.fecha_creacion DESC';
@@ -90,6 +90,14 @@ class Pago extends BasePago {
                 ->select('sum(t.monto) as total')
                 ->from('pago t')
                 ->where('t.cliente_id=:cliente_id', array(':cliente_id' => $clinete_id));
+        return $command->queryRow()['total'];
+    }
+
+    public function getMontoTotal() {
+//        select sum(t.monto) from pago ;
+        $command = Yii::app()->db->createCommand()
+                ->select('sum(t.monto) as total')
+                ->from('pago t');
         return $command->queryRow()['total'];
     }
 

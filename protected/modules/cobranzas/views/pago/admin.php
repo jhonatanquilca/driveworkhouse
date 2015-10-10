@@ -33,11 +33,30 @@ $this->menu = array(
 
                     <div style="overflow: auto">
                         <?php
+                        $date_filter = $this->widget('zii.widgets.jui.CJuiDatePicker', array(
+                            'name' => 'Pago[fecha_creacion]',
+                            'language' => 'es',
+                            'value' => $model->fecha_creacion,
+                            'options' => array(
+                                'dateFormat' => 'dd/mm/yy',
+//                                'dateFormat' => 'yy-mm-dd',
+                            ),
+                            'htmlOptions' => array(
+//                                'style' => 'width:70px;',
+                            ),
+                                ), true);
                         $this->widget('bootstrap.widgets.TbGridView', array(
                             'id' => 'pago-grid',
                             'type' => 'striped condensed  bordered hover', //striped condensed  bordered hover
                             'dataProvider' => $model->search(),
                             'filter' => $model,
+                            'afterAjaxUpdate' => "function() {
+                                      jQuery('#Pago_fecha_creacion').datepicker(
+                                         jQuery.extend({showMonthAfterYear:false}, 
+                                         jQuery.datepicker.regional['es'], 
+                                  {'dateFormat':'dd/mm/yy'}));
+                
+                                   }",
 //                            'showTableOnEmpty' => false,
                             'emptyText' => '<div class="alert alert-border-bottom alert-primary pastel light dark text-center">                                            
                                            <h4><i class="fa fa-info pr10"></i>
@@ -59,9 +78,10 @@ $this->menu = array(
 //                                    'value' => '$data->usuario_creacion_id', 
                                     'value' => ' Yii::app()->user->um->loadUserById($data->usuario_creacion_id)->username;',
                                 ),
-                                array(
+                                  array(
                                     'name' => 'fecha_creacion',
                                     'value' => 'Util::FormatDate($data->fecha_creacion, "d/m/Y")',
+                                    'filter' => $date_filter,
                                 ),
 //                                'usuario_actualizacion',
 //                                'fecha_actualizacion',
@@ -95,7 +115,6 @@ $this->menu = array(
                                             'imageUrl' => false,
                                         //'visible' => 'Util::checkAccess(array("action_incidenciaPrioridad_update"))'
                                         ),
-
                                     ),
                                     'htmlOptions' => array(
                                         'width' => '100px'
