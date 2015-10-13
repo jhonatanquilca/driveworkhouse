@@ -186,12 +186,9 @@
                             //Descomentar si se necesita que todos los items <li> tengan una sola clase
 //                    'itemCssClass' => 'active',
                             'activeCssClass' => 'active',
-                            //pone el active class a la etiqueta a
-                            'activateItemsOuter' => false,
-                            'opennedItemClass' => 'open',
-                            'htmlOptions' => array('id' => 'side', 'class' => 'nav navbar-nav side-nav'),
+                            'htmlOptions' => array('class' => 'nav sidebar-menu'),
                             //class  para el submenu
-                            'submenuHtmlOptions' => array('class' => 'nav collapse')
+                            'submenuHtmlOptions' => array('class' => 'nav sub-nav')
                         ));
                         ?>
                         <!--                        <ul id="side1" class="nav navbar-nav side-nav">
@@ -253,38 +250,38 @@
                 <!-- BEGIN MAIN PAGE CONTENT -->
                 <div id="page-wrapper">
                     <!-- BEGIN PAGE HEADING ROW -->
-<!--                    <div class="row">
-                    <div class="col-lg-12">
-                     BEGIN BREADCRUMB 
-                    <div class="breadcrumbs">
-                                                    <ul class="breadcrumb">
-                                                        <li>
-                                                            <a href="#">Home</a>
-                                                        </li>
-                                                        <li>Pages</li>
-                                                        <li class="active">Blank</li>
-                                                    </ul>
-
-                    <div class="b-right hidden-xs">
-                    <ul>
-<li><a href="#" title=""><i class="fa fa-signal"></i></a></li>
-<li><a href="#" title=""><i class="fa fa-comments"></i></a></li>
-<li class="dropdown"><a href="#" title="" data-toggle="dropdown"><i class="fa fa-plus"></i><span> Tasks</span></a>
-<ul class="dropdown-menu dropdown-primary dropdown-menu-right">
-<li><a href="#">Add new task</a></li>
-<li><a href="#">Statement</a></li>
-<li><a href="#">Settings</a></li>
-</ul>
-</li>
-</ul>
-</div>-->
+                    <!--                    <div class="row">
+                                        <div class="col-lg-12">
+                                         BEGIN BREADCRUMB 
+                                        <div class="breadcrumbs">
+                                                                        <ul class="breadcrumb">
+                                                                            <li>
+                                                                                <a href="#">Home</a>
+                                                                            </li>
+                                                                            <li>Pages</li>
+                                                                            <li class="active">Blank</li>
+                                                                        </ul>
+                    
+                                        <div class="b-right hidden-xs">
+                                        <ul>
+                    <li><a href="#" title=""><i class="fa fa-signal"></i></a></li>
+                    <li><a href="#" title=""><i class="fa fa-comments"></i></a></li>
+                    <li class="dropdown"><a href="#" title="" data-toggle="dropdown"><i class="fa fa-plus"></i><span> Tasks</span></a>
+                    <ul class="dropdown-menu dropdown-primary dropdown-menu-right">
+                    <li><a href="#">Add new task</a></li>
+                    <li><a href="#">Statement</a></li>
+                    <li><a href="#">Settings</a></li>
+                    </ul>
+                    </li>
+                    </ul>
+                    </div>-->
                     <!--</div>-->
                     <!-- END BREADCRUMB -->	
 
-<!--                    <div class="page-header title">
-                         PAGE TITLE ROW 
-                        <h1>Titulo <span class="sub-title">sub titulo</span></h1>								
-                    </div>-->
+                    <!--                    <div class="page-header title">
+                                             PAGE TITLE ROW 
+                                            <h1>Titulo <span class="sub-title">sub titulo</span></h1>								
+                                        </div>-->
 
 
                     <!--</div>-->
@@ -292,7 +289,7 @@
                     <!--</div>-->
                     <!-- /.row -->
                     <!-- END PAGE HEADING ROW -->	
-                    <?php echo $content; ?>
+<?php echo $content; ?>
                     <!--                    <div class="row">
                                             <div class="col-lg-12">
                     
