@@ -87,4 +87,21 @@ class UiWsController extends Controller {
         Yii::app()->end();
     }
 
+    public function actionLogout() {
+//        url
+//        http://localhost/driveworkhouse/cruge/uiWs/logout
+        $array = array();
+        // retorna false si ocurrio un error O si el filtro de sesion
+        // dispone de onBeforeLogin el cual ha retornado false.
+        if (Yii::app()->user->logout() == false) {
+            $array['success'] = false;
+            $array['message'] = "No se ha iniciado sesión.";
+        } else {//si cerro la seccion
+            $array['success'] = true;
+            $array['message'] = "La sesión se ha cerrado con exito.";
+        }
+        print json_encode($array);
+        Yii::app()->end();
+    }
+
 }
