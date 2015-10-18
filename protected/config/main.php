@@ -31,6 +31,8 @@ return array(
         'application.modules.cobranzas.models.*',
         //actividades 
         'application.modules.actividades.models.*',
+        //movil
+        'application.modules.movil.models.*',
     ),
     'modules' => array(
 // aqui pones tus modulos
@@ -38,6 +40,7 @@ return array(
         'cliente',
         'cobranzas',
         'actividades',
+        'movil',
         // uncomment the following to enable the Gii tool   
         'gii' => array(
             'class' => 'system.gii.GiiModule',
@@ -114,7 +117,6 @@ return array(
             'responsiveCss' => true,
 //            'ajaxCssImport' => false,
         ),
-        
         'user' => array(
             // enable cookie-based authentication
             'allowAutoLogin' => true,
@@ -152,13 +154,13 @@ return array(
 //            ),
 //        ),
         // uncomment the following to use a MySQL database
-     'db' => array(
-          'connectionString' => 'mysql:host=localhost;dbname=drivehouse',
-          'emulatePrepare' => true,
+        'db' => array(
+            'connectionString' => 'mysql:host=localhost;dbname=drivehouse',
+            'emulatePrepare' => true,
             'username' => 'root',
             'password' => '',
             'charset' => 'utf8',
-       ),
+        ),
         /* base de datos serversfree.com */
 //        'db' => array(
 //            'connectionString' => 'mysql:host=mysql.serversfree.com;dbname=u806364782_house',
