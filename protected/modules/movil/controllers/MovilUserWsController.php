@@ -8,7 +8,7 @@
 class MovilUserWsController extends Controller {
 
     public function actionCreate() {
-        $model = new MovilUser;
+        $model = new MovilUser('create');
         $array = array();
         $_POST['MovilUser'] = json_decode(file_get_contents("php://input"), true);
 

@@ -9,6 +9,7 @@
  * Columns in table "movil_user" available as properties of the model,
  * and there are no model relations.
  *
+ * @property string $id_dispositivo
  * @property integer $id_user
  * @property string $estado
  *
@@ -29,12 +30,13 @@ abstract class BaseMovilUser extends AweActiveRecord {
 
     public function rules() {
         return array(
-            array('id_user', 'required'),
+            array('id_dispositivo', 'required'),
             array('id_user', 'numerical', 'integerOnly'=>true),
+            array('id_dispositivo', 'length', 'max'=>45),
             array('estado', 'length', 'max'=>3),
             array('estado', 'in', 'range' => array('IN','OUT')), // enum,
-            array('estado', 'default', 'setOnEmpty' => true, 'value' => null),
-            array('id_user, estado', 'safe', 'on'=>'search'),
+            array('id_user, estado', 'default', 'setOnEmpty' => true, 'value' => null),
+            array('id_dispositivo, id_user, estado', 'safe', 'on'=>'search'),
         );
     }
 
@@ -48,6 +50,7 @@ abstract class BaseMovilUser extends AweActiveRecord {
      */
     public function attributeLabels() {
         return array(
+                'id_dispositivo' => Yii::t('app', 'Id Dispositivo'),
                 'id_user' => Yii::t('app', 'Id User'),
                 'estado' => Yii::t('app', 'Estado'),
         );
@@ -56,6 +59,7 @@ abstract class BaseMovilUser extends AweActiveRecord {
     public function search() {
         $criteria = new CDbCriteria;
 
+        $criteria->compare('id_dispositivo', $this->id_dispositivo, true);
         $criteria->compare('id_user', $this->id_user);
         $criteria->compare('estado', $this->estado, true);
 

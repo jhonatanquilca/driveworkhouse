@@ -65,7 +65,8 @@ return false;
                                             No se encontraron resultados.</h4>                                                                                        
                                             </div>',
                         'columns' => array(
-                                                    'id_user',
+                                                    'id_dispositivo',
+                                                        'id_user',
                                                         array(
                     'name' => 'estado',
                     'filter' => array('IN'=>'IN','OUT'=>'OUT',),

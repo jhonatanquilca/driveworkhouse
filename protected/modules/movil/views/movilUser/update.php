@@ -3,15 +3,15 @@
 /** @var MovilUser $model */
 $this->breadcrumbs=array(
 	$model->label(2) => array('index'),
-	Yii::t('app', $model->id_user) => array('view', 'id'=>$model->id_user),
+	Yii::t('app', $model->id_dispositivo) => array('view', 'id'=>$model->id_dispositivo),
 	Yii::t('AweCrud.app', 'Update'),
 );
 
 $this->menu=array(
 //array('label' => Yii::t('AweCrud.app', 'List') . ' ' . MovilUser::label(2), 'icon' => 'list', 'url' => array('index'),'htmlOptions'=>array('class'=>'btn-default'),),
 //array('label' => Yii::t('AweCrud.app', 'Create') . ' ' . MovilUser::label(), 'icon' => 'plus', 'url' => array('create'),'htmlOptions'=>array('class'=>'btn-default'),),
-//array('label' => Yii::t('AweCrud.app', 'View'), 'icon' => 'eye-open', 'url'=>array('view', 'id' => $model->id_user),'htmlOptions'=>array('class'=>'btn-default'),),
-array('label' => Yii::t('AweCrud.app', 'Delete'), 'icon' => 'trash', 'url'=>'#', 'linkOptions' => array('submit' => array('delete', 'id' => $model->id_user), 'confirm' => Yii::t('AweCrud.app', 'Are you sure you want to delete this item?')),'htmlOptions'=>array('class'=>'btn-default'),),
+//array('label' => Yii::t('AweCrud.app', 'View'), 'icon' => 'eye-open', 'url'=>array('view', 'id' => $model->id_dispositivo),'htmlOptions'=>array('class'=>'btn-default'),),
+array('label' => Yii::t('AweCrud.app', 'Delete'), 'icon' => 'trash', 'url'=>'#', 'linkOptions' => array('submit' => array('delete', 'id' => $model->id_dispositivo), 'confirm' => Yii::t('AweCrud.app', 'Are you sure you want to delete this item?')),'htmlOptions'=>array('class'=>'btn-default'),),
 array('label' => Yii::t('AweCrud.app', 'Manage'), 'icon' => 'fa fa-list', 'url' => array('admin'),'htmlOptions'=>array('class'=>'btn-default'),'htmlOptions'=>array('class'=>'btn-default')),
 );
 ?>

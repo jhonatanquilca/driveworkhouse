@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 18-10-2015 a las 09:37:26
+-- Tiempo de generación: 18-10-2015 a las 17:57:48
 -- Versión del servidor: 5.6.17
 -- Versión de PHP: 5.5.12
 
@@ -66,9 +66,6 @@ INSERT INTO `cruge_authitem` (`name`, `type`, `description`, `bizrule`, `data`) 
 ('action_deuda_create', 0, '', NULL, 'N;'),
 ('action_deuda_update', 0, '', NULL, 'N;'),
 ('action_deuda_view', 0, '', NULL, 'N;'),
-('action_movilUser_admin', 0, '', NULL, 'N;'),
-('action_movilUser_create', 0, '', NULL, 'N;'),
-('action_movilUser_view', 0, '', NULL, 'N;'),
 ('action_pago_admin', 0, '', NULL, 'N;'),
 ('action_pago_create', 0, '', NULL, 'N;'),
 ('action_pago_update', 0, '', NULL, 'N;'),
@@ -102,10 +99,7 @@ TRUNCATE TABLE `cruge_session`;
 --
 
 INSERT INTO `cruge_session` (`idsession`, `iduser`, `created`, `expire`, `status`, `ipaddress`, `usagecount`, `lastusage`, `logoutdate`, `ipaddressout`) VALUES
-(2, 1, 1436746065, 1436747865, 1, '::1', 1, 1436746065, NULL, NULL),
-(3, 1, 1445178757, 1445180557, 0, '::1', 1, 1445178757, 1445178806, '::1'),
-(4, 2, 1445178813, 1445180613, 1, '::1', 2, 1445178831, NULL, NULL),
-(5, 1, 1445178903, 1445180703, 1, '::1', 1, 1445178903, NULL, NULL);
+(2, 1, 1436746065, 1436747865, 1, '::1', 1, 1436746065, NULL, NULL);
 
 --
 -- Truncar tablas antes de insertar `cruge_system`
@@ -129,7 +123,7 @@ TRUNCATE TABLE `cruge_user`;
 --
 
 INSERT INTO `cruge_user` (`iduser`, `regdate`, `actdate`, `logondate`, `username`, `email`, `password`, `authkey`, `state`, `totalsessioncounter`, `currentsessioncounter`) VALUES
-(1, NULL, NULL, 1445178903, 'admin', 'admin@tucorreo.com', 'admin', NULL, 1, 0, 0),
+(1, NULL, NULL, 1436746065, 'admin', 'admin@tucorreo.com', 'admin', NULL, 1, 0, 0),
 (2, NULL, NULL, NULL, 'invitado', 'invitado', 'nopassword', NULL, 1, 0, 0);
 
 --
@@ -175,9 +169,8 @@ TRUNCATE TABLE `movil_user`;
 -- Volcado de datos para la tabla `movil_user`
 --
 
-INSERT INTO `movil_user` (`id_user`, `estado`) VALUES
-(1, 'IN'),
-(2, 'OUT');
+INSERT INTO `movil_user` (`id_dispositivo`, `id_user`, `estado`) VALUES
+('-', 2, 'OUT');
 
 --
 -- Truncar tablas antes de insertar `pago`

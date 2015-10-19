@@ -11,6 +11,8 @@
 	'method' => 'get',
 )); ?>
 
+                    <?php echo $form->textFieldRow($model, 'id_dispositivo', array('maxlength' => 45,'class'=>'gui-input')); ?>
+
                     <?php echo $form->textFieldRow($model, 'id_user',array('class'=>'gui-input')); ?>
 
                     <?php echo $form->dropDownListRow($model, 'estado', array('IN' => 'IN','OUT' => 'OUT',),array('class'=>'form-control')); ?>
