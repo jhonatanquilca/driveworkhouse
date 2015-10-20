@@ -13,7 +13,7 @@ class MovilUserWsController extends Controller {
         $_POST['MovilUser'] = json_decode(file_get_contents("php://input"), true);
 
         $model->attributes = $_POST['MovilUser'];
-        $model->estado = MovilUser::ESTADO_IN;
+        $model->estado = MovilUser::ESTADO_OUT;
 
         if ($model->save()) {
             $array['success'] = true;
@@ -42,7 +42,7 @@ class MovilUserWsController extends Controller {
             }
         } else if ($model !== null) {
             $array['data'] = $model->attributes;
-            $array['user'] = Yii::app()->user->um->loadUserById($model->id_user)->attributes;
+            $array['user'] = Yii::app()->user->um->loadUserById($model->id_user)?Yii::app()->user->um->loadUserById($model->id_user)->attributes:'';
             $array['success'] = true;
         } else {
             $array['success'] = false;
