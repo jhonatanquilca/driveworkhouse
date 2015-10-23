@@ -26,7 +26,7 @@ class MovilUserWsController extends Controller {
     }
 
     public function actionUpdate($id) {
-        $model = MovilUser::model()->findByPk($id!=2?$id:0);
+        $model = MovilUser::model()->findByPk($id != 2 ? $id : 0);
         $array = array();
 
 
@@ -40,9 +40,17 @@ class MovilUserWsController extends Controller {
                 $array['success'] = false;
                 $array['errors'] = $model->errors;
             }
-        } else if ($model !== null) {
+        }
+        print json_encode($array);
+        Yii::app()->end();
+    }
+
+    public function actionView($id) {
+        $model = MovilUser::model()->findByPk($id != 2 ? $id : 0);
+        $array = array();
+        if ($model != null) {
             $array['data'] = $model->attributes;
-            $array['user'] = Yii::app()->user->um->loadUserById($model->id_user)?Yii::app()->user->um->loadUserById($model->id_user)->attributes:'';
+            $array['user'] = Yii::app()->user->um->loadUserById($model->id_user) ? Yii::app()->user->um->loadUserById($model->id_user)->attributes : '';
             $array['success'] = true;
         } else {
             $array['success'] = false;
