@@ -26,7 +26,7 @@ class MovilUserWsController extends Controller {
     }
 
     public function actionUpdate($id) {
-        $model = MovilUser::model()->findByPk($id != 2 ? $id : 0);
+        $model = MovilUser::model()->findByPk($id);
         $array = array();
 
 
